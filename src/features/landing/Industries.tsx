@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShieldCheck, Heart, GraduationCap, Building2, Sparkles, Utensils, Briefcase, Network, ArrowRight } from 'lucide-react';
+import { ShieldCheck, Heart, GraduationCap, Building2, Sparkles, Utensils, Briefcase, Network, ArrowRight, Wheat, Factory, Sun } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export const Industries: React.FC = () => {
@@ -65,6 +65,36 @@ export const Industries: React.FC = () => {
       tagline: "Streamline client onboarding, project updates, and billing milestones.",
       outcomes: ["98% Invoices Settled on First Alert", "Zero Manual Onboarding Lag", "Automatic Slack Notification Triggers"],
       cases: "Deploy AI intake coordinators, dispatch automated invoice milestones, and route client queries to specialized project leads."
+    },
+    {
+      id: 'agriculture',
+      icon: <Wheat className="w-5 h-5 text-lime-500" />,
+      label: "Agriculture",
+      flagship: false,
+      title: "Smart Farming & Supply Chain Automation",
+      tagline: "Automate crop monitoring, supply chain logistics, and farmer communications at scale.",
+      outcomes: ["40% Reduction in Post-Harvest Losses", "Real-Time Soil & Weather Alerts", "Automated Mandi Price Notifications"],
+      cases: "Coordinate seed-to-sale traceability, automate irrigation scheduling alerts via WhatsApp, and dispatch weather-driven advisory updates to farmers and distributors."
+    },
+    {
+      id: 'steel',
+      icon: <Factory className="w-5 h-5 text-slate-500" />,
+      label: "Steel Industries",
+      flagship: false,
+      title: "Industrial Operations & Production Control",
+      tagline: "Streamline production workflows, quality assurance checks, and vendor coordination.",
+      outcomes: ["35% Faster Order-to-Dispatch Cycles", "Automated Quality Compliance Reports", "Real-Time Inventory Sync Across Plants"],
+      cases: "Automate purchase order workflows, trigger quality inspection alerts at every production stage, and sync inventory levels across multiple plant locations in real time."
+    },
+    {
+      id: 'renewable',
+      icon: <Sun className="w-5 h-5 text-yellow-500" />,
+      label: "Renewable Resources",
+      flagship: false,
+      title: "Clean Energy Operations & Grid Management",
+      tagline: "Optimize energy production, maintenance scheduling, and regulatory compliance workflows.",
+      outcomes: ["99.5% Uptime with Predictive Maintenance", "Automated Regulatory Filing Alerts", "50% Faster Site Inspection Turnarounds"],
+      cases: "Automate solar panel and wind turbine maintenance schedules, dispatch real-time energy output reports, and coordinate field inspection teams with AI-powered routing."
     }
   ];
 

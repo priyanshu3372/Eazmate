@@ -58,10 +58,10 @@ export const UnifiedCRM: React.FC = () => {
     },
     {
       id: 3,
-      name: "Rohan Khanna (Real Estate)",
+      name: "Mr VP Singh (Real Estate)",
       role: "Investor",
       status: "Pipeline Closed",
-      email: "rohan@khannaestates.in",
+      email: "vpsingh@singhestates.in",
       phone: "+91 78964 12290",
       history: [
         { event: "Properties review schedule sent via WhatsApp", time: "Yesterday" },
