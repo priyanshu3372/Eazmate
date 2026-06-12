@@ -86,7 +86,7 @@ export const Hero: React.FC = () => {
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
               <Link
                 to="/get-quotation"
-                className="bg-[#25D366] hover:bg-[#128C7E] text-white font-extrabold text-base px-8 py-4.5 rounded-xl shadow-md flex items-center justify-center gap-2 group transition-all"
+                className="bg-brand-gradient hover:brightness-110 text-white font-extrabold text-base px-8 py-4.5 rounded-xl shadow-md flex items-center justify-center gap-2 group transition-all"
               >
                 Start Free Trial
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -169,7 +169,7 @@ export const Hero: React.FC = () => {
                         {idx === 4 && <TrendingUp className="w-4 h-4" />}
                       </div>
                       
-                      <div className="space-y-0.5">
+                      <div className="space-y-0.5 min-w-0">
                         <div className="flex items-center gap-2">
                           <h3 className={`text-sm font-black ${isActive ? 'text-[#1A1A2E]' : 'text-zinc-500'}`}>
                             {step.title}
@@ -197,7 +197,7 @@ export const Hero: React.FC = () => {
                 </div>
                 <div className="space-y-0.5">
                   {logs.map((log, idx) => (
-                    <div key={idx} className={`${idx === logs.length - 1 ? 'text-white' : 'opacity-70'}`}>
+                    <div key={idx} className={`break-words ${idx === logs.length - 1 ? 'text-white' : 'opacity-70'}`}>
                       {log}
                     </div>
                   ))}

@@ -1,35 +1,25 @@
-import React, { useState } from 'react';
-import { Link, Outlet, useNavigate, useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, Mail, Shield, ArrowUpRight, Zap } from 'lucide-react';
 import { CONTACT_INFO, OFFICE_ADDRESS } from '../config/constants';
 
 export const MainLayout: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const navigate = useNavigate();
   const location = useLocation();
 
-  const handleNavClick = (sectionId: string) => {
-    setMobileMenuOpen(false);
-    
-    // If not on landing page, navigate to landing page first
-    if (location.pathname !== '/') {
-      navigate('/', { state: { scrollTo: sectionId } });
-    } else {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  };
+  // Scroll to top on route change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
-  const isSecurityPage = location.pathname === '/security';
+  const isActive = (path: string) => location.pathname === path;
 
   return (
     <div className="min-h-screen flex flex-col bg-white text-zinc-600">
       {/* Top Banner for Security & Trust */}
       <div className="relative overflow-hidden bg-zinc-50 border-b border-zinc-100 py-2 px-4 text-center text-xs md:text-sm font-medium">
         <div className="absolute inset-0 bg-brand-gradient opacity-3 animate-pulse-glow" />
-        <span className="relative z-10 inline-flex items-center gap-2 justify-center text-[#1A1A2E]">
+        <span className="relative z-10 inline-flex flex-wrap items-center gap-2 justify-center text-[#1A1A2E] break-words">
           <Shield className="w-4 h-4 text-brand-teal" />
           HIPAA Compliant & SOC2 Ready Infrastructure. Built for enterprise scale.
         </span>
@@ -53,58 +43,67 @@ export const MainLayout: React.FC = () => {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex space-x-6 xl:space-x-8">
-              <button
-                onClick={() => handleNavClick('platform-section')}
-                className="text-[#6B7280] hover:text-brand-primary font-bold text-sm transition-colors py-2 px-1 focus:outline-none"
+              <Link
+                to="/platform"
+                className={`font-bold text-sm py-2 px-1 transition-colors ${
+                  isActive('/platform') ? 'text-brand-primary font-extrabold' : 'text-[#6B7280] hover:text-brand-primary'
+                }`}
               >
                 Platform
-              </button>
-              <button
-                onClick={() => handleNavClick('solutions-section')}
-                className="text-[#6B7280] hover:text-brand-primary font-bold text-sm transition-colors py-2 px-1 focus:outline-none"
+              </Link>
+              <Link
+                to="/solutions"
+                className={`font-bold text-sm py-2 px-1 transition-colors ${
+                  isActive('/solutions') ? 'text-brand-primary font-extrabold' : 'text-[#6B7280] hover:text-brand-primary'
+                }`}
               >
                 Solutions
-              </button>
-              <button
-                onClick={() => handleNavClick('industries-section')}
-                className="text-[#6B7280] hover:text-brand-primary font-bold text-sm transition-colors py-2 px-1 focus:outline-none"
+              </Link>
+              <Link
+                to="/industries"
+                className={`font-bold text-sm py-2 px-1 transition-colors ${
+                  isActive('/industries') ? 'text-brand-primary font-extrabold' : 'text-[#6B7280] hover:text-brand-primary'
+                }`}
               >
                 Industries
-              </button>
-              <button
-                onClick={() => handleNavClick('integrations-section')}
-                className="text-[#6B7280] hover:text-brand-primary font-bold text-sm transition-colors py-2 px-1 focus:outline-none"
+              </Link>
+              <Link
+                to="/integrations"
+                className={`font-bold text-sm py-2 px-1 transition-colors ${
+                  isActive('/integrations') ? 'text-brand-primary font-extrabold' : 'text-[#6B7280] hover:text-brand-primary'
+                }`}
               >
                 Integrations
-              </button>
+              </Link>
               <Link
                 to="/security"
                 className={`font-bold text-sm py-2 px-1 transition-colors ${
-                  isSecurityPage ? 'text-brand-primary font-extrabold' : 'text-[#6B7280] hover:text-brand-primary'
+                  isActive('/security') ? 'text-brand-primary font-extrabold' : 'text-[#6B7280] hover:text-brand-primary'
                 }`}
               >
                 Security
               </Link>
-
-              <button
-                onClick={() => handleNavClick('contact-section')}
-                className="text-[#6B7280] hover:text-brand-primary font-bold text-sm transition-colors py-2 px-1 focus:outline-none"
+              <Link
+                to="/contact"
+                className={`font-bold text-sm py-2 px-1 transition-colors ${
+                  isActive('/contact') ? 'text-brand-primary font-extrabold' : 'text-[#6B7280] hover:text-brand-primary'
+                }`}
               >
                 Contact
-              </button>
+              </Link>
             </nav>
 
             {/* Right Action CTA */}
             <div className="hidden md:flex items-center gap-4">
-              <button
-                onClick={() => handleNavClick('contact-section')}
-                className="border-gradient-container text-xs font-extrabold py-2 px-4 focus:outline-none transition-all"
+              <Link
+                to="/contact"
+                className="border-gradient-container text-xs font-extrabold py-2 px-4 focus:outline-none transition-all block text-center"
               >
                 <span className="text-gradient">Book Demo</span>
-              </button>
+              </Link>
               <Link
                 to="/get-quotation"
-                className="bg-[#25D366] hover:bg-[#128C7E] text-white font-extrabold text-sm py-2.5 px-5 rounded-xl transition-all shadow-md flex items-center gap-1"
+                className="bg-brand-gradient hover:brightness-110 text-white font-extrabold text-sm py-2.5 px-5 rounded-xl transition-all shadow-md flex items-center gap-1"
               >
                 Start Free Trial <ArrowUpRight className="w-4 h-4" />
               </Link>
@@ -128,61 +127,75 @@ export const MainLayout: React.FC = () => {
         {mobileMenuOpen && (
           <div className="lg:hidden bg-white border-t border-zinc-100 py-6 px-6 space-y-4 shadow-xl">
             <div className="space-y-2">
-              <button
-                onClick={() => handleNavClick('platform-section')}
-                className="block w-full text-left py-3 text-base font-bold text-gray-500 hover:text-zinc-900"
+              <Link
+                to="/platform"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`block py-3 text-base font-bold ${
+                  isActive('/platform') ? 'text-brand-primary font-extrabold' : 'text-gray-500 hover:text-zinc-900'
+                }`}
               >
                 Platform
-              </button>
-              <button
-                onClick={() => handleNavClick('solutions-section')}
-                className="block w-full text-left py-3 text-base font-bold text-gray-500 hover:text-zinc-900"
+              </Link>
+              <Link
+                to="/solutions"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`block py-3 text-base font-bold ${
+                  isActive('/solutions') ? 'text-brand-primary font-extrabold' : 'text-gray-500 hover:text-zinc-900'
+                }`}
               >
                 Solutions
-              </button>
-              <button
-                onClick={() => handleNavClick('industries-section')}
-                className="block w-full text-left py-3 text-base font-bold text-gray-500 hover:text-zinc-900"
+              </Link>
+              <Link
+                to="/industries"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`block py-3 text-base font-bold ${
+                  isActive('/industries') ? 'text-brand-primary font-extrabold' : 'text-gray-500 hover:text-zinc-900'
+                }`}
               >
                 Industries
-              </button>
-              <button
-                onClick={() => handleNavClick('integrations-section')}
-                className="block w-full text-left py-3 text-base font-bold text-gray-500 hover:text-zinc-900"
+              </Link>
+              <Link
+                to="/integrations"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`block py-3 text-base font-bold ${
+                  isActive('/integrations') ? 'text-brand-primary font-extrabold' : 'text-gray-500 hover:text-zinc-900'
+                }`}
               >
                 Integrations
-              </button>
+              </Link>
               <Link
                 to="/security"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block py-3 text-base font-bold text-gray-500 hover:text-zinc-900"
+                className={`block py-3 text-base font-bold ${
+                  isActive('/security') ? 'text-brand-primary font-extrabold' : 'text-gray-500 hover:text-zinc-900'
+                }`}
               >
                 Security
               </Link>
-
-              <button
-                onClick={() => handleNavClick('contact-section')}
-                className="block w-full text-left py-3 text-base font-bold text-gray-500 hover:text-zinc-900"
+              <Link
+                to="/contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`block py-3 text-base font-bold ${
+                  isActive('/contact') ? 'text-brand-primary font-extrabold' : 'text-gray-500 hover:text-zinc-900'
+                }`}
               >
                 Contact
-              </button>
+              </Link>
             </div>
             
             {/* Actions for Mobile */}
             <div className="pt-6 border-t border-zinc-100 flex flex-col gap-3">
-              <button 
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  handleNavClick('contact-section');
-                }}
-                className="w-full text-center border-gradient-container font-extrabold py-3 transition-all"
+              <Link 
+                to="/contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full text-center border-gradient-container font-extrabold py-3 transition-all block"
               >
                 <span className="text-gradient">Book Demo</span>
-              </button>
+              </Link>
               <Link
                 to="/get-quotation"
-                className="w-full text-center bg-[#25D366] hover:bg-[#128C7E] text-white font-extrabold py-3 rounded-xl shadow-md transition-all"
                 onClick={() => setMobileMenuOpen(false)}
+                className="w-full text-center bg-brand-gradient hover:brightness-110 text-white font-extrabold py-3 rounded-xl shadow-md transition-all block"
               >
                 Start Free Trial
               </Link>
@@ -231,24 +244,24 @@ export const MainLayout: React.FC = () => {
               <h3 className="font-sans text-sm font-black tracking-wider text-zinc-200 uppercase mb-5">Platform</h3>
               <ul className="space-y-3.5 text-sm">
                 <li>
-                  <button onClick={() => handleNavClick('platform-section')} className="hover:text-white hover:text-gradient transition-colors">
+                  <Link to="/platform" className="hover:text-white hover:text-gradient transition-colors">
                     AI Brain Layer
-                  </button>
+                  </Link>
                 </li>
                 <li>
-                  <button onClick={() => handleNavClick('solutions-section')} className="hover:text-white hover:text-gradient transition-colors">
+                  <Link to="/solutions" className="hover:text-white hover:text-gradient transition-colors">
                     Unified CRM
-                  </button>
+                  </Link>
                 </li>
                 <li>
-                  <button onClick={() => handleNavClick('solutions-section')} className="hover:text-white hover:text-gradient transition-colors">
+                  <Link to="/solutions" className="hover:text-white hover:text-gradient transition-colors">
                     Workflow Automation
-                  </button>
+                  </Link>
                 </li>
                 <li>
-                  <button onClick={() => handleNavClick('platform-section')} className="hover:text-white hover:text-gradient transition-colors">
+                  <Link to="/platform" className="hover:text-white hover:text-gradient transition-colors">
                     Analytics & Intelligence
-                  </button>
+                  </Link>
                 </li>
               </ul>
             </div>

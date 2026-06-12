@@ -153,7 +153,7 @@ export const BrainLayer: React.FC = () => {
                   <span className="text-xs font-bold text-zinc-400 uppercase tracking-widest block">AI Brain Reasoning Log</span>
                   <div className="p-3.5 bg-[#1A1A2E] border border-zinc-800 rounded-xl space-y-1 font-mono text-xs md:text-sm text-brand-teal leading-relaxed min-h-[120px]">
                     {simulatedTriggers[activeTab].process.map((p, i) => (
-                      <div key={i}>{p}</div>
+                      <div key={i} className="break-words">{p}</div>
                     ))}
                   </div>
                 </div>
