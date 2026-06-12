@@ -211,7 +211,7 @@ export const SecurityPage: React.FC = () => {
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
             <Link
               to="/get-quotation"
-              className="w-full sm:w-auto bg-brand-gradient hover:brightness-105 text-neutral-950 font-black px-8 py-4 rounded-xl transition-all flex items-center justify-center gap-2 border border-[#cdb477]/30 shadow-sm"
+              className="w-full sm:w-auto bg-brand-gradient hover:brightness-105 text-white font-extrabold px-8 py-4 rounded-xl transition-all flex items-center justify-center gap-2 shadow-sm"
             >
               Contact Compliance <ArrowRight className="w-4 h-4" />
             </Link>

@@ -122,7 +122,7 @@ export const Overview: React.FC = () => {
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
             <Link
               to="/get-quotation"
-              className="bg-brand-gradient hover:brightness-105 text-neutral-950 font-black text-sm px-6 py-3 rounded-xl transition-all shadow-md inline-flex items-center gap-1 border border-[#cdb477]/30"
+              className="bg-brand-gradient hover:brightness-105 text-white font-extrabold text-sm px-6 py-3 rounded-xl transition-all shadow-md inline-flex items-center gap-1"
             >
               Start Free Trial <ArrowRight className="w-4 h-4" />
             </Link>

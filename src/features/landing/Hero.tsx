@@ -86,7 +86,7 @@ export const Hero: React.FC = () => {
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
               <Link
                 to="/get-quotation"
-                className="bg-brand-gradient hover:brightness-105 text-neutral-950 font-black text-base px-8 py-4.5 rounded-xl shadow-md flex items-center justify-center gap-2 group transition-all border border-[#cdb477]/30"
+                className="bg-brand-gradient hover:brightness-105 text-white font-extrabold text-base px-8 py-4.5 rounded-xl shadow-md flex items-center justify-center gap-2 group transition-all"
               >
                 Start Free Trial
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -159,7 +159,7 @@ export const Hero: React.FC = () => {
                     >
                       <div className={`w-9.5 h-9.5 rounded-lg flex items-center justify-center text-lg shrink-0 transition-all ${
                         isActive 
-                          ? 'bg-brand-gradient text-neutral-950 scale-105 shadow-md font-black' 
+                          ? 'bg-brand-gradient text-white scale-105 shadow-md font-extrabold' 
                           : 'bg-[#1e1e1e] border border-zinc-900 text-zinc-500'
                       }`}>
                         {idx === 0 && <span className="text-xs font-semibold">🔌</span>}

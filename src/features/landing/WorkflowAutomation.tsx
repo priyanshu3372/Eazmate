@@ -111,10 +111,10 @@ export const WorkflowAutomation: React.FC = () => {
               className={`w-full py-4 px-6 rounded-xl font-extrabold text-base transition-all flex items-center justify-center gap-2 shadow-md ${
                 isPlaying 
                   ? 'bg-zinc-900 text-zinc-500 cursor-not-allowed border border-zinc-800' 
-                  : 'bg-brand-gradient hover:brightness-105 text-neutral-950 border border-[#cdb477]/30'
+                  : 'bg-brand-gradient hover:brightness-105 text-white'
               }`}
             >
-              <Play className="w-5 h-5 fill-current text-neutral-950" />
+              <Play className="w-5 h-5 fill-current text-white" />
               {isPlaying ? "Executing Workflow Logic..." : "Simulate Automated Workflow"}
             </button>
           </div>
@@ -149,7 +149,7 @@ export const WorkflowAutomation: React.FC = () => {
                       <div className="flex items-center gap-3.5">
                         <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold shrink-0 ${
                           isActive 
-                            ? 'bg-brand-gradient text-neutral-950 animate-pulse font-black' 
+                            ? 'bg-brand-gradient text-white animate-pulse font-extrabold' 
                             : isCompleted 
                               ? 'bg-emerald-950/80 text-emerald-400 border border-emerald-800/40' 
                               : 'bg-zinc-950 border border-zinc-800 text-zinc-500'

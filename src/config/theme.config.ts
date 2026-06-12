@@ -20,10 +20,10 @@ export interface ThemeTokens {
 
 export const themeConfig: ThemeTokens = {
   colors: {
-    primary: '#c4b083', // Luxury gold brand accent
-    dark: '#ad8e45',    // Deeper gold brand accent
-    teal: '#ccaf69',    // Signature metallic gold accent
-    light: '#d4c8ab',   // Platinum/light gold accent
+    primary: '#8A00FF', // Purple brand accent
+    dark: '#7A2FFF',    // Dark Purple brand accent
+    teal: '#24D8C6',    // Signature Teal accent
+    light: '#3F7DFF',   // Neon Blue accent
     surface: '#101010', // Deep black-charcoal background
     alt: '#1a1a1a',     // Luxury card background
     textPrimary: '#ffffff',   // White primary text

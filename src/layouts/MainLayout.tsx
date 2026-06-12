@@ -103,7 +103,7 @@ export const MainLayout: React.FC = () => {
               </Link>
               <Link
                 to="/get-quotation"
-                className="bg-brand-gradient hover:brightness-105 text-neutral-950 font-black text-sm py-2.5 px-5 rounded-xl transition-all shadow-md flex items-center gap-1 border border-[#cdb477]/30"
+                className="bg-brand-gradient hover:brightness-105 text-white font-extrabold text-sm py-2.5 px-5 rounded-xl transition-all shadow-md flex items-center gap-1"
               >
                 Start Free Trial <ArrowUpRight className="w-4 h-4" />
               </Link>
@@ -195,7 +195,7 @@ export const MainLayout: React.FC = () => {
               <Link
                 to="/get-quotation"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full text-center bg-brand-gradient hover:brightness-105 text-neutral-950 font-black py-3 rounded-xl shadow-md transition-all block border border-[#cdb477]/30"
+                className="w-full text-center bg-brand-gradient hover:brightness-105 text-white font-extrabold py-3 rounded-xl shadow-md transition-all block"
               >
                 Start Free Trial
               </Link>

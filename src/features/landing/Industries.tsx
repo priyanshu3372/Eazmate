@@ -203,7 +203,7 @@ export const Industries: React.FC = () => {
                 <span className="text-sm text-zinc-400 font-semibold">Need specific custom configurations? We build custom layouts.</span>
                 <Link
                   to="/get-quotation"
-                  className="w-full sm:w-auto bg-brand-gradient hover:brightness-105 text-neutral-950 text-sm font-black px-5 py-3.5 rounded-xl transition-all shadow-md inline-flex items-center justify-center gap-1.5 border border-[#cdb477]/30 group"
+                  className="w-full sm:w-auto bg-brand-gradient hover:brightness-105 text-white text-sm font-extrabold px-5 py-3.5 rounded-xl transition-all shadow-md inline-flex items-center justify-center gap-1.5 group"
                 >
                   Configure for {current.label}
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
