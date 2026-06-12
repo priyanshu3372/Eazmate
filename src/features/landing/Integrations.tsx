@@ -36,7 +36,7 @@ export const Integrations: React.FC = () => {
   ];
 
   return (
-    <section id="integrations-section" className="relative py-24 bg-white border-t border-zinc-100">
+    <section id="integrations-section" className="relative py-24 bg-[#0B0B14] border-t border-zinc-900">
       <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-brand-teal/5 rounded-full blur-[120px] pointer-events-none opacity-20" />
  
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -50,11 +50,11 @@ export const Integrations: React.FC = () => {
               <span className="gradient-badge font-extrabold uppercase tracking-wider">
                 <Network className="w-3.5 h-3.5 text-brand-primary" /> 1000+ Integrations Supported
               </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-[#1A1A2E] leading-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-zinc-100 leading-tight">
                 Connect Your <span className="text-gradient">Whole Stack</span> <br />
                 Within <span className="text-gradient">Minutes</span>
               </h2>
-              <p className="text-zinc-500 text-base font-semibold leading-relaxed">
+              <p className="text-zinc-400 text-base font-semibold leading-relaxed">
                 Eazmate acts as the intelligent orchestration layer above your current platforms. Sync data databases, trigger Slack signals from Stripe transactions, read HIPAA-shielded clinical databases, and push updates in real-time.
               </p>
             </div>
@@ -66,13 +66,13 @@ export const Integrations: React.FC = () => {
                   key={idx}
                   onMouseEnter={() => setHoveredNode(item.name)}
                   onMouseLeave={() => setHoveredNode(null)}
-                  className={`p-3 bg-zinc-50 border border-zinc-200 rounded-xl text-center transition-all cursor-pointer relative overflow-hidden group ${
-                    hoveredNode === item.name ? 'border-brand-primary bg-[#F7FDF9]/30 shadow-md translate-y-[-2px]' : 'hover:bg-white hover:border-zinc-300'
+                  className={`p-3 bg-zinc-900/60 border border-zinc-850 rounded-xl text-center transition-all cursor-pointer relative overflow-hidden group ${
+                    hoveredNode === item.name ? 'border-brand-primary bg-[#18182E]/50 shadow-md translate-y-[-2px]' : 'hover:bg-[#131322] hover:border-zinc-800'
                   }`}
                 >
                   <div className="text-lg mb-1">{item.icon}</div>
-                  <div className="text-xs font-black text-[#1A1A2E] truncate">{item.name}</div>
-                  <div className="text-xs text-zinc-500 font-medium mt-0.5">{item.category}</div>
+                  <div className="text-xs font-black text-zinc-200 truncate">{item.name}</div>
+                  <div className="text-xs text-zinc-450 font-medium mt-0.5">{item.category}</div>
                 </div>
               ))}
             </div>
@@ -81,7 +81,7 @@ export const Integrations: React.FC = () => {
               <span className="text-sm font-semibold text-zinc-400">Includes native webhooks and webhook routing templates.</span>
               <Link
                 to="/get-quotation"
-                className="text-[#128C7E] hover:underline text-sm font-extrabold flex items-center gap-1 group"
+                className="text-brand-primary hover:underline text-sm font-extrabold flex items-center gap-1 group"
               >
                 Request Custom API Layout <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </Link>
@@ -90,11 +90,11 @@ export const Integrations: React.FC = () => {
 
           {/* Right Column: High Fidelity Connected Graph SVG Node Visual */}
           <div className="lg:col-span-6 relative flex items-center justify-center">
-            <div className="w-full max-w-[420px] aspect-square rounded-full border border-zinc-900/60 p-6 relative flex items-center justify-center bg-zinc-900/5">
+            <div className="w-full max-w-[420px] aspect-square rounded-full border border-zinc-800/40 p-6 relative flex items-center justify-center bg-zinc-950/20">
               
               {/* Outer boundary circle paths */}
-              <div className="absolute inset-4 border border-zinc-900/40 rounded-full" />
-              <div className="absolute inset-16 border border-zinc-800/30 rounded-full" />
+              <div className="absolute inset-4 border border-zinc-800/30 rounded-full" />
+              <div className="absolute inset-16 border border-zinc-800/20 rounded-full" />
 
               {/* Connecting lines SVG canvas */}
               <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full pointer-events-none">
@@ -115,7 +115,7 @@ export const Integrations: React.FC = () => {
                         y1="50" 
                         x2={node.x} 
                         y2={node.y} 
-                        stroke={isHighlighted ? "url(#streamLineGrad)" : "#E5E7EB"} 
+                        stroke={isHighlighted ? "url(#streamLineGrad)" : "#27272A"} 
                         strokeWidth={isHighlighted ? "1.2" : "0.35"} 
                         strokeDasharray={isHighlighted ? "none" : "2"}
                         className="transition-all duration-350"
@@ -137,7 +137,7 @@ export const Integrations: React.FC = () => {
               </svg>
 
               {/* Central Active Node */}
-              <div className="absolute w-20 h-20 rounded-2xl bg-white border border-zinc-200 flex items-center justify-center shadow-md group z-20 overflow-hidden">
+              <div className="absolute w-20 h-20 rounded-2xl bg-[#131322] border border-zinc-850 flex items-center justify-center shadow-md group z-20 overflow-hidden">
                 <div className="absolute inset-0 bg-brand-gradient opacity-10 rounded-2xl animate-pulse-glow" />
                 <img src="/logo.png" alt="Eazmate Logo" className="w-12 h-12 object-contain animate-float" />
                 <span className="absolute bottom-[-16px] text-[10px] tracking-widest text-zinc-400 uppercase font-bold text-center block w-full whitespace-nowrap">
@@ -164,10 +164,10 @@ export const Integrations: React.FC = () => {
                     key={idx}
                     onMouseEnter={() => setHoveredNode(node.name)}
                     onMouseLeave={() => setHoveredNode(null)}
-                    className={`absolute w-11 h-11 rounded-xl bg-white border flex items-center justify-center text-sm cursor-pointer shadow-md transition-all duration-300 z-10 ${
+                    className={`absolute w-11 h-11 rounded-xl bg-zinc-900 border flex items-center justify-center text-sm cursor-pointer shadow-md transition-all duration-300 z-10 ${
                       isHighlighted 
                         ? 'border-brand-primary scale-115 text-lg shadow-premium' 
-                        : 'border-zinc-200 text-zinc-500'
+                        : 'border-zinc-800 text-zinc-400'
                     }`}
                     style={{
                       left: `${node.x}%`,

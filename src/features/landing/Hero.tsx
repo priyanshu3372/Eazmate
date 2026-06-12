@@ -32,7 +32,7 @@ export const Hero: React.FC = () => {
       ],
       1: [
         "🧠 Eazmate AI routing intent detected: 'Demo Request'.",
-        "🧠 Context queried from enterprise vector database."
+        "🧠 Context queried from vector database."
       ],
       2: [
         "⚡ Automated workflow triggered: Scheduling Calendly invite.",
@@ -55,7 +55,7 @@ export const Hero: React.FC = () => {
   }, [activeStep]);
 
   return (
-    <section className="relative pt-12 pb-20 overflow-hidden bg-white">
+    <section className="relative pt-12 pb-20 overflow-hidden bg-[#0B0B14]">
       {/* Aurora mesh gradient environment */}
       <div className="aurora-bg">
         <div className="aurora-glow-1" />
@@ -73,12 +73,12 @@ export const Hero: React.FC = () => {
               The AI Brain Behind Your Business
             </span>
             
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight text-[#1A1A2E] leading-[1.1] sm:leading-none">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight text-zinc-100 leading-[1.1] sm:leading-none">
               The <span className="text-gradient">Intelligence</span> Layer <br />
               Powering Modern <span className="text-gradient">Organizations</span>
             </h1>
             
-            <p className="text-zinc-500 text-xl font-semibold leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            <p className="text-zinc-400 text-xl font-semibold leading-relaxed max-w-2xl mx-auto lg:mx-0">
               Connect your tools, automate operations, manage relationships, orchestrate workflows, and unlock organizational intelligence from a single AI-powered platform.
             </p>
             
@@ -105,29 +105,29 @@ export const Hero: React.FC = () => {
                   const el = document.getElementById('platform-section');
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="flex items-center justify-center gap-2 text-zinc-500 hover:text-zinc-800 font-extrabold text-base px-4 py-4.5 transition-colors"
+                className="flex items-center justify-center gap-2 text-zinc-400 hover:text-zinc-200 font-extrabold text-base px-4 py-4.5 transition-colors"
               >
-                <div className="w-8 h-8 rounded-full border border-zinc-200 flex items-center justify-center text-xs">
-                  <Play className="w-3.5 h-3.5 fill-current text-zinc-500 ml-0.5" />
+                <div className="w-8 h-8 rounded-full border border-zinc-800 flex items-center justify-center text-xs">
+                  <Play className="w-3.5 h-3.5 fill-current text-zinc-400 ml-0.5" />
                 </div>
                 See It In Action
               </button>
             </div>
 
             {/* Quick value features */}
-            <div className="pt-8 border-t border-zinc-200 flex flex-wrap justify-center lg:justify-start gap-x-8 gap-y-4 text-sm text-zinc-500 font-semibold">
-              <span className="flex items-center gap-2"><CheckCircle className="w-4.5 h-4.5 text-[#25D366]" /> No Credit Card Required</span>
-              <span className="flex items-center gap-2"><CheckCircle className="w-4.5 h-4.5 text-[#25D366]" /> HIPAA & SOC2 Compliant</span>
-              <span className="flex items-center gap-2"><CheckCircle className="w-4.5 h-4.5 text-[#25D366]" /> 1000+ Native Integrations</span>
+            <div className="pt-8 border-t border-zinc-800 flex flex-wrap justify-center lg:justify-start gap-x-8 gap-y-4 text-sm text-zinc-400 font-semibold">
+              <span className="flex items-center gap-2"><CheckCircle className="w-4.5 h-4.5 text-[#24D8C6]" /> No Credit Card Required</span>
+              <span className="flex items-center gap-2"><CheckCircle className="w-4.5 h-4.5 text-[#24D8C6]" /> HIPAA & SOC2 Compliant</span>
+              <span className="flex items-center gap-2"><CheckCircle className="w-4.5 h-4.5 text-[#24D8C6]" /> 1000+ Native Integrations</span>
             </div>
           </div>
 
           {/* Interactive visual side */}
           <div className="lg:col-span-5 relative w-full max-w-lg mx-auto lg:max-w-none">
-            <div className="glass-card rounded-3xl p-5 border border-zinc-200 bg-white relative shadow-xl overflow-hidden">
+            <div className="glass-card rounded-3xl p-5 border border-zinc-800 bg-[#131322]/60 relative shadow-xl overflow-hidden">
               <div className="absolute top-0 left-0 right-0 h-[1px] bg-brand-gradient opacity-30" />
               
-              <div className="flex items-center justify-between pb-3 border-b border-zinc-200 mb-4">
+              <div className="flex items-center justify-between pb-3 border-b border-zinc-800 mb-4">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-rose-500" />
                   <div className="w-2 h-2 rounded-full bg-amber-500" />
@@ -146,32 +146,32 @@ export const Hero: React.FC = () => {
                       onClick={() => setActiveStep(idx)}
                       className={`relative z-10 flex items-start gap-3.5 py-3 px-4 rounded-xl cursor-pointer transition-all duration-300 border ${
                         isActive 
-                          ? 'bg-white shadow-lg scale-[1.01] -translate-y-0.5' 
-                          : 'bg-white border-zinc-100 hover:border-zinc-200 hover:bg-zinc-50/50 hover:-translate-y-0.5 shadow-sm'
+                          ? 'bg-[#18182E]/90 shadow-lg scale-[1.01] -translate-y-0.5' 
+                          : 'bg-[#131322]/40 border-zinc-800/60 hover:border-zinc-700/60 hover:bg-[#1C1C33]/40 hover:-translate-y-0.5 shadow-sm'
                       }`}
                       style={isActive ? {
                         border: '1px solid transparent',
-                        backgroundImage: 'linear-gradient(#fff, #fff), var(--brand-gradient)',
+                        backgroundImage: 'linear-gradient(#18182E, #18182E), var(--brand-gradient)',
                         backgroundClip: 'padding-box, border-box',
                         backgroundOrigin: 'border-box',
-                        boxShadow: '0 15px 30px -12px rgba(138, 0, 255, 0.1), 0 3px 15px -4px rgba(36, 216, 198, 0.08)'
+                        boxShadow: '0 15px 30px -12px rgba(138, 0, 255, 0.2), 0 3px 15px -4px rgba(36, 216, 198, 0.12)'
                       } : {}}
                     >
                       <div className={`w-9.5 h-9.5 rounded-lg flex items-center justify-center text-lg shrink-0 transition-all ${
                         isActive 
                           ? 'bg-brand-gradient text-white scale-105 shadow-md' 
-                          : 'bg-white border border-zinc-200 text-zinc-500'
+                          : 'bg-[#1E1E38] border border-zinc-800 text-zinc-400'
                       }`}>
                         {idx === 0 && <span className="text-xs font-semibold">🔌</span>}
-                        {idx === 1 && <Cpu className="w-4 h-4" />}
-                        {idx === 2 && <Zap className="w-4 h-4" />}
-                        {idx === 3 && <BarChart3 className="w-4 h-4" />}
-                        {idx === 4 && <TrendingUp className="w-4 h-4" />}
+                        {idx === 1 && <Cpu className="w-4 h-4 text-zinc-200" />}
+                        {idx === 2 && <Zap className="w-4 h-4 text-zinc-200" />}
+                        {idx === 3 && <BarChart3 className="w-4 h-4 text-zinc-200" />}
+                        {idx === 4 && <TrendingUp className="w-4 h-4 text-zinc-200" />}
                       </div>
                       
                       <div className="space-y-0.5 min-w-0">
                         <div className="flex items-center gap-2">
-                          <h3 className={`text-sm font-black ${isActive ? 'text-[#1A1A2E]' : 'text-zinc-500'}`}>
+                          <h3 className={`text-sm font-black ${isActive ? 'text-zinc-100' : 'text-zinc-400'}`}>
                             {step.title}
                           </h3>
                           {isActive && (
@@ -190,8 +190,8 @@ export const Hero: React.FC = () => {
               </div>
 
               {/* Console log window */}
-              <div className="mt-4 p-3.5 rounded-xl bg-[#1A1A2E] border border-zinc-800 font-mono text-xs leading-relaxed text-[#24D8C6] min-h-[90px] select-none shadow-inner">
-                <div className="text-zinc-400 pb-1 border-b border-zinc-900/40 mb-1.5 flex justify-between items-center">
+              <div className="mt-4 p-3.5 rounded-xl bg-[#1A1A2E] border border-zinc-800/80 font-mono text-xs leading-relaxed text-[#24D8C6] min-h-[90px] select-none shadow-inner">
+                <div className="text-zinc-400 pb-1 border-b border-zinc-800 mb-1.5 flex justify-between items-center">
                   <span>SYSTEM CONSOLE LOG</span>
                   <span className="text-emerald-400 animate-pulse text-xs">● READY</span>
                 </div>

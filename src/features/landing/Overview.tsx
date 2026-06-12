@@ -47,8 +47,8 @@ export const Overview: React.FC = () => {
   ];
 
   return (
-    <section className="relative py-24 bg-white border-t border-zinc-100 overflow-hidden">
-      <div className="absolute inset-0 bg-zinc-50/20 pointer-events-none" />
+    <section className="relative py-24 bg-[#0B0B14] border-t border-zinc-800/80 overflow-hidden">
+      <div className="absolute inset-0 bg-[#131322]/10 pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-primary/3 rounded-full blur-[160px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -58,11 +58,11 @@ export const Overview: React.FC = () => {
           <span className="gradient-badge font-extrabold uppercase tracking-wider">
             <Sparkles className="w-3.5 h-3.5 text-brand-primary" /> Key Capabilities
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-[#1A1A2E] leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-zinc-100 leading-tight">
             An Intelligent Operating Layer <br />
             Built for <span className="text-gradient">Modern Enterprise Scaling</span>
           </h2>
-          <p className="text-zinc-500 text-base font-semibold leading-relaxed">
+          <p className="text-zinc-400 text-base font-semibold leading-relaxed">
             Eazmate orchestrates your software stacks, automated agent pipelines, and database updates. Explore our core features to see how we cut operational friction.
           </p>
         </div>
@@ -72,7 +72,7 @@ export const Overview: React.FC = () => {
           {pillars.map((pillar, idx) => (
             <div 
               key={idx} 
-              className={`premium-card p-8 flex flex-col justify-between group transition-all duration-350 hover:translate-y-[-4px] hover:shadow-lg border border-zinc-200 bg-white ${pillar.color}`}
+              className={`premium-card p-8 flex flex-col justify-between group transition-all duration-350 hover:translate-y-[-4px] hover:shadow-lg border border-zinc-800 bg-[#131322] ${pillar.color}`}
             >
               <div className="space-y-6">
                 {/* Badge & Icon */}
@@ -80,24 +80,24 @@ export const Overview: React.FC = () => {
                   <div className={`w-12 h-12 rounded-2xl ${pillar.accent} flex items-center justify-center transition-transform group-hover:scale-110 duration-350`}>
                     {pillar.icon}
                   </div>
-                  <span className="text-[10px] font-black tracking-widest text-zinc-400 uppercase bg-zinc-50 border border-zinc-200 px-2.5 py-1 rounded-md">
+                  <span className="text-[10px] font-black tracking-widest text-zinc-400 uppercase bg-zinc-900 border border-zinc-800 px-2.5 py-1 rounded-md">
                     {pillar.badge}
                   </span>
                 </div>
 
                 {/* Content */}
                 <div className="space-y-2">
-                  <h3 className="text-xl font-black text-[#1A1A2E] transition-colors group-hover:text-brand-primary">
+                  <h3 className="text-xl font-black text-zinc-100 transition-colors group-hover:text-brand-primary">
                     {pillar.title}
                   </h3>
-                  <p className="text-zinc-500 text-sm font-semibold leading-relaxed">
+                  <p className="text-zinc-400 text-sm font-semibold leading-relaxed">
                     {pillar.desc}
                   </p>
                 </div>
               </div>
 
               {/* Action Link */}
-              <div className="pt-8 border-t border-zinc-100 mt-8">
+              <div className="pt-8 border-t border-zinc-800 mt-8">
                 <Link
                   to={pillar.link}
                   className="inline-flex items-center gap-1.5 text-sm font-extrabold text-[#128C7E] group-hover:text-brand-primary transition-colors"
@@ -111,12 +111,12 @@ export const Overview: React.FC = () => {
         </div>
 
         {/* Home page central CTA banner */}
-        <div className="mt-20 premium-card p-8 sm:p-12 text-center max-w-4xl mx-auto relative overflow-hidden bg-gradient-to-r from-zinc-50 to-white border border-zinc-200">
+        <div className="mt-20 premium-card p-8 sm:p-12 text-center max-w-4xl mx-auto relative overflow-hidden bg-gradient-to-r from-[#131322] to-[#1a1a30] border border-zinc-800">
           <div className="absolute top-0 right-0 w-32 h-32 bg-brand-primary/5 rounded-full blur-[40px] pointer-events-none" />
-          <h3 className="text-xl sm:text-2xl font-black text-[#1A1A2E] mb-2">
+          <h3 className="text-xl sm:text-2xl font-black text-zinc-100 mb-2">
             Ready to Streamline Your Operational Flow?
           </h3>
-          <p className="text-zinc-500 text-sm font-semibold max-w-xl mx-auto mb-6">
+          <p className="text-zinc-400 text-sm font-semibold max-w-xl mx-auto mb-6">
             Eazmate integrates with your current databases and CRM triggers in minutes. Get custom pricing or set up a validation sandbox.
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
@@ -128,7 +128,7 @@ export const Overview: React.FC = () => {
             </Link>
             <Link
               to="/contact"
-              className="bg-white border border-zinc-200 hover:bg-zinc-50 text-zinc-700 font-extrabold text-sm px-6 py-3 rounded-xl transition-all shadow-sm"
+              className="bg-zinc-900 border border-zinc-800 hover:bg-zinc-800 text-zinc-200 font-extrabold text-sm px-6 py-3 rounded-xl transition-all shadow-sm"
             >
               Book Developer Demo
             </Link>

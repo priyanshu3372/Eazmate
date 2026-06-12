@@ -101,7 +101,7 @@ export const Industries: React.FC = () => {
   const current = industries.find(ind => ind.id === selectedIndustry) || industries[0];
 
   return (
-    <section id="industries-section" className="relative py-24 bg-white border-t border-zinc-100">
+    <section id="industries-section" className="relative py-24 bg-[#0B0B14] border-t border-zinc-900">
       <div className="absolute top-10 left-1/3 w-[500px] h-[500px] bg-brand-primary/5 rounded-full blur-[120px] pointer-events-none opacity-20" />
  
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -111,11 +111,11 @@ export const Industries: React.FC = () => {
           <span className="gradient-badge font-extrabold uppercase tracking-wider">
             <Network className="w-3.5 h-3.5 text-brand-primary" /> Industries Showcase
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-[#1A1A2E] leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-zinc-100 leading-tight">
             Integrated Solutions Built <br />
             For Every <span className="text-gradient">Vertical</span>
           </h2>
-          <p className="text-zinc-500 text-base font-semibold leading-relaxed">
+          <p className="text-zinc-400 text-base font-semibold leading-relaxed">
             Eazmate solves coordination challenges across all business templates. Healthcare serves as our proof of capability, but our AI Operating System runs workflows globally.
           </p>
         </div>
@@ -131,26 +131,26 @@ export const Industries: React.FC = () => {
                 onClick={() => setSelectedIndustry(ind.id)}
                 className={`w-full p-4 rounded-2xl border text-left flex items-center justify-between transition-all duration-300 relative overflow-hidden group ${
                   selectedIndustry === ind.id 
-                    ? 'bg-[#F7FDF9]/30 border-zinc-300 shadow-md translate-x-2 border-l-4 border-l-brand-primary' 
-                    : 'bg-white border-zinc-200 hover:bg-zinc-50'
+                    ? 'bg-[#18182E]/50 border-zinc-800 shadow-md translate-x-2 border-l-4 border-l-brand-primary' 
+                    : 'bg-zinc-900/60 border-zinc-850 hover:bg-zinc-800/40 text-zinc-400'
                 }`}
               >
                 <div className="flex items-center gap-3.5 relative z-10">
                   <div className={`w-9 h-9 rounded-xl flex items-center justify-center border transition-all relative overflow-hidden ${
                     selectedIndustry === ind.id 
-                      ? 'bg-white border-brand-primary' 
-                      : 'bg-zinc-50 border-zinc-200'
+                      ? 'bg-zinc-950 border-brand-primary' 
+                      : 'bg-zinc-950 border-zinc-800'
                   }`}>
                     {selectedIndustry === ind.id && <div className="absolute inset-0 bg-brand-gradient opacity-10" />}
                     <span className={`relative z-10 ${selectedIndustry === ind.id ? 'text-brand-primary font-bold' : ''}`}>{ind.icon}</span>
                   </div>
-                  <span className={`text-sm font-bold ${selectedIndustry === ind.id ? 'text-[#1A1A2E]' : 'text-zinc-500'}`}>
+                  <span className={`text-sm font-bold ${selectedIndustry === ind.id ? 'text-zinc-100' : 'text-zinc-450'}`}>
                     {ind.label}
                   </span>
                 </div>
  
                 {ind.flagship && (
-                  <span className="text-xs font-medium px-2 py-1 rounded bg-[#DCF8C6] text-[#128C7E] border border-[#25D366]/20 relative z-10">
+                  <span className="text-xs font-medium px-2 py-1 rounded bg-emerald-950/40 text-emerald-400 border border-emerald-800/30 relative z-10">
                     Flagship
                   </span>
                 )}
@@ -160,50 +160,50 @@ export const Industries: React.FC = () => {
 
           {/* Right Detailed Display Board */}
           <div className="lg:col-span-8">
-            <div className="glass-card rounded-3xl p-8 sm:p-12 border border-zinc-200 bg-white shadow-xl relative min-h-[420px] flex flex-col justify-between overflow-hidden">
+            <div className="glass-card rounded-3xl p-8 sm:p-12 border border-zinc-800 bg-[#131322]/40 shadow-xl relative min-h-[420px] flex flex-col justify-between overflow-hidden">
               <div className="absolute top-0 left-0 right-0 h-[1px] bg-brand-gradient opacity-20" />
               
               <div className="space-y-6">
-                <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-zinc-200">
+                <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-zinc-800">
                   <div className="space-y-1">
                     {current.flagship && (
-                      <span className="inline-flex items-center gap-1 text-xs text-[#128C7E] uppercase font-medium tracking-widest">
+                      <span className="inline-flex items-center gap-1 text-xs text-emerald-405 uppercase font-medium tracking-widest">
                         <ShieldCheck className="w-3.5 h-3.5" /> HIPAA and SOC 2 Shielded
                       </span>
                     )}
-                    <h3 className="text-2xl font-black text-[#1A1A2E] tracking-tight">{current.title}</h3>
+                    <h3 className="text-2xl font-black text-zinc-100 tracking-tight">{current.title}</h3>
                   </div>
-                  <div className="w-12 h-12 rounded-2xl bg-zinc-50 border border-zinc-200 flex items-center justify-center text-lg shadow-inner">
+                  <div className="w-12 h-12 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-lg shadow-inner">
                     {current.icon}
                   </div>
                 </div>
  
-                <p className="text-[#1A1A2E] text-base font-semibold leading-relaxed">
+                <p className="text-zinc-200 text-base font-semibold leading-relaxed">
                   {current.tagline}
                 </p>
  
-                <div className="bg-[#F7FDF9] border border-[#25D366]/10 rounded-2xl p-6 space-y-4">
-                  <h4 className="text-sm font-black text-[#1A1A2E]/50 uppercase tracking-widest">Core Use Cases & Mechanics</h4>
-                  <p className="text-zinc-600 text-sm font-semibold leading-relaxed">{current.cases}</p>
+                <div className="bg-zinc-900/40 border border-zinc-800/60 rounded-2xl p-6 space-y-4">
+                  <h4 className="text-xs font-black text-zinc-500 uppercase tracking-widest">Core Use Cases & Mechanics</h4>
+                  <p className="text-zinc-400 text-sm font-semibold leading-relaxed">{current.cases}</p>
                 </div>
  
                 <div className="space-y-3">
-                  <h4 className="text-sm font-black text-[#1A1A2E]/50 uppercase tracking-widest">Target Business Outcomes</h4>
+                  <h4 className="text-xs font-black text-zinc-500 uppercase tracking-widest">Target Business Outcomes</h4>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     {current.outcomes.map((outcome, idx) => (
-                      <div key={idx} className="bg-zinc-50 border border-zinc-200 rounded-xl p-3 text-center">
-                        <span className="text-sm font-semibold text-[#1A1A2E] leading-snug block">{outcome}</span>
+                      <div key={idx} className="bg-zinc-900 border border-zinc-800 rounded-xl p-3 text-center">
+                        <span className="text-sm font-semibold text-zinc-200 leading-snug block">{outcome}</span>
                       </div>
                     ))}
                   </div>
                 </div>
               </div>
  
-              <div className="pt-8 border-t border-zinc-200 mt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-                <span className="text-sm text-zinc-500 font-semibold">Need specific custom configurations? We build custom layouts.</span>
+              <div className="pt-8 border-t border-zinc-800 mt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <span className="text-sm text-zinc-400 font-semibold">Need specific custom configurations? We build custom layouts.</span>
                 <Link
                   to="/get-quotation"
-                  className="w-full sm:w-auto bg-[#25D366] hover:bg-[#128C7E] text-white text-sm font-extrabold px-5 py-3.5 rounded-xl transition-all shadow-md inline-flex items-center justify-center gap-1.5 group"
+                  className="w-full sm:w-auto bg-brand-primary hover:brightness-110 text-white text-sm font-extrabold px-5 py-3.5 rounded-xl transition-all shadow-md inline-flex items-center justify-center gap-1.5 group"
                 >
                   Configure for {current.label}
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />

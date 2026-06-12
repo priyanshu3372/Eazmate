@@ -5,7 +5,7 @@ import { AnalyticsIntelligence } from '../features/landing/AnalyticsIntelligence
 
 export const PlatformPage: React.FC = () => {
   return (
-    <div className="bg-white text-zinc-600 min-h-screen relative overflow-hidden">
+    <div className="bg-[#0B0B14] text-zinc-300 min-h-screen relative overflow-hidden">
       {/* Aurora Background Layer */}
       <div className="aurora-bg">
         <div className="aurora-glow-1" />

@@ -24,11 +24,11 @@ export const themeConfig: ThemeTokens = {
     dark: '#7A2FFF',    // Dark Purple brand accent
     teal: '#24D8C6',    // Signature Teal accent
     light: '#3F7DFF',   // Neon Blue accent
-    surface: '#FFFFFF', // Clean white surface
-    alt: '#F7FDF9',     // Light-green tinted background
-    textPrimary: '#1A1A2E',   // Dark indigo text
-    textSecondary: '#6B7280', // Gray text
-    textLight: '#9CA3AF',     // Muted gray text
+    surface: '#0B0B14', // Premium dark surface background
+    alt: '#131322',     // Lighter dark-purple surface background
+    textPrimary: '#F4F4F5',   // White primary text
+    textSecondary: '#A1A1AA', // Gray secondary text
+    textLight: '#71717A',     // Muted gray text
   },
   typography: {
     bodyFont: 'Plus Jakarta Sans, Inter, sans-serif',

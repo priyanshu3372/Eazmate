@@ -15,11 +15,11 @@ export const MainLayout: React.FC = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-zinc-600">
+    <div className="min-h-screen flex flex-col bg-[#0B0B14] text-zinc-300">
       {/* Top Banner for Security & Trust */}
-      <div className="relative overflow-hidden bg-zinc-50 border-b border-zinc-100 py-2 px-4 text-center text-xs md:text-sm font-medium">
+      <div className="relative overflow-hidden bg-[#131322] border-b border-zinc-800/80 py-2 px-4 text-center text-xs md:text-sm font-medium">
         <div className="absolute inset-0 bg-brand-gradient opacity-3 animate-pulse-glow" />
-        <span className="relative z-10 inline-flex flex-wrap items-center gap-2 justify-center text-[#1A1A2E] break-words">
+        <span className="relative z-10 inline-flex flex-wrap items-center gap-2 justify-center text-zinc-200 break-words">
           <Shield className="w-4 h-4 text-brand-teal" />
           HIPAA Compliant & SOC2 Ready Infrastructure. Built for enterprise scale.
         </span>
@@ -46,7 +46,7 @@ export const MainLayout: React.FC = () => {
               <Link
                 to="/platform"
                 className={`font-bold text-sm py-2 px-1 transition-colors ${
-                  isActive('/platform') ? 'text-brand-primary font-extrabold' : 'text-[#6B7280] hover:text-brand-primary'
+                  isActive('/platform') ? 'text-brand-primary font-extrabold' : 'text-zinc-400 hover:text-brand-primary'
                 }`}
               >
                 Platform
@@ -54,7 +54,7 @@ export const MainLayout: React.FC = () => {
               <Link
                 to="/solutions"
                 className={`font-bold text-sm py-2 px-1 transition-colors ${
-                  isActive('/solutions') ? 'text-brand-primary font-extrabold' : 'text-[#6B7280] hover:text-brand-primary'
+                  isActive('/solutions') ? 'text-brand-primary font-extrabold' : 'text-zinc-400 hover:text-brand-primary'
                 }`}
               >
                 Solutions
@@ -62,7 +62,7 @@ export const MainLayout: React.FC = () => {
               <Link
                 to="/industries"
                 className={`font-bold text-sm py-2 px-1 transition-colors ${
-                  isActive('/industries') ? 'text-brand-primary font-extrabold' : 'text-[#6B7280] hover:text-brand-primary'
+                  isActive('/industries') ? 'text-brand-primary font-extrabold' : 'text-zinc-400 hover:text-brand-primary'
                 }`}
               >
                 Industries
@@ -70,7 +70,7 @@ export const MainLayout: React.FC = () => {
               <Link
                 to="/integrations"
                 className={`font-bold text-sm py-2 px-1 transition-colors ${
-                  isActive('/integrations') ? 'text-brand-primary font-extrabold' : 'text-[#6B7280] hover:text-brand-primary'
+                  isActive('/integrations') ? 'text-brand-primary font-extrabold' : 'text-zinc-400 hover:text-brand-primary'
                 }`}
               >
                 Integrations
@@ -78,7 +78,7 @@ export const MainLayout: React.FC = () => {
               <Link
                 to="/security"
                 className={`font-bold text-sm py-2 px-1 transition-colors ${
-                  isActive('/security') ? 'text-brand-primary font-extrabold' : 'text-[#6B7280] hover:text-brand-primary'
+                  isActive('/security') ? 'text-brand-primary font-extrabold' : 'text-zinc-400 hover:text-brand-primary'
                 }`}
               >
                 Security
@@ -86,7 +86,7 @@ export const MainLayout: React.FC = () => {
               <Link
                 to="/contact"
                 className={`font-bold text-sm py-2 px-1 transition-colors ${
-                  isActive('/contact') ? 'text-brand-primary font-extrabold' : 'text-[#6B7280] hover:text-brand-primary'
+                  isActive('/contact') ? 'text-brand-primary font-extrabold' : 'text-zinc-400 hover:text-brand-primary'
                 }`}
               >
                 Contact
@@ -125,13 +125,13 @@ export const MainLayout: React.FC = () => {
 
         {/* Mobile menu, show/hide based on menu state. */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-white border-t border-zinc-100 py-6 px-6 space-y-4 shadow-xl">
+          <div className="lg:hidden bg-[#0D0D19] border-t border-zinc-800 py-6 px-6 space-y-4 shadow-xl">
             <div className="space-y-2">
               <Link
                 to="/platform"
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block py-3 text-base font-bold ${
-                  isActive('/platform') ? 'text-brand-primary font-extrabold' : 'text-gray-500 hover:text-zinc-900'
+                  isActive('/platform') ? 'text-brand-primary font-extrabold' : 'text-zinc-400 hover:text-zinc-100'
                 }`}
               >
                 Platform
@@ -140,7 +140,7 @@ export const MainLayout: React.FC = () => {
                 to="/solutions"
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block py-3 text-base font-bold ${
-                  isActive('/solutions') ? 'text-brand-primary font-extrabold' : 'text-gray-500 hover:text-zinc-900'
+                  isActive('/solutions') ? 'text-brand-primary font-extrabold' : 'text-zinc-400 hover:text-zinc-100'
                 }`}
               >
                 Solutions
@@ -149,7 +149,7 @@ export const MainLayout: React.FC = () => {
                 to="/industries"
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block py-3 text-base font-bold ${
-                  isActive('/industries') ? 'text-brand-primary font-extrabold' : 'text-gray-500 hover:text-zinc-900'
+                  isActive('/industries') ? 'text-brand-primary font-extrabold' : 'text-zinc-400 hover:text-zinc-100'
                 }`}
               >
                 Industries
@@ -158,7 +158,7 @@ export const MainLayout: React.FC = () => {
                 to="/integrations"
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block py-3 text-base font-bold ${
-                  isActive('/integrations') ? 'text-brand-primary font-extrabold' : 'text-gray-500 hover:text-zinc-900'
+                  isActive('/integrations') ? 'text-brand-primary font-extrabold' : 'text-zinc-400 hover:text-zinc-100'
                 }`}
               >
                 Integrations
@@ -167,7 +167,7 @@ export const MainLayout: React.FC = () => {
                 to="/security"
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block py-3 text-base font-bold ${
-                  isActive('/security') ? 'text-brand-primary font-extrabold' : 'text-gray-500 hover:text-zinc-900'
+                  isActive('/security') ? 'text-brand-primary font-extrabold' : 'text-zinc-400 hover:text-zinc-100'
                 }`}
               >
                 Security
@@ -176,7 +176,7 @@ export const MainLayout: React.FC = () => {
                 to="/contact"
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block py-3 text-base font-bold ${
-                  isActive('/contact') ? 'text-brand-primary font-extrabold' : 'text-gray-500 hover:text-zinc-900'
+                  isActive('/contact') ? 'text-brand-primary font-extrabold' : 'text-zinc-400 hover:text-zinc-100'
                 }`}
               >
                 Contact
@@ -184,7 +184,7 @@ export const MainLayout: React.FC = () => {
             </div>
             
             {/* Actions for Mobile */}
-            <div className="pt-6 border-t border-zinc-100 flex flex-col gap-3">
+            <div className="pt-6 border-t border-zinc-800 flex flex-col gap-3">
               <Link 
                 to="/contact"
                 onClick={() => setMobileMenuOpen(false)}
@@ -210,7 +210,7 @@ export const MainLayout: React.FC = () => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-[#0B0B14] text-zinc-400 pt-24 pb-12 border-t border-zinc-900 relative overflow-hidden">
+      <footer className="bg-[#09090F] text-zinc-400 pt-24 pb-12 border-t border-zinc-900/50 relative overflow-hidden">
         <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-brand-gradient opacity-20" />
         <div className="absolute bottom-[-5%] right-[5%] w-80 h-80 bg-brand-primary/5 rounded-full blur-[100px] pointer-events-none" />
         
