@@ -7,15 +7,16 @@ export const MainLayout: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
-  // Scroll to top on route change
+  // Scroll to top and close mobile menu on route change
   useEffect(() => {
     window.scrollTo(0, 0);
+    setMobileMenuOpen(false);
   }, [location.pathname]);
 
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#101010] text-zinc-300">
+    <div className="min-h-screen flex flex-col bg-[#101010] text-zinc-300 overflow-x-hidden w-full relative">
       {/* Top Banner for Security & Trust */}
       <div className="relative overflow-hidden bg-[#161616] border-b border-zinc-900/60 py-2 px-4 text-center text-xs md:text-sm font-medium">
         <div className="absolute inset-0 bg-brand-gradient opacity-3 animate-pulse-glow" />
@@ -31,12 +32,11 @@ export const MainLayout: React.FC = () => {
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
             <div className="flex-shrink-0 flex items-center">
-              <Link to="/" className="flex items-center gap-3.5 group">
-                <img src="/logo.png" alt="Eazmate Logo" className="w-10 h-10 object-contain group-hover:scale-105 transition-transform" />
+              <Link to="/" className="flex items-center group">
                 <img 
                   src="/brand-logo.png" 
-                  alt="Eazmate Brand Logo" 
-                  className="h-[18px] sm:h-[21px] lg:h-[23px] w-auto object-contain transition-transform group-hover:scale-[1.02] duration-300"
+                  alt="Eazmate Logo" 
+                  className="h-[26px] sm:h-[30px] lg:h-[34px] w-auto object-contain transition-transform group-hover:scale-[1.02] duration-300"
                 />
               </Link>
             </div>
@@ -125,7 +125,7 @@ export const MainLayout: React.FC = () => {
 
         {/* Mobile menu, show/hide based on menu state. */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-[#161616] border-t border-zinc-900 py-6 px-6 space-y-4 shadow-xl">
+          <div className="lg:hidden bg-[#161616] border-t border-zinc-900 py-6 px-6 space-y-4 shadow-xl max-h-[calc(100vh-5rem)] overflow-y-auto">
             <div className="space-y-2">
               <Link
                 to="/platform"
@@ -218,12 +218,11 @@ export const MainLayout: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-16 border-b border-zinc-900/40">
             {/* Logo and Tagline */}
             <div className="lg:col-span-2 space-y-6">
-              <div className="flex items-center gap-3.5">
-                <img src="/logo.png" alt="Eazmate Logo" className="w-10 h-10 object-contain" />
+              <div className="flex items-center">
                 <img 
                   src="/brand-logo.png" 
-                  alt="Eazmate Brand Logo" 
-                  className="h-[18px] sm:h-[21px] lg:h-[23px] w-auto object-contain"
+                  alt="Eazmate Logo" 
+                  className="h-[22px] sm:h-[25px] lg:h-[28px] w-auto object-contain"
                 />
               </div>
               <p className="text-zinc-400 text-sm font-semibold leading-relaxed max-w-md">

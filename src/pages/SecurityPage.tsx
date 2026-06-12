@@ -216,7 +216,7 @@ export const SecurityPage: React.FC = () => {
               Contact Compliance <ArrowRight className="w-4 h-4" />
             </Link>
             <a
-              href="mailto:security@eazmate.com"
+              href="mailto:dev@eazmate.com"
               className="w-full sm:w-auto bg-zinc-900 border border-zinc-800 hover:bg-zinc-800 text-zinc-200 hover:text-zinc-100 font-extrabold px-8 py-4 rounded-xl transition-all shadow-sm"
             >
               Email Security Team

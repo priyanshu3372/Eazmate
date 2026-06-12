@@ -18,30 +18,21 @@ export const OFFICE_ADDRESS = {
 
 export const CONTACT_INFO = {
   whatsapp: {
-    number: '+91 87894 76639',
-    rawValue: '918789476639',
-    getLink: (text: string) => `https://wa.me/918789476639?text=${encodeURIComponent(text)}`
+    number: '+91 87961 11255',
+    rawValue: '918796111255',
+    getLink: (text: string) => `https://wa.me/918796111255?text=${encodeURIComponent(text)}`
   },
   phones: [
     {
-      display: '+91 99973 27122',
-      value: '+919997327122',
-      telLink: 'tel:+919997327122'
-    },
-    {
-      display: '+91 87964 41938',
-      value: '+918796441938',
-      telLink: 'tel:+918796441938'
+      display: '+91 87961 11255',
+      value: '+918796111255',
+      telLink: 'tel:+918796111255'
     }
   ],
   emails: [
     {
-      display: 'aniket@eazmate.com',
-      mailtoLink: 'mailto:aniket@eazmate.com'
-    },
-    {
-      display: 'prakhar@eazmate.com',
-      mailtoLink: 'mailto:prakhar@eazmate.com'
+      display: 'dev@eazmate.com',
+      mailtoLink: 'mailto:dev@eazmate.com'
     }
   ]
 };

@@ -21,8 +21,17 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
   html, body {
     @apply overflow-x-hidden w-full;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
   }
 
   body {
