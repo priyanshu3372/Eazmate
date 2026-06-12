@@ -30,10 +30,10 @@ export const UnifiedCRM: React.FC = () => {
   const cardsData = [
     {
       id: 1,
-      name: "Dr. Sarah Lin (Healthcare)",
+      name: "Dr. Ananya Sharma (Healthcare)",
       role: "Lead Cardiologist",
       status: "Onboarding",
-      email: "sarah.lin@apexhealth.org",
+      email: "ananya.sharma@apexhealth.org",
       phone: "+91 99981 77651",
       history: [
         { event: "HubSpot card generated from application", time: "2 days ago" },
@@ -44,10 +44,10 @@ export const UnifiedCRM: React.FC = () => {
     },
     {
       id: 2,
-      name: "James Sterling (Enterprise SaaS)",
+      name: "Rohan Malhotra (Enterprise SaaS)",
       role: "VP of Operations",
       status: "Negotiation",
-      email: "james@sterlingcorp.com",
+      email: "rohan@malhotracorp.com",
       phone: "+91 88761 22912",
       history: [
         { event: "Stripe invoice generated: $4,500.00", time: "4 hours ago" },
@@ -58,7 +58,7 @@ export const UnifiedCRM: React.FC = () => {
     },
     {
       id: 3,
-      name: "Mr VP Singh (Real Estate)",
+      name: "Vikram Pratap Singh (Real Estate)",
       role: "Investor",
       status: "Pipeline Closed",
       email: "vpsingh@singhestates.in",

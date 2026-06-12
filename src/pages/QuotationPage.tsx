@@ -190,7 +190,7 @@ export const QuotationPage: React.FC = () => {
                     className={`w-full font-sans text-sm px-4 py-3 rounded-xl border ${
                       errors.contactPerson ? 'border-rose-500 focus:ring-rose-500/10' : 'border-zinc-200 focus:border-brand-primary'
                     } focus:outline-none focus:ring-1 focus:ring-brand-primary bg-white text-zinc-800 transition-all`}
-                    placeholder="e.g. Sarah Jenkins"
+                    placeholder="e.g. Rohan Sharma"
                     {...register('contactPerson')}
                   />
                   {errors.contactPerson && (
