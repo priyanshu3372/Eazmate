@@ -70,7 +70,7 @@ export const QuotationPage: React.FC = () => {
   };
 
   return (
-    <div className="bg-[#0B0B14] text-zinc-300 min-h-screen pt-8 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div className="bg-[#101010] text-zinc-300 min-h-screen pt-8 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Aurora Background Layer */}
       <div className="aurora-bg">
         <div className="aurora-glow-1" />
@@ -92,7 +92,7 @@ export const QuotationPage: React.FC = () => {
 
         {/* Success Screen Card */}
         {submitSuccess ? (
-          <div className="premium-card p-8 sm:p-12 text-center space-y-8 animate-fade-in shadow-lg border border-zinc-800 bg-[#131322]">
+          <div className="premium-card p-8 sm:p-12 text-center space-y-8 animate-fade-in shadow-lg border border-zinc-900 bg-[#161616]">
             <div className="w-16 h-16 rounded-full bg-emerald-950/80 border border-emerald-800/40 flex items-center justify-center mx-auto text-emerald-400 shadow-md">
               <CheckCircle2 className="w-8 h-8 stroke-[2.5]" />
             </div>
@@ -118,14 +118,14 @@ export const QuotationPage: React.FC = () => {
                 href={formDataCache ? buildWhatsAppUrl(formDataCache) : '#'}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-brand-primary hover:brightness-110 text-white font-extrabold text-base px-6 py-3.5 rounded-xl shadow-md w-full transition-all"
+                className="inline-flex items-center justify-center gap-2 bg-brand-gradient hover:brightness-105 text-neutral-950 font-black text-base px-6 py-3.5 rounded-xl shadow-md w-full border border-[#cdb477]/30 transition-all"
               >
-                <MessageSquare className="w-5 h-5 text-white" />
+                <MessageSquare className="w-5 h-5 text-neutral-950" />
                 Connect Instantly on WhatsApp
               </a>
             </div>
 
-            <div className="text-sm font-semibold text-zinc-450">
+            <div className="text-sm font-semibold text-zinc-400">
               <p>A customized proposal deck will be emailed to <b>{formDataCache?.email}</b> within 4 hours.</p>
               <button 
                 onClick={() => setSubmitSuccess(false)}
@@ -140,7 +140,7 @@ export const QuotationPage: React.FC = () => {
           <div className="premium-card overflow-hidden shadow-2xl border border-zinc-800">
             
             {/* Form Header */}
-            <div className="p-8 sm:px-10 border-b border-zinc-850 relative bg-[#131322]/40">
+            <div className="p-8 sm:px-10 border-b border-zinc-855 relative bg-[#161616]/40">
               <div className="absolute right-6 top-6 hidden sm:flex">
                 <div className="gradient-badge">
                   <ShieldCheck className="w-3.5 h-3.5 text-brand-primary" />
@@ -156,7 +156,7 @@ export const QuotationPage: React.FC = () => {
             </div>
 
             {/* Form */}
-            <form onSubmit={handleSubmit(onSubmit)} className="p-8 sm:p-10 space-y-6 bg-[#131322] border-t border-zinc-850">
+            <form onSubmit={handleSubmit(onSubmit)} className="p-8 sm:p-10 space-y-6 bg-[#161616] border-t border-zinc-855">
               
               {/* Grid 1: Organization Name & Contact Person */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -368,7 +368,7 @@ export const QuotationPage: React.FC = () => {
               <div className="pt-4">
                 <button
                   type="submit"
-                  className="w-full bg-brand-primary hover:brightness-110 text-white font-extrabold text-base py-4 rounded-xl shadow-md transition-all flex items-center justify-center gap-2"
+                  className="w-full bg-brand-gradient hover:brightness-105 text-neutral-950 font-black text-base py-4 rounded-xl shadow-md border border-[#cdb477]/30 transition-all flex items-center justify-center gap-2"
                 >
                   Submit & Connect on WhatsApp
                   <ChevronRight className="w-5 h-5" />

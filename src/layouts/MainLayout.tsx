@@ -15,12 +15,12 @@ export const MainLayout: React.FC = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#0B0B14] text-zinc-300">
+    <div className="min-h-screen flex flex-col bg-[#101010] text-zinc-300">
       {/* Top Banner for Security & Trust */}
-      <div className="relative overflow-hidden bg-[#131322] border-b border-zinc-800/80 py-2 px-4 text-center text-xs md:text-sm font-medium">
+      <div className="relative overflow-hidden bg-[#161616] border-b border-zinc-900/60 py-2 px-4 text-center text-xs md:text-sm font-medium">
         <div className="absolute inset-0 bg-brand-gradient opacity-3 animate-pulse-glow" />
         <span className="relative z-10 inline-flex flex-wrap items-center gap-2 justify-center text-zinc-200 break-words">
-          <Shield className="w-4 h-4 text-brand-teal" />
+          <Shield className="w-4 h-4 text-brand-primary" />
           HIPAA Compliant & SOC2 Ready Infrastructure. Built for enterprise scale.
         </span>
       </div>
@@ -103,7 +103,7 @@ export const MainLayout: React.FC = () => {
               </Link>
               <Link
                 to="/get-quotation"
-                className="bg-brand-gradient hover:brightness-110 text-white font-extrabold text-sm py-2.5 px-5 rounded-xl transition-all shadow-md flex items-center gap-1"
+                className="bg-brand-gradient hover:brightness-105 text-neutral-950 font-black text-sm py-2.5 px-5 rounded-xl transition-all shadow-md flex items-center gap-1 border border-[#cdb477]/30"
               >
                 Start Free Trial <ArrowUpRight className="w-4 h-4" />
               </Link>
@@ -125,7 +125,7 @@ export const MainLayout: React.FC = () => {
 
         {/* Mobile menu, show/hide based on menu state. */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-[#0D0D19] border-t border-zinc-800 py-6 px-6 space-y-4 shadow-xl">
+          <div className="lg:hidden bg-[#161616] border-t border-zinc-900 py-6 px-6 space-y-4 shadow-xl">
             <div className="space-y-2">
               <Link
                 to="/platform"
@@ -184,7 +184,7 @@ export const MainLayout: React.FC = () => {
             </div>
             
             {/* Actions for Mobile */}
-            <div className="pt-6 border-t border-zinc-800 flex flex-col gap-3">
+            <div className="pt-6 border-t border-zinc-900 flex flex-col gap-3">
               <Link 
                 to="/contact"
                 onClick={() => setMobileMenuOpen(false)}
@@ -195,7 +195,7 @@ export const MainLayout: React.FC = () => {
               <Link
                 to="/get-quotation"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full text-center bg-brand-gradient hover:brightness-110 text-white font-extrabold py-3 rounded-xl shadow-md transition-all block"
+                className="w-full text-center bg-brand-gradient hover:brightness-105 text-neutral-950 font-black py-3 rounded-xl shadow-md transition-all block border border-[#cdb477]/30"
               >
                 Start Free Trial
               </Link>
@@ -210,12 +210,12 @@ export const MainLayout: React.FC = () => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-[#09090F] text-zinc-400 pt-24 pb-12 border-t border-zinc-900/50 relative overflow-hidden">
+      <footer className="bg-[#101010] text-zinc-400 pt-24 pb-12 border-t border-zinc-900/60 relative overflow-hidden">
         <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-brand-gradient opacity-20" />
-        <div className="absolute bottom-[-5%] right-[5%] w-80 h-80 bg-brand-primary/5 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-[-5%] right-[5%] w-80 h-80 bg-brand-primary/2 rounded-full blur-[100px] pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-16 border-b border-zinc-900">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-16 border-b border-zinc-900/40">
             {/* Logo and Tagline */}
             <div className="lg:col-span-2 space-y-6">
               <div className="flex items-center gap-3.5">
@@ -230,11 +230,11 @@ export const MainLayout: React.FC = () => {
                 The AI Brain Behind Every Organization. We build the intelligent infrastructure layer that sits above your existing tools, orchestrating operations, automating CRM pipelines, and running autonomous agents.
               </p>
               <div className="flex items-center gap-4">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-zinc-900 border border-zinc-800 text-zinc-300">
-                  <Shield className="w-3.5 h-3.5 text-brand-teal" /> HIPAA Compliant
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-zinc-900 border border-zinc-850 text-zinc-350">
+                  <Shield className="w-3.5 h-3.5 text-brand-primary" /> HIPAA Compliant
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-zinc-900 border border-zinc-800 text-zinc-300">
-                  <Zap className="w-3.5 h-3.5 text-brand-primary" /> SOC2 Ready
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-zinc-900 border border-zinc-850 text-zinc-350">
+                  <Zap className="w-3.5 h-3.5 text-brand-teal" /> SOC2 Ready
                 </span>
               </div>
             </div>
@@ -244,22 +244,22 @@ export const MainLayout: React.FC = () => {
               <h3 className="font-sans text-sm font-black tracking-wider text-zinc-200 uppercase mb-5">Platform</h3>
               <ul className="space-y-3.5 text-sm">
                 <li>
-                  <Link to="/platform" className="hover:text-white hover:text-gradient transition-colors">
+                  <Link to="/platform" className="hover:text-brand-primary transition-colors">
                     AI Brain Layer
                   </Link>
                 </li>
                 <li>
-                  <Link to="/solutions" className="hover:text-white hover:text-gradient transition-colors">
+                  <Link to="/solutions" className="hover:text-brand-primary transition-colors">
                     Unified CRM
                   </Link>
                 </li>
                 <li>
-                  <Link to="/solutions" className="hover:text-white hover:text-gradient transition-colors">
+                  <Link to="/solutions" className="hover:text-brand-primary transition-colors">
                     Workflow Automation
                   </Link>
                 </li>
                 <li>
-                  <Link to="/platform" className="hover:text-white hover:text-gradient transition-colors">
+                  <Link to="/platform" className="hover:text-brand-primary transition-colors">
                     Analytics & Intelligence
                   </Link>
                 </li>
@@ -271,18 +271,18 @@ export const MainLayout: React.FC = () => {
               <h3 className="font-sans text-sm font-black tracking-wider text-zinc-200 uppercase mb-5">Resources & Legal</h3>
               <ul className="space-y-3.5 text-sm">
                 <li>
-                  <Link to="/security" className="hover:text-white hover:text-gradient transition-colors">
+                  <Link to="/security" className="hover:text-brand-primary transition-colors">
                     Security Center
                   </Link>
                 </li>
  
                 <li>
-                  <a href="#privacy" className="hover:text-white hover:text-gradient transition-colors">
+                  <a href="#privacy" className="hover:text-brand-primary transition-colors">
                     Privacy Policy
                   </a>
                 </li>
                 <li>
-                  <a href="#terms" className="hover:text-white hover:text-gradient transition-colors">
+                  <a href="#terms" className="hover:text-brand-primary transition-colors">
                     Terms of Service
                   </a>
                 </li>
@@ -294,8 +294,8 @@ export const MainLayout: React.FC = () => {
               <h3 className="font-sans text-sm font-black tracking-wider text-zinc-200 uppercase mb-5">Contact</h3>
               <ul className="space-y-4 text-sm text-zinc-400">
                 <li className="flex items-start gap-2">
-                  <div className="w-7 h-7 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center shrink-0">
-                    <Phone className="w-3.5 h-3.5 text-brand-teal" />
+                  <div className="w-7 h-7 rounded-lg bg-zinc-900 border border-zinc-850 flex items-center justify-center shrink-0">
+                    <Phone className="w-3.5 h-3.5 text-brand-primary" />
                   </div>
                   <div className="flex flex-col gap-1 mt-0.5">
                     {CONTACT_INFO.phones.map((phone) => (
@@ -306,8 +306,8 @@ export const MainLayout: React.FC = () => {
                   </div>
                 </li>
                 <li className="flex items-start gap-2">
-                  <div className="w-7 h-7 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center shrink-0">
-                    <Mail className="w-3.5 h-3.5 text-brand-primary" />
+                  <div className="w-7 h-7 rounded-lg bg-zinc-900 border border-zinc-850 flex items-center justify-center shrink-0">
+                    <Mail className="w-3.5 h-3.5 text-brand-teal" />
                   </div>
                   <div className="flex flex-col gap-1 mt-0.5">
                     {CONTACT_INFO.emails.map((email) => (
@@ -324,9 +324,9 @@ export const MainLayout: React.FC = () => {
               </ul>
             </div>
           </div>
- 
+  
           {/* Bottom Bar */}
-          <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-zinc-500 border-t border-zinc-900">
+          <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-zinc-500 border-t border-zinc-900/40">
             <p>© {new Date().getFullYear()} Eazmate Technologies Pvt. Ltd. All rights reserved.</p>
             <div className="flex gap-6">
               <span>GDPR Compliant</span>

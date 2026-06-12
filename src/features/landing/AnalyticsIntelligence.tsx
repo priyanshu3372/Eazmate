@@ -70,7 +70,7 @@ export const AnalyticsIntelligence: React.FC = () => {
   };
 
   return (
-    <section className="relative py-24 bg-[#0D0D19] border-t border-zinc-900">
+    <section className="relative py-24 bg-[#101010] border-t border-zinc-900">
       <div className="absolute bottom-10 right-1/4 w-[400px] h-[400px] bg-brand-primary/5 rounded-full blur-[120px] pointer-events-none opacity-20" />
  
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -94,7 +94,7 @@ export const AnalyticsIntelligence: React.FC = () => {
           
           {/* Left Side: Interactive Executive Control Visual */}
           <div className="lg:col-span-8">
-            <div className="premium-card p-6 relative border border-zinc-800 bg-[#131322]">
+            <div className="premium-card p-6 relative border border-zinc-900 bg-[#161616]">
               <div className="absolute top-0 left-0 right-0 h-[1px] bg-brand-gradient opacity-20" />
               
               <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4 pb-4 border-b border-zinc-800 mb-6">
@@ -115,7 +115,7 @@ export const AnalyticsIntelligence: React.FC = () => {
                       onClick={() => setTimeframe(tab.id as any)}
                       className={`text-center px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
                         timeframe === tab.id 
-                          ? 'bg-[#18182E] text-zinc-100 shadow-sm border border-zinc-800' 
+                          ? 'bg-[#161616] text-zinc-100 shadow-sm border border-zinc-800' 
                           : 'text-zinc-400 hover:text-zinc-200'
                       }`}
                     >
@@ -133,7 +133,7 @@ export const AnalyticsIntelligence: React.FC = () => {
                   { value: currentData.actions, label: "Executed Actions", icon: <Zap className="w-4 h-4 text-blue-400" />, change: "99.9% success" },
                   { value: currentData.hoursSaved, label: "Hours Salvaged", icon: <DollarSign className="w-4 h-4 text-brand-teal" />, change: "intake focus" }
                 ].map((m, idx) => (
-                  <div key={idx} className="bg-zinc-900/60 border border-zinc-800 rounded-xl p-4 flex flex-col justify-between shadow-sm relative overflow-hidden group">
+                  <div key={idx} className="bg-[#101010]/60 border border-zinc-900 rounded-xl p-4 flex flex-col justify-between shadow-sm relative overflow-hidden group">
                     <div className="absolute top-0 left-0 right-0 h-[2px] bg-brand-gradient opacity-0 group-hover:opacity-100 transition-opacity" />
                     <div className="flex items-center justify-between text-zinc-400 mb-2">
                        <span className="text-xs uppercase font-medium tracking-wider">{m.label}</span>
@@ -148,7 +148,7 @@ export const AnalyticsIntelligence: React.FC = () => {
               </div>
 
               {/* Chart Visual Row */}
-              <div className="bg-[#0B0B14] border border-zinc-800 rounded-2xl p-5 mb-6 relative">
+              <div className="bg-[#101010] border border-zinc-900 rounded-2xl p-5 mb-6 relative">
                 <div className="flex justify-between items-center text-xs text-zinc-400 font-medium uppercase tracking-wider mb-4">
                   <span>Latency Reduction Trend</span>
                   <span className="text-brand-teal font-mono font-medium">lower values are better</span>
@@ -163,13 +163,13 @@ export const AnalyticsIntelligence: React.FC = () => {
                   >
                     <defs>
                       <linearGradient id="chartLineGrad" x1="0" y1="0" x2="1" y2="0">
-                        <stop offset="0%" stopColor="#8A00FF" />
-                        <stop offset="50%" stopColor="#3F7DFF" />
-                        <stop offset="100%" stopColor="#24D8C6" />
+                        <stop offset="0%" stopColor="#ffffff" />
+                        <stop offset="50%" stopColor="#ccaf69" />
+                        <stop offset="100%" stopColor="#ad8e45" />
                       </linearGradient>
                       <linearGradient id="chartAreaGrad" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stopColor="#3F7DFF" stopOpacity="0.15" />
-                        <stop offset="100%" stopColor="#24D8C6" stopOpacity="0" />
+                        <stop offset="0%" stopColor="#ccaf69" stopOpacity="0.15" />
+                        <stop offset="100%" stopColor="#ad8e45" stopOpacity="0" />
                       </linearGradient>
                     </defs>
                     
@@ -200,8 +200,8 @@ export const AnalyticsIntelligence: React.FC = () => {
                         cx={p.x} 
                         cy={p.y} 
                         r="1.8" 
-                        fill="#00D4AA" 
-                        stroke="#131322" 
+                        fill="#ccaf69" 
+                        stroke="#161616" 
                         strokeWidth="0.5"
                         className="transition-all duration-700 ease-in-out"
                       />

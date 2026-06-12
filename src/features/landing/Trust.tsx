@@ -25,7 +25,7 @@ export const Trust: React.FC = () => {
   ];
 
   return (
-    <section className="relative py-24 bg-[#0B0B14] border-t border-zinc-900">
+    <section className="relative py-24 bg-[#101010] border-t border-zinc-900">
       <div className="absolute top-1/2 left-1/4 w-[400px] h-[400px] bg-brand-primary/5 rounded-full blur-[120px] pointer-events-none opacity-20" />
  
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -69,7 +69,7 @@ export const Trust: React.FC = () => {
           {/* Right: Testimonials Card Stack */}
           <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
             {testimonials.map((test, idx) => (
-              <div key={idx} className="premium-card p-6 flex flex-col justify-between border border-zinc-800 bg-[#131322]">
+              <div key={idx} className="premium-card p-6 flex flex-col justify-between border border-zinc-800 bg-[#161616]">
                 <div className="space-y-4">
                   <div className="flex justify-between items-center text-sm text-zinc-450 font-medium uppercase tracking-wider">
                     <span>{test.category}</span>

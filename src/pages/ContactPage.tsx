@@ -4,7 +4,7 @@ import { Contact } from '../features/landing/Contact';
 
 export const ContactPage: React.FC = () => {
   return (
-    <div className="bg-[#0B0B14] text-zinc-300 min-h-screen relative overflow-hidden">
+    <div className="bg-[#101010] text-zinc-300 min-h-screen relative overflow-hidden">
       {/* Aurora Background Layer */}
       <div className="aurora-bg">
         <div className="aurora-glow-1" />
@@ -34,7 +34,7 @@ export const ContactPage: React.FC = () => {
             { value: "HIPAA / SOC2", label: "Compliance Direct", icon: <ShieldCheck className="w-4 h-4 text-blue-400" /> },
             { value: "Flexible", label: "SLA Frameworks", icon: <MessageSquare className="w-4 h-4 text-brand-teal" /> }
           ].map((stat, idx) => (
-            <div key={idx} className="premium-card p-6 text-center relative overflow-hidden group shadow-sm border border-zinc-800 bg-[#131322]">
+            <div key={idx} className="premium-card p-6 text-center relative overflow-hidden group shadow-sm border border-zinc-900 bg-[#161616]">
               <div className="absolute inset-0 bg-brand-gradient opacity-0 group-hover:opacity-5 transition-opacity duration-300" />
               <div className="text-2xl sm:text-3xl font-black mb-1 tracking-tight flex items-center justify-center gap-2">
                 <span className="text-gradient">{stat.value}</span>

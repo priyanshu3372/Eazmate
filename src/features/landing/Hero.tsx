@@ -55,7 +55,7 @@ export const Hero: React.FC = () => {
   }, [activeStep]);
 
   return (
-    <section className="relative pt-12 pb-20 overflow-hidden bg-[#0B0B14]">
+    <section className="relative pt-12 pb-20 overflow-hidden bg-[#101010]">
       {/* Aurora mesh gradient environment */}
       <div className="aurora-bg">
         <div className="aurora-glow-1" />
@@ -69,16 +69,16 @@ export const Hero: React.FC = () => {
           {/* Text content side */}
           <div className="lg:col-span-7 space-y-8 text-center lg:text-left animate-fade-in">
             <span className="gradient-badge font-extrabold uppercase tracking-wider">
-              <span className="w-1.5 h-1.5 rounded-full bg-brand-teal animate-pulse" />
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-primary animate-pulse" />
               The AI Brain Behind Your Business
             </span>
             
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight text-zinc-100 leading-[1.1] sm:leading-none">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight text-white leading-[1.1] sm:leading-none">
               The <span className="text-gradient">Intelligence</span> Layer <br />
               Powering Modern <span className="text-gradient">Organizations</span>
             </h1>
             
-            <p className="text-zinc-400 text-xl font-semibold leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            <p className="text-neutral-400 text-xl font-semibold leading-relaxed max-w-2xl mx-auto lg:mx-0">
               Connect your tools, automate operations, manage relationships, orchestrate workflows, and unlock organizational intelligence from a single AI-powered platform.
             </p>
             
@@ -86,7 +86,7 @@ export const Hero: React.FC = () => {
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
               <Link
                 to="/get-quotation"
-                className="bg-brand-gradient hover:brightness-110 text-white font-extrabold text-base px-8 py-4.5 rounded-xl shadow-md flex items-center justify-center gap-2 group transition-all"
+                className="bg-brand-gradient hover:brightness-105 text-neutral-950 font-black text-base px-8 py-4.5 rounded-xl shadow-md flex items-center justify-center gap-2 group transition-all border border-[#cdb477]/30"
               >
                 Start Free Trial
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -115,23 +115,23 @@ export const Hero: React.FC = () => {
             </div>
 
             {/* Quick value features */}
-            <div className="pt-8 border-t border-zinc-800 flex flex-wrap justify-center lg:justify-start gap-x-8 gap-y-4 text-sm text-zinc-400 font-semibold">
-              <span className="flex items-center gap-2"><CheckCircle className="w-4.5 h-4.5 text-[#24D8C6]" /> No Credit Card Required</span>
-              <span className="flex items-center gap-2"><CheckCircle className="w-4.5 h-4.5 text-[#24D8C6]" /> HIPAA & SOC2 Compliant</span>
-              <span className="flex items-center gap-2"><CheckCircle className="w-4.5 h-4.5 text-[#24D8C6]" /> 1000+ Native Integrations</span>
+            <div className="pt-8 border-t border-zinc-900 flex flex-wrap justify-center lg:justify-start gap-x-8 gap-y-4 text-sm text-zinc-400 font-semibold">
+              <span className="flex items-center gap-2"><CheckCircle className="w-4.5 h-4.5 text-brand-primary" /> No Credit Card Required</span>
+              <span className="flex items-center gap-2"><CheckCircle className="w-4.5 h-4.5 text-brand-primary" /> HIPAA & SOC2 Compliant</span>
+              <span className="flex items-center gap-2"><CheckCircle className="w-4.5 h-4.5 text-brand-primary" /> 1000+ Native Integrations</span>
             </div>
           </div>
 
           {/* Interactive visual side */}
           <div className="lg:col-span-5 relative w-full max-w-lg mx-auto lg:max-w-none">
-            <div className="glass-card rounded-3xl p-5 border border-zinc-800 bg-[#131322]/60 relative shadow-xl overflow-hidden">
+            <div className="glass-card rounded-3xl p-5 border border-zinc-900 bg-[#161616]/60 relative shadow-xl overflow-hidden">
               <div className="absolute top-0 left-0 right-0 h-[1px] bg-brand-gradient opacity-30" />
               
-              <div className="flex items-center justify-between pb-3 border-b border-zinc-800 mb-4">
+              <div className="flex items-center justify-between pb-3 border-b border-zinc-900 mb-4">
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-rose-500" />
-                  <div className="w-2 h-2 rounded-full bg-amber-500" />
-                  <div className="w-2 h-2 rounded-full bg-emerald-500" />
+                  <div className="w-2 h-2 rounded-full bg-neutral-600" />
+                  <div className="w-2 h-2 rounded-full bg-neutral-700" />
+                  <div className="w-2 h-2 rounded-full bg-neutral-800" />
                 </div>
                 <div className="text-xs text-zinc-500 font-mono tracking-widest uppercase">Eazmate Orchestrator v2.4</div>
               </div>
@@ -146,36 +146,36 @@ export const Hero: React.FC = () => {
                       onClick={() => setActiveStep(idx)}
                       className={`relative z-10 flex items-start gap-3.5 py-3 px-4 rounded-xl cursor-pointer transition-all duration-300 border ${
                         isActive 
-                          ? 'bg-[#18182E]/90 shadow-lg scale-[1.01] -translate-y-0.5' 
-                          : 'bg-[#131322]/40 border-zinc-800/60 hover:border-zinc-700/60 hover:bg-[#1C1C33]/40 hover:-translate-y-0.5 shadow-sm'
+                          ? 'bg-[#1a1a1a]/95 shadow-lg scale-[1.01] -translate-y-0.5' 
+                          : 'bg-[#161616]/45 border-zinc-900/60 hover:border-zinc-800/60 hover:bg-[#222222]/40 hover:-translate-y-0.5 shadow-sm'
                       }`}
                       style={isActive ? {
                         border: '1px solid transparent',
-                        backgroundImage: 'linear-gradient(#18182E, #18182E), var(--brand-gradient)',
+                        backgroundImage: 'linear-gradient(#1a1a1a, #1a1a1a), var(--brand-gradient)',
                         backgroundClip: 'padding-box, border-box',
                         backgroundOrigin: 'border-box',
-                        boxShadow: '0 15px 30px -12px rgba(138, 0, 255, 0.2), 0 3px 15px -4px rgba(36, 216, 198, 0.12)'
+                        boxShadow: '0 15px 30px -12px rgba(196, 176, 131, 0.15), 0 3px 15px -4px rgba(204, 175, 105, 0.08)'
                       } : {}}
                     >
                       <div className={`w-9.5 h-9.5 rounded-lg flex items-center justify-center text-lg shrink-0 transition-all ${
                         isActive 
-                          ? 'bg-brand-gradient text-white scale-105 shadow-md' 
-                          : 'bg-[#1E1E38] border border-zinc-800 text-zinc-400'
+                          ? 'bg-brand-gradient text-neutral-950 scale-105 shadow-md font-black' 
+                          : 'bg-[#1e1e1e] border border-zinc-900 text-zinc-500'
                       }`}>
                         {idx === 0 && <span className="text-xs font-semibold">🔌</span>}
-                        {idx === 1 && <Cpu className="w-4 h-4 text-zinc-200" />}
-                        {idx === 2 && <Zap className="w-4 h-4 text-zinc-200" />}
-                        {idx === 3 && <BarChart3 className="w-4 h-4 text-zinc-200" />}
-                        {idx === 4 && <TrendingUp className="w-4 h-4 text-zinc-200" />}
+                        {idx === 1 && <Cpu className="w-4 h-4 text-zinc-400" />}
+                        {idx === 2 && <Zap className="w-4 h-4 text-zinc-400" />}
+                        {idx === 3 && <BarChart3 className="w-4 h-4 text-zinc-400" />}
+                        {idx === 4 && <TrendingUp className="w-4 h-4 text-zinc-400" />}
                       </div>
                       
                       <div className="space-y-0.5 min-w-0">
                         <div className="flex items-center gap-2">
-                          <h3 className={`text-sm font-black ${isActive ? 'text-zinc-100' : 'text-zinc-400'}`}>
+                          <h3 className={`text-sm font-black ${isActive ? 'text-zinc-150' : 'text-zinc-450'}`}>
                             {step.title}
                           </h3>
                           {isActive && (
-                            <span className="gradient-badge text-[11px] font-extrabold uppercase tracking-widest text-brand-primary animate-pulse py-0.5 px-1.5">
+                            <span className="gradient-badge text-[11px] font-extrabold uppercase tracking-widest text-brand-primary animate-pulse py-0.5 px-1.5 border border-[#cdb477]/30">
                               Active
                             </span>
                           )}
@@ -190,10 +190,10 @@ export const Hero: React.FC = () => {
               </div>
 
               {/* Console log window */}
-              <div className="mt-4 p-3.5 rounded-xl bg-[#1A1A2E] border border-zinc-800/80 font-mono text-xs leading-relaxed text-[#24D8C6] min-h-[90px] select-none shadow-inner">
-                <div className="text-zinc-400 pb-1 border-b border-zinc-800 mb-1.5 flex justify-between items-center">
+              <div className="mt-4 p-3.5 rounded-xl bg-[#111111] border border-zinc-900 font-mono text-xs leading-relaxed text-[#c4b083] min-h-[90px] select-none shadow-inner">
+                <div className="text-zinc-500 pb-1 border-b border-zinc-900 mb-1.5 flex justify-between items-center">
                   <span>SYSTEM CONSOLE LOG</span>
-                  <span className="text-emerald-400 animate-pulse text-xs">● READY</span>
+                  <span className="text-brand-teal animate-pulse text-xs">● READY</span>
                 </div>
                 <div className="space-y-0.5">
                   {logs.map((log, idx) => (

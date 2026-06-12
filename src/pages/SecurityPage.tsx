@@ -75,7 +75,7 @@ export const SecurityPage: React.FC = () => {
   ];
 
   return (
-    <div className="bg-[#0B0B14] text-zinc-300 min-h-screen relative overflow-hidden">
+    <div className="bg-[#101010] text-zinc-300 min-h-screen relative overflow-hidden">
       {/* Aurora Background Layer */}
       <div className="aurora-bg">
         <div className="aurora-glow-1" />
@@ -105,7 +105,7 @@ export const SecurityPage: React.FC = () => {
             { value: "HIPAA", label: "Fully Compliant" },
             { value: "SOC 2", label: "Type II Verified" }
           ].map((stat, idx) => (
-            <div key={idx} className="premium-card p-6 text-center relative overflow-hidden group shadow-sm border border-zinc-800 bg-[#131322]">
+            <div key={idx} className="premium-card p-6 text-center relative overflow-hidden group shadow-sm border border-zinc-900 bg-[#161616]">
               <div className="absolute inset-0 bg-brand-gradient opacity-0 group-hover:opacity-5 transition-opacity duration-300" />
               <div className="text-2xl sm:text-3xl font-black mb-1 tracking-tight">
                 <span className="text-gradient">{stat.value}</span>
@@ -131,12 +131,12 @@ export const SecurityPage: React.FC = () => {
                 onClick={() => setActiveTab(tab.id as any)}
                 className={`flex-1 text-center py-2.5 rounded-xl text-sm font-black transition-all duration-300 relative ${
                   isActive 
-                    ? 'text-zinc-150 shadow-sm bg-[#131322] border border-transparent' 
+                    ? 'text-zinc-150 shadow-sm bg-[#161616] border border-transparent' 
                     : 'text-zinc-450 hover:text-zinc-200'
                 }`}
                 style={isActive ? {
                   border: '1px solid transparent',
-                  backgroundImage: 'linear-gradient(#131322, #131322), var(--brand-gradient)',
+                  backgroundImage: 'linear-gradient(#161616, #161616), var(--brand-gradient)',
                   backgroundClip: 'padding-box, border-box',
                   backgroundOrigin: 'border-box'
                 } : {}}
@@ -152,7 +152,7 @@ export const SecurityPage: React.FC = () => {
           {activeTab === 'compliance' && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 animate-fade-in">
               {complianceFeatures.map((item, idx) => (
-                <div key={idx} className="premium-card p-8 flex gap-6 transition-all duration-300 border border-zinc-800 bg-[#131322]">
+                <div key={idx} className="premium-card p-8 flex gap-6 transition-all duration-300 border border-zinc-900 bg-[#161616]">
                   <div className="w-12 h-12 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-center shrink-0 shadow-sm">
                     {item.icon}
                   </div>
@@ -168,7 +168,7 @@ export const SecurityPage: React.FC = () => {
           {activeTab === 'infrastructure' && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 animate-fade-in">
               {infrastructureFeatures.map((item, idx) => (
-                <div key={idx} className="premium-card p-8 flex gap-6 transition-all duration-300 border border-zinc-800 bg-[#131322]">
+                <div key={idx} className="premium-card p-8 flex gap-6 transition-all duration-300 border border-zinc-900 bg-[#161616]">
                   <div className="w-12 h-12 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-center shrink-0 shadow-sm">
                     {item.icon}
                   </div>
@@ -184,7 +184,7 @@ export const SecurityPage: React.FC = () => {
           {activeTab === 'governance' && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 animate-fade-in">
               {governanceFeatures.map((item, idx) => (
-                <div key={idx} className="premium-card p-8 flex gap-6 transition-all duration-300 border border-zinc-800 bg-[#131322]">
+                <div key={idx} className="premium-card p-8 flex gap-6 transition-all duration-300 border border-zinc-900 bg-[#161616]">
                   <div className="w-12 h-12 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-center shrink-0 shadow-sm">
                     {item.icon}
                   </div>
@@ -201,7 +201,7 @@ export const SecurityPage: React.FC = () => {
 
       {/* CTA section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-10">
-        <div className="premium-card p-8 sm:p-16 text-center max-w-4xl mx-auto relative overflow-hidden shadow-lg border border-zinc-800 bg-[#131322]">
+        <div className="premium-card p-8 sm:p-16 text-center max-w-4xl mx-auto relative overflow-hidden shadow-lg border border-zinc-900 bg-[#161616]">
           <div className="absolute top-[-50px] right-[-50px] w-48 h-48 bg-brand-primary/5 rounded-full blur-[60px]" />
           
           <h2 className="text-3xl sm:text-4xl font-black mb-4 text-zinc-100">Request Our Security <span className="text-gradient">Documentation</span></h2>
@@ -211,7 +211,7 @@ export const SecurityPage: React.FC = () => {
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
             <Link
               to="/get-quotation"
-              className="w-full sm:w-auto bg-brand-primary hover:brightness-110 text-white font-extrabold px-8 py-4 rounded-xl transition-all flex items-center justify-center gap-2 shadow-sm"
+              className="w-full sm:w-auto bg-brand-gradient hover:brightness-105 text-neutral-950 font-black px-8 py-4 rounded-xl transition-all flex items-center justify-center gap-2 border border-[#cdb477]/30 shadow-sm"
             >
               Contact Compliance <ArrowRight className="w-4 h-4" />
             </Link>

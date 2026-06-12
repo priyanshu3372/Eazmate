@@ -101,7 +101,7 @@ export const Industries: React.FC = () => {
   const current = industries.find(ind => ind.id === selectedIndustry) || industries[0];
 
   return (
-    <section id="industries-section" className="relative py-24 bg-[#0B0B14] border-t border-zinc-900">
+    <section id="industries-section" className="relative py-24 bg-[#101010] border-t border-zinc-900">
       <div className="absolute top-10 left-1/3 w-[500px] h-[500px] bg-brand-primary/5 rounded-full blur-[120px] pointer-events-none opacity-20" />
  
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -131,7 +131,7 @@ export const Industries: React.FC = () => {
                 onClick={() => setSelectedIndustry(ind.id)}
                 className={`w-full p-4 rounded-2xl border text-left flex items-center justify-between transition-all duration-300 relative overflow-hidden group ${
                   selectedIndustry === ind.id 
-                    ? 'bg-[#18182E]/50 border-zinc-800 shadow-md translate-x-2 border-l-4 border-l-brand-primary' 
+                    ? 'bg-[#161616]/50 border-zinc-800 shadow-md translate-x-2 border-l-4 border-l-brand-primary' 
                     : 'bg-zinc-900/60 border-zinc-850 hover:bg-zinc-800/40 text-zinc-400'
                 }`}
               >
@@ -160,7 +160,7 @@ export const Industries: React.FC = () => {
 
           {/* Right Detailed Display Board */}
           <div className="lg:col-span-8">
-            <div className="glass-card rounded-3xl p-8 sm:p-12 border border-zinc-800 bg-[#131322]/40 shadow-xl relative min-h-[420px] flex flex-col justify-between overflow-hidden">
+            <div className="glass-card rounded-3xl p-8 sm:p-12 border border-zinc-800 bg-[#161616]/40 shadow-xl relative min-h-[420px] flex flex-col justify-between overflow-hidden">
               <div className="absolute top-0 left-0 right-0 h-[1px] bg-brand-gradient opacity-20" />
               
               <div className="space-y-6">
@@ -203,7 +203,7 @@ export const Industries: React.FC = () => {
                 <span className="text-sm text-zinc-400 font-semibold">Need specific custom configurations? We build custom layouts.</span>
                 <Link
                   to="/get-quotation"
-                  className="w-full sm:w-auto bg-brand-primary hover:brightness-110 text-white text-sm font-extrabold px-5 py-3.5 rounded-xl transition-all shadow-md inline-flex items-center justify-center gap-1.5 group"
+                  className="w-full sm:w-auto bg-brand-gradient hover:brightness-105 text-neutral-950 text-sm font-black px-5 py-3.5 rounded-xl transition-all shadow-md inline-flex items-center justify-center gap-1.5 border border-[#cdb477]/30 group"
                 >
                   Configure for {current.label}
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />

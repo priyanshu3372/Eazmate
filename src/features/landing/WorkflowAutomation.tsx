@@ -58,7 +58,7 @@ export const WorkflowAutomation: React.FC = () => {
   };
 
   return (
-    <section className="relative py-24 bg-[#0B0B14] border-t border-zinc-900">
+    <section className="relative py-24 bg-[#101010] border-t border-zinc-900">
       <div className="absolute top-1/3 left-1/3 w-[500px] h-[500px] bg-brand-primary/5 rounded-full blur-[120px] pointer-events-none opacity-20" />
  
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -90,7 +90,7 @@ export const WorkflowAutomation: React.FC = () => {
             </div>
  
             {/* Toggle options on the left */}
-            <div className="premium-card p-5 space-y-4 border border-zinc-800 bg-[#131322]">
+            <div className="premium-card p-5 space-y-4 border border-zinc-900 bg-[#161616]">
               <div className="flex items-center justify-between text-xs font-medium">
                 <span className="text-zinc-200">Auto-Approval Protocol</span>
                 <button 
@@ -111,17 +111,17 @@ export const WorkflowAutomation: React.FC = () => {
               className={`w-full py-4 px-6 rounded-xl font-extrabold text-base transition-all flex items-center justify-center gap-2 shadow-md ${
                 isPlaying 
                   ? 'bg-zinc-900 text-zinc-500 cursor-not-allowed border border-zinc-800' 
-                  : 'bg-brand-primary hover:brightness-110 text-white'
+                  : 'bg-brand-gradient hover:brightness-105 text-neutral-950 border border-[#cdb477]/30'
               }`}
             >
-              <Play className="w-5 h-5 fill-current text-white" />
+              <Play className="w-5 h-5 fill-current text-neutral-950" />
               {isPlaying ? "Executing Workflow Logic..." : "Simulate Automated Workflow"}
             </button>
           </div>
 
           {/* Right: Interactive Node Graph Visual */}
           <div className="lg:col-span-7">
-            <div className="premium-card p-6 relative border border-zinc-800 bg-[#131322]">
+            <div className="premium-card p-6 relative border border-zinc-900 bg-[#161616]">
               <div className="absolute top-0 left-0 right-0 h-[1px] bg-brand-gradient opacity-20" />
               
               <div className="flex justify-between items-center pb-4 border-b border-zinc-800 mb-6 text-xs text-zinc-350 font-medium uppercase tracking-wider">
@@ -140,16 +140,16 @@ export const WorkflowAutomation: React.FC = () => {
                       key={step.id}
                       className={`p-4 rounded-2xl border transition-all duration-300 relative flex items-center justify-between ${
                         isActive 
-                          ? 'bg-[#18182E] border-brand-primary ring-1 ring-brand-primary/10 translate-x-2' 
+                          ? 'bg-[#1c1c1c] border-brand-primary ring-1 ring-brand-primary/10 translate-x-2' 
                           : isCompleted 
-                            ? 'bg-[#18182E]/40 border-emerald-800/40' 
+                            ? 'bg-[#1c1c1c]/40 border-emerald-800/40' 
                             : 'bg-zinc-900/60 border-zinc-800'
                       }`}
                     >
                       <div className="flex items-center gap-3.5">
                         <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold shrink-0 ${
                           isActive 
-                            ? 'bg-brand-gradient text-white animate-pulse' 
+                            ? 'bg-brand-gradient text-neutral-950 animate-pulse font-black' 
                             : isCompleted 
                               ? 'bg-emerald-950/80 text-emerald-400 border border-emerald-800/40' 
                               : 'bg-zinc-950 border border-zinc-800 text-zinc-500'
@@ -187,8 +187,8 @@ export const WorkflowAutomation: React.FC = () => {
 
               {/* Progress visual footer */}
               {isPlaying && (
-                <div className="mt-6 p-3 bg-[#0B0B14] border border-zinc-800 rounded-xl text-center text-xs text-zinc-300 flex items-center justify-center gap-2 animate-fade-in font-mono">
-                  <RefreshCw className="w-4.5 h-4.5 text-emerald-450 animate-spin" />
+                <div className="mt-6 p-3 bg-[#101010] border border-zinc-900 rounded-xl text-center text-xs text-zinc-300 flex items-center justify-center gap-2 animate-fade-in font-mono">
+                  <RefreshCw className="w-4.5 h-4.5 text-emerald-400 animate-spin" />
                   <span>AI compiler validating block integrity...</span>
                 </div>
               )}

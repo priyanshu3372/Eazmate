@@ -4,7 +4,7 @@ import { CONTACT_INFO, OFFICE_ADDRESS } from '../../config/constants';
 
 export const Contact: React.FC = () => {
   return (
-    <section id="contact-section" className="py-24 bg-[#0D0D19] border-t border-zinc-900">
+    <section id="contact-section" className="py-24 bg-[#101010] border-t border-zinc-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
@@ -37,7 +37,7 @@ export const Contact: React.FC = () => {
                 href={CONTACT_INFO.whatsapp.getLink("Hello Eazmate, I'd like to request a demo of the AI Operating System.")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 bg-[#131322] hover:bg-[#1A1A2E] border border-zinc-800 p-5 rounded-2xl transition-all shadow-sm group"
+                className="flex items-center gap-4 bg-[#161616] hover:bg-[#1c1c1c] border border-zinc-800 p-5 rounded-2xl transition-all shadow-sm group"
               >
                 <div className="w-12 h-12 rounded-xl bg-emerald-950/80 border border-emerald-800/40 flex items-center justify-center text-emerald-450 shrink-0 group-hover:scale-105 transition-transform">
                   <MessageSquare className="w-6 h-6 fill-current text-emerald-450" />
@@ -50,7 +50,7 @@ export const Contact: React.FC = () => {
               </a>
 
               {/* Phone Card */}
-              <div className="flex items-center gap-4 bg-[#131322] border border-zinc-800 p-5 rounded-2xl transition-all shadow-sm hover:border-brand-primary/30 hover:shadow-md">
+              <div className="flex items-center gap-4 bg-[#161616] border border-zinc-800 p-5 rounded-2xl transition-all shadow-sm hover:border-brand-primary/30 hover:shadow-md">
                 <div className="w-12 h-12 rounded-xl bg-zinc-950 border border-zinc-800 flex items-center justify-center text-brand-primary shrink-0 relative overflow-hidden group-hover:scale-105 transition-transform">
                   <div className="absolute inset-0 bg-brand-gradient opacity-10" />
                   <Phone className="w-6 h-6 text-brand-primary relative z-10" />
@@ -69,7 +69,7 @@ export const Contact: React.FC = () => {
               </div>
 
               {/* Email Card */}
-              <div className="flex items-center gap-4 bg-[#131322] border border-zinc-800 p-5 rounded-2xl transition-all shadow-sm hover:border-brand-primary/30 hover:shadow-md">
+              <div className="flex items-center gap-4 bg-[#161616] border border-zinc-800 p-5 rounded-2xl transition-all shadow-sm hover:border-brand-primary/30 hover:shadow-md">
                 <div className="w-12 h-12 rounded-xl bg-zinc-950 border border-zinc-800 flex items-center justify-center text-brand-light shrink-0 relative overflow-hidden group-hover:scale-105 transition-transform">
                   <div className="absolute inset-0 bg-brand-gradient opacity-10" />
                   <Mail className="w-6 h-6 text-brand-light relative z-10" />
@@ -107,7 +107,7 @@ export const Contact: React.FC = () => {
           </div>
 
           {/* Right Column: Implementation Support */}
-          <div className="lg:col-span-7 premium-card p-8 sm:p-12 flex flex-col justify-center space-y-6 border border-zinc-800 bg-[#131322]">
+          <div className="lg:col-span-7 premium-card p-8 sm:p-12 flex flex-col justify-center space-y-6 border border-zinc-900 bg-[#161616]">
             <h3 className="text-2xl font-black text-zinc-100 tracking-tight">
               Onboarding & Enterprise Integration
             </h3>

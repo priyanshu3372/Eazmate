@@ -5,7 +5,7 @@ import { WorkflowAutomation } from '../features/landing/WorkflowAutomation';
 
 export const SolutionsPage: React.FC = () => {
   return (
-    <div className="bg-[#0B0B14] text-zinc-300 min-h-screen relative overflow-hidden">
+    <div className="bg-[#101010] text-zinc-300 min-h-screen relative overflow-hidden">
       {/* Aurora Background Layer */}
       <div className="aurora-bg">
         <div className="aurora-glow-1" />
@@ -19,7 +19,7 @@ export const SolutionsPage: React.FC = () => {
           <Layers className="w-4 h-4 text-brand-primary animate-pulse" />
           <span className="text-gradient font-extrabold">Eazmate Operational Solutions</span>
         </div>
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight mb-6 leading-tight max-w-4xl mx-auto text-[#1A1A2E]">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight mb-6 leading-tight max-w-4xl mx-auto text-white">
           Unified CRM Operations <br />
           <span className="text-gradient">& Autonomous Workflows</span>
         </h1>

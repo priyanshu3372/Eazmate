@@ -36,7 +36,7 @@ export const Integrations: React.FC = () => {
   ];
 
   return (
-    <section id="integrations-section" className="relative py-24 bg-[#0B0B14] border-t border-zinc-900">
+    <section id="integrations-section" className="relative py-24 bg-[#101010] border-t border-zinc-900">
       <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-brand-teal/5 rounded-full blur-[120px] pointer-events-none opacity-20" />
  
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -67,7 +67,7 @@ export const Integrations: React.FC = () => {
                   onMouseEnter={() => setHoveredNode(item.name)}
                   onMouseLeave={() => setHoveredNode(null)}
                   className={`p-3 bg-zinc-900/60 border border-zinc-850 rounded-xl text-center transition-all cursor-pointer relative overflow-hidden group ${
-                    hoveredNode === item.name ? 'border-brand-primary bg-[#18182E]/50 shadow-md translate-y-[-2px]' : 'hover:bg-[#131322] hover:border-zinc-800'
+                    hoveredNode === item.name ? 'border-brand-primary bg-[#161616]/50 shadow-md translate-y-[-2px]' : 'hover:bg-[#161616] hover:border-zinc-800'
                   }`}
                 >
                   <div className="text-lg mb-1">{item.icon}</div>
@@ -100,9 +100,9 @@ export const Integrations: React.FC = () => {
               <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full pointer-events-none">
                 <defs>
                   <linearGradient id="streamLineGrad" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stopColor="#8A00FF" />
-                    <stop offset="50%" stopColor="#3F7DFF" />
-                    <stop offset="100%" stopColor="#24D8C6" />
+                    <stop offset="0%" stopColor="#ffffff" />
+                    <stop offset="50%" stopColor="#ccaf69" />
+                    <stop offset="100%" stopColor="#ad8e45" />
                   </linearGradient>
                 </defs>
                 {nodePositions.slice(0, -1).map((node, idx) => {
@@ -123,7 +123,7 @@ export const Integrations: React.FC = () => {
                       
                       {/* Glowing particle pulse moving along highlighted connection */}
                       {isHighlighted && (
-                        <circle cx="50" cy="50" r="1.2" fill="#24D8C6">
+                        <circle cx="50" cy="50" r="1.2" fill="#ccaf69">
                           <animateMotion 
                             path={`M 50 50 L ${node.x} ${node.y}`} 
                             dur="1.2s" 
@@ -137,7 +137,7 @@ export const Integrations: React.FC = () => {
               </svg>
 
               {/* Central Active Node */}
-              <div className="absolute w-20 h-20 rounded-2xl bg-[#131322] border border-zinc-850 flex items-center justify-center shadow-md group z-20 overflow-hidden">
+              <div className="absolute w-20 h-20 rounded-2xl bg-[#161616] border border-zinc-850 flex items-center justify-center shadow-md group z-20 overflow-hidden">
                 <div className="absolute inset-0 bg-brand-gradient opacity-10 rounded-2xl animate-pulse-glow" />
                 <img src="/logo.png" alt="Eazmate Logo" className="w-12 h-12 object-contain animate-float" />
                 <span className="absolute bottom-[-16px] text-[10px] tracking-widest text-zinc-400 uppercase font-bold text-center block w-full whitespace-nowrap">

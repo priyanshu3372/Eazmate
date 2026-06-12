@@ -20,15 +20,15 @@ export interface ThemeTokens {
 
 export const themeConfig: ThemeTokens = {
   colors: {
-    primary: '#8A00FF', // Purple brand accent
-    dark: '#7A2FFF',    // Dark Purple brand accent
-    teal: '#24D8C6',    // Signature Teal accent
-    light: '#3F7DFF',   // Neon Blue accent
-    surface: '#0B0B14', // Premium dark surface background
-    alt: '#131322',     // Lighter dark-purple surface background
-    textPrimary: '#F4F4F5',   // White primary text
-    textSecondary: '#A1A1AA', // Gray secondary text
-    textLight: '#71717A',     // Muted gray text
+    primary: '#c4b083', // Luxury gold brand accent
+    dark: '#ad8e45',    // Deeper gold brand accent
+    teal: '#ccaf69',    // Signature metallic gold accent
+    light: '#d4c8ab',   // Platinum/light gold accent
+    surface: '#101010', // Deep black-charcoal background
+    alt: '#1a1a1a',     // Luxury card background
+    textPrimary: '#ffffff',   // White primary text
+    textSecondary: '#a3a3a3', // Muted silver/gray text
+    textLight: '#737373',     // Dark muted gray text
   },
   typography: {
     bodyFont: 'Plus Jakarta Sans, Inter, sans-serif',
