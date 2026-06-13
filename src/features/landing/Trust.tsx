@@ -17,10 +17,10 @@ export const Trust: React.FC = () => {
       category: "Healthcare Vertical"
     },
     {
-      quote: "We use Eazmate to route prospective buyer leads from listing systems directly into WhatsApp scheduling pipelines. Lead response rates improved by 300%.",
-      author: "Prakash Malhotra",
-      role: "Managing Partner, Horizon Realty",
-      category: "Real Estate Vertical"
+      quote: "We use Eazmate to route prospective dealer inquiries from our distribution network directly into WhatsApp support pipelines. Response rates improved by 300%.",
+      author: "Mr. VP Singh",
+      role: "Executive Director, SAIL",
+      category: "Industrial Vertical"
     }
   ];
 
@@ -96,7 +96,7 @@ export const Trust: React.FC = () => {
             <span>APEX MEDICAL</span>
             <span>ZENITH SAAS</span>
             <span>STERLING LOGISTICS</span>
-            <span>HORIZON REALTY</span>
+            <span>SAIL</span>
             <span>GURUGRAM CLINICS</span>
           </div>
         </div>
