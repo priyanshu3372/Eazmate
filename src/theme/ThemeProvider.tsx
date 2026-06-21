@@ -43,24 +43,24 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         const elapsed = now - start;
         const estimatedFps = Math.round((frameCount * 1000) / elapsed);
         
-        let dur = 650;
+        let dur = 1000;
         let mode: 'high' | 'normal' | 'low' = 'normal';
 
         if (estimatedFps >= 100) {
           // 120Hz or 144Hz high refresh rate screen
-          dur = 450; // Snappy transition for high fluid responsiveness
+          dur = 750; // Slower, premium transition for high refresh rate displays
           mode = 'high';
         } else if (estimatedFps >= 80) {
           // 90Hz screens
-          dur = 520;
+          dur = 850;
           mode = 'normal';
         } else if (estimatedFps < 45) {
           // Poor rendering performance or battery saving mode
-          dur = 150; // Low-cost standard color fade timing
+          dur = 350; // Gentle fade timing for throttled devices
           mode = 'low';
         } else {
           // Standard 60Hz
-          dur = 650;
+          dur = 1000; // Elegant, slow 1-second transition
           mode = 'normal';
         }
 

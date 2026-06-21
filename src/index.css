@@ -39,6 +39,7 @@
   --ripple-duration: 650ms;
   --transition-duration-normal: var(--ripple-duration);
   --transition-duration-fast: calc(var(--ripple-duration) * 0.67);
+  --transition-ease-luxury: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .dark {
@@ -82,7 +83,7 @@
 }
 
 .theme-transitioning::view-transition-new(root) {
-  animation: clip-path-ripple var(--ripple-duration, 650ms) cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: clip-path-ripple var(--ripple-duration, 650ms) var(--transition-ease-luxury) forwards;
 }
 
 @keyframes clip-path-ripple {
@@ -112,21 +113,21 @@
   body {
     background-color: var(--bg-primary);
     color: var(--text-secondary);
-    transition: background-color var(--transition-duration-normal) cubic-bezier(0.4, 0, 0.2, 1),
-                color var(--transition-duration-normal) cubic-bezier(0.4, 0, 0.2, 1),
-                border-color var(--transition-duration-normal) cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color var(--transition-duration-normal) var(--transition-ease-luxury),
+                color var(--transition-duration-normal) var(--transition-ease-luxury),
+                border-color var(--transition-duration-normal) var(--transition-ease-luxury);
     @apply font-sans selection:bg-purple-500/30 selection:text-purple-200 antialiased;
   }
   
   h1, h2, h3, h4, h5, h6 {
     color: var(--text-primary);
-    transition: color var(--transition-duration-normal) cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color var(--transition-duration-normal) var(--transition-ease-luxury);
     @apply font-sans font-black tracking-tight;
   }
 
   p {
     color: var(--text-secondary);
-    transition: color var(--transition-duration-normal) cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color var(--transition-duration-normal) var(--transition-ease-luxury);
     @apply font-semibold text-base;
   }
 }
@@ -137,9 +138,9 @@
   backdrop-filter: blur(var(--glass-blur));
   -webkit-backdrop-filter: blur(var(--glass-blur));
   border: 1px solid var(--border-color);
-  transition: background var(--transition-duration-normal) cubic-bezier(0.4, 0, 0.2, 1), 
-              border-color var(--transition-duration-normal) cubic-bezier(0.4, 0, 0.2, 1), 
-              box-shadow var(--transition-duration-normal) cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background var(--transition-duration-normal) var(--transition-ease-luxury), 
+              border-color var(--transition-duration-normal) var(--transition-ease-luxury), 
+              box-shadow var(--transition-duration-normal) var(--transition-ease-luxury);
 }
 
 .glass-card:hover {
@@ -152,8 +153,8 @@
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-color);
-  transition: background var(--transition-duration-normal) cubic-bezier(0.4, 0, 0.2, 1), 
-              border-color var(--transition-duration-normal) cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background var(--transition-duration-normal) var(--transition-ease-luxury), 
+              border-color var(--transition-duration-normal) var(--transition-ease-luxury);
 }
 
 /* Gradients */
@@ -173,7 +174,7 @@
   background: linear-gradient(var(--bg-primary), var(--bg-primary)) padding-box,
               var(--brand-gradient) border-box;
   border: 1px solid transparent;
-  transition: background var(--transition-duration-normal) cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s ease;
+  transition: background var(--transition-duration-normal) var(--transition-ease-luxury), transform 0.3s ease;
 }
 
 /* Premium Dynamic Button System */
@@ -196,7 +197,7 @@
 
 /* Image Premium Layer */
 .theme-image {
-  transition: filter var(--transition-duration-normal) cubic-bezier(0.4, 0, 0.2, 1), box-shadow var(--transition-duration-normal) cubic-bezier(0.4, 0, 0.2, 1);
+  transition: filter var(--transition-duration-normal) var(--transition-ease-luxury), box-shadow var(--transition-duration-normal) var(--transition-ease-luxury);
 }
 
 .dark .theme-image {
@@ -251,7 +252,7 @@
   pointer-events: none;
   background: var(--bg-primary);
   opacity: var(--aurora-opacity);
-  transition: background var(--transition-duration-normal) cubic-bezier(0.4, 0, 0.2, 1), opacity var(--transition-duration-normal) cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background var(--transition-duration-normal) var(--transition-ease-luxury), opacity var(--transition-duration-normal) var(--transition-ease-luxury);
 }
 
 .aurora-glow-1 {
@@ -294,9 +295,9 @@
   border: 1px solid var(--border-color);
   box-shadow: var(--card-shadow);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-              background-color var(--transition-duration-normal) cubic-bezier(0.4, 0, 0.2, 1), 
-              border-color var(--transition-duration-normal) cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow var(--transition-duration-normal) cubic-bezier(0.4, 0, 0.2, 1);
+              background-color var(--transition-duration-normal) var(--transition-ease-luxury), 
+              border-color var(--transition-duration-normal) var(--transition-ease-luxury),
+              box-shadow var(--transition-duration-normal) var(--transition-ease-luxury);
   overflow: hidden;
 }
 
@@ -329,7 +330,7 @@
   font-weight: 500;
   color: var(--text-primary);
   background: var(--card-bg-solid);
-  transition: all 0.3s ease, background-color var(--transition-duration-normal) cubic-bezier(0.4, 0, 0.2, 1), color var(--transition-duration-normal) cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease, background-color var(--transition-duration-normal) var(--transition-ease-luxury), color var(--transition-duration-normal) var(--transition-ease-luxury);
 }
 
 .gradient-badge::before {
