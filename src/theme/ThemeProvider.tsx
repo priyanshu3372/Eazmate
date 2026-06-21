@@ -7,6 +7,8 @@ interface ThemeContextType {
   theme: ThemeMode;
   toggleTheme: (event: React.MouseEvent<HTMLButtonElement>) => void;
   themeConfig: ThemeTokens;
+  performanceMode: 'high' | 'normal' | 'low';
+  fps: number;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -22,6 +24,60 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     }
     return 'dark';
   });
+
+  const [fps, setFps] = useState<number>(60);
+  const [transitionDuration, setTransitionDuration] = useState<number>(650);
+  const [performanceMode, setPerformanceMode] = useState<'high' | 'normal' | 'low'>('normal');
+
+  useEffect(() => {
+    // Detect frame rate and performance capabilities
+    if (typeof window === 'undefined' || !window.requestAnimationFrame) return;
+
+    let start = performance.now();
+    let frameCount = 0;
+    const maxFrames = 15; // Small sample of 15 frames to measure screen refresh rate quickly
+
+    const checkFrame = (now: number) => {
+      frameCount++;
+      if (frameCount >= maxFrames) {
+        const elapsed = now - start;
+        const estimatedFps = Math.round((frameCount * 1000) / elapsed);
+        
+        let dur = 650;
+        let mode: 'high' | 'normal' | 'low' = 'normal';
+
+        if (estimatedFps >= 100) {
+          // 120Hz or 144Hz high refresh rate screen
+          dur = 450; // Snappy transition for high fluid responsiveness
+          mode = 'high';
+        } else if (estimatedFps >= 80) {
+          // 90Hz screens
+          dur = 520;
+          mode = 'normal';
+        } else if (estimatedFps < 45) {
+          // Poor rendering performance or battery saving mode
+          dur = 150; // Low-cost standard color fade timing
+          mode = 'low';
+        } else {
+          // Standard 60Hz
+          dur = 650;
+          mode = 'normal';
+        }
+
+        setFps(estimatedFps);
+        setTransitionDuration(dur);
+        setPerformanceMode(mode);
+        
+        // Inject dynamic transitions configurations into root instantly
+        const doc = document.documentElement;
+        doc.style.setProperty('--ripple-duration', `${dur}ms`);
+      } else {
+        requestAnimationFrame(checkFrame);
+      }
+    };
+
+    requestAnimationFrame(checkFrame);
+  }, []);
 
   const setTheme = (newTheme: ThemeMode) => {
     setThemeState(newTheme);
@@ -40,11 +96,11 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const toggleTheme = (event: React.MouseEvent<HTMLButtonElement>) => {
     const nextTheme = theme === 'dark' ? 'light' : 'dark';
     
-    // Fallback if browser doesn't support View Transitions or if user prefers reduced motion
+    // Fallback if browser doesn't support View Transitions, prefers-reduced-motion, or performance is low
     const supportsViewTransition = typeof document.startViewTransition === 'function';
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    if (!supportsViewTransition || prefersReducedMotion) {
+    if (!supportsViewTransition || prefersReducedMotion || performanceMode === 'low') {
       setTheme(nextTheme);
       return;
     }
@@ -89,10 +145,13 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     root.style.setProperty('--color-brand-dark', themeConfig.colors.dark);
     root.style.setProperty('--color-brand-teal', themeConfig.colors.teal);
     root.style.setProperty('--color-brand-light', themeConfig.colors.light);
-  }, [theme]);
+    
+    // Dynamic transition duration mapping
+    root.style.setProperty('--ripple-duration', `${transitionDuration}ms`);
+  }, [theme, transitionDuration]);
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, themeConfig }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme, themeConfig, performanceMode, fps }}>
       {children}
     </ThemeContext.Provider>
   );
