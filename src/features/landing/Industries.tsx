@@ -101,7 +101,7 @@ export const Industries: React.FC = () => {
   const current = industries.find(ind => ind.id === selectedIndustry) || industries[0];
 
   return (
-    <section id="industries-section" className="relative py-24 bg-[#101010] border-t border-zinc-900">
+    <section id="industries-section" className="relative py-24 bg-theme-bg border-t border-theme-border transition-colors duration-300">
       <div className="absolute top-10 left-1/3 w-[500px] h-[500px] bg-brand-primary/5 rounded-full blur-[120px] pointer-events-none opacity-20" />
  
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -111,11 +111,11 @@ export const Industries: React.FC = () => {
           <span className="gradient-badge font-extrabold uppercase tracking-wider">
             <Network className="w-3.5 h-3.5 text-brand-primary" /> Industries Showcase
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-zinc-100 leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-theme-text leading-tight transition-colors duration-300">
             Integrated Solutions Built <br />
             For Every <span className="text-gradient">Vertical</span>
           </h2>
-          <p className="text-zinc-400 text-base font-semibold leading-relaxed">
+          <p className="text-theme-textMuted text-base font-semibold leading-relaxed transition-colors duration-300">
             Eazmate solves coordination challenges across all business templates. Healthcare serves as our proof of capability, but our AI Operating System runs workflows globally.
           </p>
         </div>
@@ -131,26 +131,26 @@ export const Industries: React.FC = () => {
                 onClick={() => setSelectedIndustry(ind.id)}
                 className={`w-full p-4 rounded-2xl border text-left flex items-center justify-between transition-all duration-300 relative overflow-hidden group ${
                   selectedIndustry === ind.id 
-                    ? 'bg-[#161616]/50 border-zinc-800 shadow-md translate-x-2 border-l-4 border-l-brand-primary' 
-                    : 'bg-zinc-900/60 border-zinc-850 hover:bg-zinc-800/40 text-zinc-400'
+                    ? 'bg-theme-bgTertiary/50 border-theme-border shadow-md translate-x-2 border-l-4 border-l-brand-primary' 
+                    : 'bg-theme-bgAlt/60 border-theme-border hover:bg-theme-bgTertiary/40 text-theme-textMuted'
                 }`}
               >
                 <div className="flex items-center gap-3.5 relative z-10">
-                  <div className={`w-9 h-9 rounded-xl flex items-center justify-center border transition-all relative overflow-hidden ${
+                  <div className={`w-9 h-9 rounded-xl flex items-center justify-center border transition-all relative overflow-hidden transition-colors duration-300 ${
                     selectedIndustry === ind.id 
-                      ? 'bg-zinc-950 border-brand-primary' 
-                      : 'bg-zinc-950 border-zinc-800'
+                      ? 'bg-theme-bg border-brand-primary' 
+                      : 'bg-theme-bg border-theme-border'
                   }`}>
                     {selectedIndustry === ind.id && <div className="absolute inset-0 bg-brand-gradient opacity-10" />}
                     <span className={`relative z-10 ${selectedIndustry === ind.id ? 'text-brand-primary font-bold' : ''}`}>{ind.icon}</span>
                   </div>
-                  <span className={`text-sm font-bold ${selectedIndustry === ind.id ? 'text-zinc-100' : 'text-zinc-450'}`}>
+                  <span className={`text-sm font-bold transition-colors duration-300 ${selectedIndustry === ind.id ? 'text-theme-text' : 'text-theme-textLight'}`}>
                     {ind.label}
                   </span>
                 </div>
  
                 {ind.flagship && (
-                  <span className="text-xs font-medium px-2 py-1 rounded bg-emerald-950/40 text-emerald-400 border border-emerald-800/30 relative z-10">
+                  <span className="text-xs font-medium px-2 py-1 rounded bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/30 relative z-10 transition-colors duration-300">
                     Flagship
                   </span>
                 )}
@@ -160,47 +160,47 @@ export const Industries: React.FC = () => {
 
           {/* Right Detailed Display Board */}
           <div className="lg:col-span-8">
-            <div className="glass-card rounded-3xl p-8 sm:p-12 border border-zinc-800 bg-[#161616]/40 shadow-xl relative min-h-[420px] flex flex-col justify-between overflow-hidden">
+            <div className="glass-card rounded-3xl p-8 sm:p-12 shadow-xl relative min-h-[420px] flex flex-col justify-between overflow-hidden">
               <div className="absolute top-0 left-0 right-0 h-[1px] bg-brand-gradient opacity-20" />
               
               <div className="space-y-6">
-                <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-zinc-800">
+                <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-theme-border transition-colors duration-300">
                   <div className="space-y-1">
                     {current.flagship && (
-                      <span className="inline-flex items-center gap-1 text-xs text-emerald-405 uppercase font-medium tracking-widest">
+                      <span className="inline-flex items-center gap-1 text-xs text-emerald-600 dark:text-emerald-400 uppercase font-medium tracking-widest transition-colors duration-300">
                         <ShieldCheck className="w-3.5 h-3.5" /> HIPAA and SOC 2 Shielded
                       </span>
                     )}
-                    <h3 className="text-2xl font-black text-zinc-100 tracking-tight">{current.title}</h3>
+                    <h3 className="text-2xl font-black text-theme-text tracking-tight transition-colors duration-300">{current.title}</h3>
                   </div>
-                  <div className="w-12 h-12 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-lg shadow-inner">
+                  <div className="w-12 h-12 rounded-2xl bg-theme-bg border border-theme-border flex items-center justify-center text-lg shadow-inner transition-colors duration-300">
                     {current.icon}
                   </div>
                 </div>
  
-                <p className="text-zinc-200 text-base font-semibold leading-relaxed">
+                <p className="text-theme-textMuted text-base font-semibold leading-relaxed transition-colors duration-300">
                   {current.tagline}
                 </p>
  
-                <div className="bg-zinc-900/40 border border-zinc-800/60 rounded-2xl p-6 space-y-4">
-                  <h4 className="text-xs font-black text-zinc-500 uppercase tracking-widest">Core Use Cases & Mechanics</h4>
-                  <p className="text-zinc-400 text-sm font-semibold leading-relaxed">{current.cases}</p>
+                <div className="bg-theme-bg/40 border border-theme-border rounded-2xl p-6 space-y-4 transition-colors duration-300">
+                  <h4 className="text-xs font-black text-theme-textLight uppercase tracking-widest transition-colors duration-300">Core Use Cases & Mechanics</h4>
+                  <p className="text-theme-textMuted text-sm font-semibold leading-relaxed transition-colors duration-300">{current.cases}</p>
                 </div>
  
                 <div className="space-y-3">
-                  <h4 className="text-xs font-black text-zinc-500 uppercase tracking-widest">Target Business Outcomes</h4>
+                  <h4 className="text-xs font-black text-theme-textLight uppercase tracking-widest transition-colors duration-300">Target Business Outcomes</h4>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     {current.outcomes.map((outcome, idx) => (
-                      <div key={idx} className="bg-zinc-900 border border-zinc-800 rounded-xl p-3 text-center">
-                        <span className="text-sm font-semibold text-zinc-200 leading-snug block">{outcome}</span>
+                      <div key={idx} className="bg-theme-bgAlt border border-theme-border rounded-xl p-3 text-center transition-colors duration-300">
+                        <span className="text-sm font-semibold text-theme-textMuted leading-snug block transition-colors duration-300">{outcome}</span>
                       </div>
                     ))}
                   </div>
                 </div>
               </div>
  
-              <div className="pt-8 border-t border-zinc-800 mt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-                <span className="text-sm text-zinc-400 font-semibold">Need specific custom configurations? We build custom layouts.</span>
+              <div className="pt-8 border-t border-theme-border mt-8 flex flex-col sm:flex-row justify-between items-center gap-4 transition-colors duration-300">
+                <span className="text-sm text-theme-textLight font-semibold transition-colors duration-300">Need specific custom configurations? We build custom layouts.</span>
                 <Link
                   to="/get-quotation"
                   className="w-full sm:w-auto bg-brand-gradient hover:brightness-105 text-white text-sm font-extrabold px-5 py-3.5 rounded-xl transition-all shadow-md inline-flex items-center justify-center gap-1.5 group"

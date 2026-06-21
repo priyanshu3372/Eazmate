@@ -70,7 +70,7 @@ export const QuotationPage: React.FC = () => {
   };
 
   return (
-    <div className="bg-[#101010] text-zinc-300 min-h-screen pt-8 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div className="bg-theme-bg text-theme-textMuted min-h-screen pt-8 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Aurora Background Layer */}
       <div className="aurora-bg">
         <div className="aurora-glow-1" />
@@ -84,7 +84,7 @@ export const QuotationPage: React.FC = () => {
         <div className="mb-8">
           <Link
             to="/"
-            className="inline-flex items-center gap-1.5 text-zinc-400 hover:text-zinc-200 font-bold text-sm transition-colors"
+            className="inline-flex items-center gap-1.5 text-theme-textLight hover:text-theme-text font-bold text-sm transition-colors"
           >
             <ArrowLeft className="w-4 h-4" /> Back to Homepage
           </Link>
@@ -92,26 +92,26 @@ export const QuotationPage: React.FC = () => {
 
         {/* Success Screen Card */}
         {submitSuccess ? (
-          <div className="premium-card p-8 sm:p-12 text-center space-y-8 animate-fade-in shadow-lg border border-zinc-900 bg-[#161616]">
+          <div className="premium-card p-8 sm:p-12 text-center space-y-8 animate-fade-in shadow-lg">
             <div className="w-16 h-16 rounded-full bg-emerald-950/80 border border-emerald-800/40 flex items-center justify-center mx-auto text-emerald-400 shadow-md">
               <CheckCircle2 className="w-8 h-8 stroke-[2.5]" />
             </div>
 
             <div className="space-y-3">
-              <h1 className="text-3xl sm:text-4xl font-black text-zinc-100">
+              <h1 className="text-3xl sm:text-4xl font-black text-theme-text">
                 Proposal Request Initiated!
               </h1>
-              <p className="text-zinc-400 text-base font-semibold max-w-lg mx-auto leading-relaxed">
+              <p className="text-theme-textMuted text-base font-semibold max-w-lg mx-auto leading-relaxed">
                 Thank you, <b>{formDataCache?.contactPerson}</b>. We are analyzing the deployment requirements for <b>{formDataCache?.organizationName}</b>.
               </p>
             </div>
 
             {/* Quick Action WhatsApp Integration */}
-            <div className="bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 max-w-xl mx-auto space-y-4">
+            <div className="bg-theme-bgTertiary border border-theme-border rounded-2xl p-6 max-w-xl mx-auto space-y-4">
               <h3 className="font-sans font-black text-sm text-brand-primary uppercase tracking-wider">
                 Speak to an AI Strategist Instantly
               </h3>
-              <p className="text-sm font-semibold text-zinc-400 leading-normal">
+              <p className="text-sm font-semibold text-theme-textMuted leading-normal">
                 Click below to send your system requirements directly to our integration team on WhatsApp for immediate onboarding.
               </p>
               <a
@@ -125,7 +125,7 @@ export const QuotationPage: React.FC = () => {
               </a>
             </div>
 
-            <div className="text-sm font-semibold text-zinc-400">
+            <div className="text-sm font-semibold text-theme-textMuted">
               <p>A customized proposal deck will be emailed to <b>{formDataCache?.email}</b> within 4 hours.</p>
               <button 
                 onClick={() => setSubmitSuccess(false)}
@@ -137,31 +137,31 @@ export const QuotationPage: React.FC = () => {
           </div>
         ) : (
           /* Form Card */
-          <div className="premium-card overflow-hidden shadow-2xl border border-zinc-800">
+          <div className="premium-card overflow-hidden shadow-2xl">
             
             {/* Form Header */}
-            <div className="p-8 sm:px-10 border-b border-zinc-855 relative bg-[#161616]/40">
+            <div className="p-8 sm:px-10 border-b border-theme-border relative bg-theme-bgTertiary/40">
               <div className="absolute right-6 top-6 hidden sm:flex">
                 <div className="gradient-badge">
                   <ShieldCheck className="w-3.5 h-3.5 text-brand-primary" />
                   <span className="text-gradient font-extrabold uppercase tracking-wider">SOC2 & HIPAA Secure</span>
                 </div>
               </div>
-              <h1 className="text-3xl font-black text-zinc-100 mb-2 leading-tight">
+              <h1 className="text-3xl font-black text-theme-text mb-2 leading-tight">
                 Request Deployment Proposal
               </h1>
-              <p className="text-zinc-400 text-sm font-semibold max-w-2xl leading-relaxed">
+              <p className="text-theme-textMuted text-sm font-semibold max-w-2xl leading-relaxed">
                 Provide detail about your organization's infrastructure scale. Our solutions architect will prepare a tailored AI integration layout.
               </p>
             </div>
 
             {/* Form */}
-            <form onSubmit={handleSubmit(onSubmit)} className="p-8 sm:p-10 space-y-6 bg-[#161616] border-t border-zinc-855">
+            <form onSubmit={handleSubmit(onSubmit)} className="p-8 sm:p-10 space-y-6 bg-theme-bgAlt border-t border-theme-border">
               
               {/* Grid 1: Organization Name & Contact Person */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-1.5">
-                  <label htmlFor="organizationName" className="block text-xs font-medium text-zinc-400 uppercase tracking-wider">
+                  <label htmlFor="organizationName" className="block text-xs font-medium text-theme-textMuted uppercase tracking-wider">
                     Organization Name <span className="text-rose-500">*</span>
                   </label>
                   <input
@@ -169,8 +169,8 @@ export const QuotationPage: React.FC = () => {
                     id="organizationName"
                     aria-invalid={errors.organizationName ? "true" : "false"}
                     className={`w-full font-sans text-sm px-4 py-3 rounded-xl border ${
-                      errors.organizationName ? 'border-rose-500 focus:ring-rose-500/10' : 'border-zinc-800 focus:border-brand-primary'
-                    } focus:outline-none focus:ring-1 focus:ring-brand-primary bg-zinc-900 text-zinc-100 transition-all`}
+                      errors.organizationName ? 'border-rose-500 focus:ring-rose-500/10' : 'border-theme-border focus:border-brand-primary'
+                    } focus:outline-none focus:ring-1 focus:ring-brand-primary bg-theme-bg text-theme-text transition-all`}
                     placeholder="e.g. Zenith Enterprises"
                     {...register('organizationName')}
                   />
@@ -180,7 +180,7 @@ export const QuotationPage: React.FC = () => {
                 </div>
 
                 <div className="space-y-1.5">
-                  <label htmlFor="contactPerson" className="block text-xs font-medium text-zinc-400 uppercase tracking-wider">
+                  <label htmlFor="contactPerson" className="block text-xs font-medium text-theme-textMuted uppercase tracking-wider">
                     Contact Person Name <span className="text-rose-500">*</span>
                   </label>
                   <input
@@ -188,8 +188,8 @@ export const QuotationPage: React.FC = () => {
                     id="contactPerson"
                     aria-invalid={errors.contactPerson ? "true" : "false"}
                     className={`w-full font-sans text-sm px-4 py-3 rounded-xl border ${
-                      errors.contactPerson ? 'border-rose-500 focus:ring-rose-500/10' : 'border-zinc-800 focus:border-brand-primary'
-                    } focus:outline-none focus:ring-1 focus:ring-brand-primary bg-zinc-900 text-zinc-100 transition-all`}
+                      errors.contactPerson ? 'border-rose-500 focus:ring-rose-500/10' : 'border-theme-border focus:border-brand-primary'
+                    } focus:outline-none focus:ring-1 focus:ring-brand-primary bg-theme-bg text-theme-text transition-all`}
                     placeholder="e.g. Rohan Sharma"
                     {...register('contactPerson')}
                   />
@@ -202,11 +202,11 @@ export const QuotationPage: React.FC = () => {
               {/* Grid 2: WhatsApp Number & Email */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-1.5">
-                  <label htmlFor="whatsappNumber" className="block text-xs font-medium text-zinc-400 uppercase tracking-wider">
+                  <label htmlFor="whatsappNumber" className="block text-xs font-medium text-theme-textMuted uppercase tracking-wider">
                     WhatsApp Number (Contact Mobile) <span className="text-rose-500">*</span>
                   </label>
                   <div className="relative">
-                    <span className="absolute left-4 top-3 text-zinc-500 font-medium text-sm select-none">
+                    <span className="absolute left-4 top-3 text-theme-textLight font-medium text-sm select-none">
                       +91
                     </span>
                     <input
@@ -214,8 +214,8 @@ export const QuotationPage: React.FC = () => {
                       id="whatsappNumber"
                       aria-invalid={errors.whatsappNumber ? "true" : "false"}
                       className={`w-full font-sans text-sm pl-14 pr-4 py-3 rounded-xl border ${
-                        errors.whatsappNumber ? 'border-rose-500 focus:ring-rose-500/10' : 'border-zinc-800 focus:border-brand-primary'
-                      } focus:outline-none focus:ring-1 focus:ring-brand-primary bg-zinc-900 text-zinc-100 transition-all`}
+                        errors.whatsappNumber ? 'border-rose-500 focus:ring-rose-500/10' : 'border-theme-border focus:border-brand-primary'
+                      } focus:outline-none focus:ring-1 focus:ring-brand-primary bg-theme-bg text-theme-text transition-all`}
                       placeholder="e.g. 9876543210"
                       {...register('whatsappNumber')}
                     />
@@ -223,12 +223,12 @@ export const QuotationPage: React.FC = () => {
                   {errors.whatsappNumber ? (
                     <p className="text-xs font-medium text-rose-500" role="alert">{errors.whatsappNumber.message}</p>
                   ) : (
-                    <p className="text-xs text-zinc-500 font-medium">For sending custom deployment plans & architectural diagrams</p>
+                    <p className="text-xs text-theme-textLight font-medium">For sending custom deployment plans & architectural diagrams</p>
                   )}
                 </div>
 
                 <div className="space-y-1.5">
-                  <label htmlFor="email" className="block text-xs font-medium text-zinc-400 uppercase tracking-wider">
+                  <label htmlFor="email" className="block text-xs font-medium text-theme-textMuted uppercase tracking-wider">
                     Work Email Address <span className="text-rose-500">*</span>
                   </label>
                   <input
@@ -236,8 +236,8 @@ export const QuotationPage: React.FC = () => {
                     id="email"
                     aria-invalid={errors.email ? "true" : "false"}
                     className={`w-full font-sans text-sm px-4 py-3 rounded-xl border ${
-                      errors.email ? 'border-rose-500 focus:ring-rose-500/10' : 'border-zinc-800 focus:border-brand-primary'
-                    } focus:outline-none focus:ring-1 focus:ring-brand-primary bg-zinc-900 text-zinc-100 transition-all`}
+                      errors.email ? 'border-rose-500 focus:ring-rose-500/10' : 'border-theme-border focus:border-brand-primary'
+                    } focus:outline-none focus:ring-1 focus:ring-brand-primary bg-theme-bg text-theme-text transition-all`}
                     placeholder="you@company.com"
                     {...register('email')}
                   />
@@ -250,7 +250,7 @@ export const QuotationPage: React.FC = () => {
               {/* Grid 3: City & Industry */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                 <div className="space-y-1.5">
-                  <label htmlFor="city" className="block text-xs font-medium text-zinc-400 uppercase tracking-wider">
+                  <label htmlFor="city" className="block text-xs font-medium text-theme-textMuted uppercase tracking-wider">
                     City <span className="text-rose-500">*</span>
                   </label>
                   <input
@@ -258,8 +258,8 @@ export const QuotationPage: React.FC = () => {
                     id="city"
                     aria-invalid={errors.city ? "true" : "false"}
                     className={`w-full font-sans text-sm px-4 py-3 rounded-xl border ${
-                      errors.city ? 'border-rose-500 focus:ring-rose-500/10' : 'border-zinc-800 focus:border-brand-primary'
-                    } focus:outline-none focus:ring-1 focus:ring-brand-primary bg-zinc-900 text-zinc-100 transition-all`}
+                      errors.city ? 'border-rose-500 focus:ring-rose-500/10' : 'border-theme-border focus:border-brand-primary'
+                    } focus:outline-none focus:ring-1 focus:ring-brand-primary bg-theme-bg text-theme-text transition-all`}
                     placeholder="e.g. Mumbai"
                     {...register('city')}
                   />
@@ -269,13 +269,13 @@ export const QuotationPage: React.FC = () => {
                 </div>
 
                 <div className="space-y-1.5">
-                  <label htmlFor="industry" className="block text-xs font-medium text-zinc-400 uppercase tracking-wider">
+                  <label htmlFor="industry" className="block text-xs font-medium text-theme-textMuted uppercase tracking-wider">
                     Industry Vertical <span className="text-rose-500">*</span>
                   </label>
                   <select
                     id="industry"
                     aria-invalid={errors.industry ? "true" : "false"}
-                    className="w-full font-sans text-sm px-4 py-3 rounded-xl border border-zinc-800 focus:border-brand-primary focus:outline-none focus:ring-1 focus:ring-brand-primary bg-zinc-900 text-zinc-100 transition-all"
+                    className="w-full font-sans text-sm px-4 py-3 rounded-xl border border-theme-border focus:border-brand-primary focus:outline-none focus:ring-1 focus:ring-brand-primary bg-theme-bg text-theme-text transition-all"
                     {...register('industry')}
                   >
                     <option value="">-- Choose Vertical --</option>
@@ -296,13 +296,13 @@ export const QuotationPage: React.FC = () => {
                 </div>
 
                 <div className="space-y-1.5">
-                  <label htmlFor="organizationSize" className="block text-xs font-medium text-zinc-400 uppercase tracking-wider">
+                  <label htmlFor="organizationSize" className="block text-xs font-medium text-theme-textMuted uppercase tracking-wider">
                     Organization Scale <span className="text-rose-500">*</span>
                   </label>
                   <select
                     id="organizationSize"
                     aria-invalid={errors.organizationSize ? "true" : "false"}
-                    className="w-full font-sans text-sm px-4 py-3 rounded-xl border border-zinc-800 focus:border-brand-primary focus:outline-none focus:ring-1 focus:ring-brand-primary bg-zinc-900 text-zinc-100 transition-all"
+                    className="w-full font-sans text-sm px-4 py-3 rounded-xl border border-theme-border focus:border-brand-primary focus:outline-none focus:ring-1 focus:ring-brand-primary bg-theme-bg text-theme-text transition-all"
                     {...register('organizationSize')}
                   >
                     <option value="">-- Choose Size --</option>
@@ -319,7 +319,7 @@ export const QuotationPage: React.FC = () => {
 
               {/* Checkbox Group: Desired Capabilities */}
               <div className="space-y-3">
-                <span className="block text-xs font-medium text-zinc-400 uppercase tracking-wider">
+                <span className="block text-xs font-medium text-theme-textMuted uppercase tracking-wider">
                   Capabilities Needed <span className="text-rose-500">*</span>
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -331,15 +331,15 @@ export const QuotationPage: React.FC = () => {
                   ].map((service) => (
                     <label 
                       key={service.id} 
-                      className="flex items-start gap-3 p-3.5 bg-zinc-900 border border-zinc-800 rounded-xl cursor-pointer hover:border-brand-primary/50 transition-all hover:bg-zinc-800/50"
+                      className="flex items-start gap-3 p-3.5 bg-theme-bg border border-theme-border rounded-xl cursor-pointer hover:border-brand-primary/50 transition-all hover:bg-theme-bgTertiary"
                     >
                       <input
                         type="checkbox"
                         value={service.label}
-                        className="mt-1 h-4 w-4 rounded border-zinc-800 text-brand-primary focus:ring-brand-primary bg-zinc-950"
+                        className="mt-1 h-4 w-4 rounded border-theme-border text-brand-primary focus:ring-brand-primary bg-theme-bg"
                         {...register('capabilitiesNeeded')}
                       />
-                      <span className="text-xs font-semibold text-zinc-300 select-none">
+                      <span className="text-xs font-semibold text-theme-textMuted select-none">
                         {service.label}
                       </span>
                     </label>
@@ -352,13 +352,13 @@ export const QuotationPage: React.FC = () => {
 
               {/* Message */}
               <div className="space-y-1.5">
-                <label htmlFor="message" className="block text-xs font-medium text-zinc-400 uppercase tracking-wider">
+                <label htmlFor="message" className="block text-xs font-medium text-theme-textMuted uppercase tracking-wider">
                   Special Integration Notes (Optional)
                 </label>
                 <textarea
                   id="message"
                   rows={4}
-                  className="w-full font-sans text-sm px-4 py-3 rounded-xl border border-zinc-800 focus:border-brand-primary focus:outline-none focus:ring-1 focus:ring-brand-primary bg-zinc-900 text-zinc-100 transition-all"
+                  className="w-full font-sans text-sm px-4 py-3 rounded-xl border border-theme-border focus:border-brand-primary focus:outline-none focus:ring-1 focus:ring-brand-primary bg-theme-bg text-theme-text transition-all"
                   placeholder="Detail any software you currently use (e.g. Slack, HubSpot, Epic, Shopify)..."
                   {...register('message')}
                 ></textarea>
@@ -376,7 +376,7 @@ export const QuotationPage: React.FC = () => {
               </div>
 
               {/* Security/Trust Note */}
-              <div className="text-center text-xs text-zinc-400 pt-2 flex items-center justify-center gap-1.5 font-medium">
+              <div className="text-center text-xs text-theme-textMuted pt-2 flex items-center justify-center gap-1.5 font-medium">
                 <Briefcase className="w-4 h-4 text-brand-primary" />
                 <span>Enterprise SLA guarantees and fully encrypted data handling apply.</span>
               </div>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, Mail, Shield, ArrowUpRight, Zap } from 'lucide-react';
 import { CONTACT_INFO, OFFICE_ADDRESS } from '../config/constants';
+import { ThemeToggle } from '../theme/ThemeToggle';
 
 export const MainLayout: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -16,11 +17,11 @@ export const MainLayout: React.FC = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#101010] text-zinc-300 overflow-x-hidden w-full relative">
+    <div className="min-h-screen flex flex-col bg-theme-bg text-theme-textMuted overflow-x-hidden w-full relative">
       {/* Top Banner for Security & Trust */}
-      <div className="relative overflow-hidden bg-[#161616] border-b border-zinc-900/60 py-2 px-4 text-center text-xs md:text-sm font-medium">
+      <div className="relative overflow-hidden bg-theme-bgTertiary border-b border-theme-border py-2 px-4 text-center text-xs md:text-sm font-medium">
         <div className="absolute inset-0 bg-brand-gradient opacity-3 animate-pulse-glow" />
-        <span className="relative z-10 inline-flex flex-wrap items-center gap-2 justify-center text-zinc-200 break-words">
+        <span className="relative z-10 inline-flex flex-wrap items-center gap-2 justify-center text-theme-textMuted break-words transition-colors duration-300">
           <Shield className="w-4 h-4 text-brand-primary" />
           HIPAA Compliant & SOC2 Ready Infrastructure. Built for enterprise scale.
         </span>
@@ -46,7 +47,7 @@ export const MainLayout: React.FC = () => {
               <Link
                 to="/platform"
                 className={`font-bold text-sm py-2 px-1 transition-colors ${
-                  isActive('/platform') ? 'text-brand-primary font-extrabold' : 'text-zinc-400 hover:text-brand-primary'
+                  isActive('/platform') ? 'text-brand-primary font-extrabold' : 'text-theme-textMuted hover:text-brand-primary'
                 }`}
               >
                 Platform
@@ -54,7 +55,7 @@ export const MainLayout: React.FC = () => {
               <Link
                 to="/solutions"
                 className={`font-bold text-sm py-2 px-1 transition-colors ${
-                  isActive('/solutions') ? 'text-brand-primary font-extrabold' : 'text-zinc-400 hover:text-brand-primary'
+                  isActive('/solutions') ? 'text-brand-primary font-extrabold' : 'text-theme-textMuted hover:text-brand-primary'
                 }`}
               >
                 Solutions
@@ -62,7 +63,7 @@ export const MainLayout: React.FC = () => {
               <Link
                 to="/industries"
                 className={`font-bold text-sm py-2 px-1 transition-colors ${
-                  isActive('/industries') ? 'text-brand-primary font-extrabold' : 'text-zinc-400 hover:text-brand-primary'
+                  isActive('/industries') ? 'text-brand-primary font-extrabold' : 'text-theme-textMuted hover:text-brand-primary'
                 }`}
               >
                 Industries
@@ -70,7 +71,7 @@ export const MainLayout: React.FC = () => {
               <Link
                 to="/integrations"
                 className={`font-bold text-sm py-2 px-1 transition-colors ${
-                  isActive('/integrations') ? 'text-brand-primary font-extrabold' : 'text-zinc-400 hover:text-brand-primary'
+                  isActive('/integrations') ? 'text-brand-primary font-extrabold' : 'text-theme-textMuted hover:text-brand-primary'
                 }`}
               >
                 Integrations
@@ -78,7 +79,7 @@ export const MainLayout: React.FC = () => {
               <Link
                 to="/security"
                 className={`font-bold text-sm py-2 px-1 transition-colors ${
-                  isActive('/security') ? 'text-brand-primary font-extrabold' : 'text-zinc-400 hover:text-brand-primary'
+                  isActive('/security') ? 'text-brand-primary font-extrabold' : 'text-theme-textMuted hover:text-brand-primary'
                 }`}
               >
                 Security
@@ -86,7 +87,7 @@ export const MainLayout: React.FC = () => {
               <Link
                 to="/contact"
                 className={`font-bold text-sm py-2 px-1 transition-colors ${
-                  isActive('/contact') ? 'text-brand-primary font-extrabold' : 'text-zinc-400 hover:text-brand-primary'
+                  isActive('/contact') ? 'text-brand-primary font-extrabold' : 'text-theme-textMuted hover:text-brand-primary'
                 }`}
               >
                 Contact
@@ -95,6 +96,7 @@ export const MainLayout: React.FC = () => {
 
             {/* Right Action CTA */}
             <div className="hidden md:flex items-center gap-4">
+              <ThemeToggle />
               <Link
                 to="/contact"
                 className="border-gradient-container text-xs font-extrabold py-2 px-4 focus:outline-none transition-all block text-center"
@@ -115,7 +117,7 @@ export const MainLayout: React.FC = () => {
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-expanded={mobileMenuOpen}
                 aria-label="Toggle navigation menu"
-                className="inline-flex items-center justify-center p-3 rounded-xl text-zinc-400 hover:text-white focus:outline-none"
+                className="inline-flex items-center justify-center p-3 rounded-xl text-theme-textLight hover:text-theme-text focus:outline-none transition-colors duration-300"
               >
                 {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </button>
@@ -125,13 +127,17 @@ export const MainLayout: React.FC = () => {
 
         {/* Mobile menu, show/hide based on menu state. */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-[#161616] border-t border-zinc-900 py-6 px-6 space-y-4 shadow-xl max-h-[calc(100vh-5rem)] overflow-y-auto">
+          <div className="lg:hidden bg-theme-bgTertiary border-t border-theme-border py-6 px-6 space-y-4 shadow-xl max-h-[calc(100vh-5rem)] overflow-y-auto">
+            <div className="flex items-center justify-between pb-4 border-b border-theme-border mb-4">
+              <span className="text-sm font-bold text-theme-textMuted">Theme Mode</span>
+              <ThemeToggle />
+            </div>
             <div className="space-y-2">
               <Link
                 to="/platform"
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block py-3 text-base font-bold ${
-                  isActive('/platform') ? 'text-brand-primary font-extrabold' : 'text-zinc-400 hover:text-zinc-100'
+                  isActive('/platform') ? 'text-brand-primary font-extrabold' : 'text-theme-textMuted hover:text-theme-text'
                 }`}
               >
                 Platform
@@ -140,7 +146,7 @@ export const MainLayout: React.FC = () => {
                 to="/solutions"
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block py-3 text-base font-bold ${
-                  isActive('/solutions') ? 'text-brand-primary font-extrabold' : 'text-zinc-400 hover:text-zinc-100'
+                  isActive('/solutions') ? 'text-brand-primary font-extrabold' : 'text-theme-textMuted hover:text-theme-text'
                 }`}
               >
                 Solutions
@@ -149,7 +155,7 @@ export const MainLayout: React.FC = () => {
                 to="/industries"
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block py-3 text-base font-bold ${
-                  isActive('/industries') ? 'text-brand-primary font-extrabold' : 'text-zinc-400 hover:text-zinc-100'
+                  isActive('/industries') ? 'text-brand-primary font-extrabold' : 'text-theme-textMuted hover:text-theme-text'
                 }`}
               >
                 Industries
@@ -158,7 +164,7 @@ export const MainLayout: React.FC = () => {
                 to="/integrations"
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block py-3 text-base font-bold ${
-                  isActive('/integrations') ? 'text-brand-primary font-extrabold' : 'text-zinc-400 hover:text-zinc-100'
+                  isActive('/integrations') ? 'text-brand-primary font-extrabold' : 'text-theme-textMuted hover:text-theme-text'
                 }`}
               >
                 Integrations
@@ -167,7 +173,7 @@ export const MainLayout: React.FC = () => {
                 to="/security"
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block py-3 text-base font-bold ${
-                  isActive('/security') ? 'text-brand-primary font-extrabold' : 'text-zinc-400 hover:text-zinc-100'
+                  isActive('/security') ? 'text-brand-primary font-extrabold' : 'text-theme-textMuted hover:text-theme-text'
                 }`}
               >
                 Security
@@ -176,7 +182,7 @@ export const MainLayout: React.FC = () => {
                 to="/contact"
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block py-3 text-base font-bold ${
-                  isActive('/contact') ? 'text-brand-primary font-extrabold' : 'text-zinc-400 hover:text-zinc-100'
+                  isActive('/contact') ? 'text-brand-primary font-extrabold' : 'text-theme-textMuted hover:text-theme-text'
                 }`}
               >
                 Contact
@@ -184,7 +190,7 @@ export const MainLayout: React.FC = () => {
             </div>
             
             {/* Actions for Mobile */}
-            <div className="pt-6 border-t border-zinc-900 flex flex-col gap-3">
+            <div className="pt-6 border-t border-theme-border flex flex-col gap-3">
               <Link 
                 to="/contact"
                 onClick={() => setMobileMenuOpen(false)}
@@ -210,12 +216,12 @@ export const MainLayout: React.FC = () => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-[#101010] text-zinc-400 pt-24 pb-12 border-t border-zinc-900/60 relative overflow-hidden">
+      <footer className="bg-theme-bg text-theme-textMuted pt-24 pb-12 border-t border-theme-border relative overflow-hidden">
         <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-brand-gradient opacity-20" />
         <div className="absolute bottom-[-5%] right-[5%] w-80 h-80 bg-brand-primary/2 rounded-full blur-[100px] pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-16 border-b border-zinc-900/40">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-16 border-b border-theme-border">
             {/* Logo and Tagline */}
             <div className="lg:col-span-2 space-y-6">
               <div className="flex items-center">
@@ -225,14 +231,14 @@ export const MainLayout: React.FC = () => {
                   className="h-[22px] sm:h-[25px] lg:h-[28px] w-auto object-contain"
                 />
               </div>
-              <p className="text-zinc-400 text-sm font-semibold leading-relaxed max-w-md">
+              <p className="text-theme-textMuted text-sm font-semibold leading-relaxed max-w-md">
                 The AI Brain Behind Every Organization. We build the intelligent infrastructure layer that sits above your existing tools, orchestrating operations, automating CRM pipelines, and running autonomous agents.
               </p>
               <div className="flex items-center gap-4">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-zinc-900 border border-zinc-850 text-zinc-350">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-theme-bgTertiary border border-theme-border text-theme-textMuted">
                   <Shield className="w-3.5 h-3.5 text-brand-primary" /> HIPAA Compliant
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-zinc-900 border border-zinc-850 text-zinc-350">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-theme-bgTertiary border border-theme-border text-theme-textMuted">
                   <Zap className="w-3.5 h-3.5 text-brand-teal" /> SOC2 Ready
                 </span>
               </div>
@@ -240,7 +246,7 @@ export const MainLayout: React.FC = () => {
 
             {/* Platform Links */}
             <div>
-              <h3 className="font-sans text-sm font-black tracking-wider text-zinc-200 uppercase mb-5">Platform</h3>
+              <h3 className="font-sans text-sm font-black tracking-wider text-theme-text uppercase mb-5 transition-colors duration-300">Platform</h3>
               <ul className="space-y-3.5 text-sm">
                 <li>
                   <Link to="/platform" className="hover:text-brand-primary transition-colors">
@@ -267,7 +273,7 @@ export const MainLayout: React.FC = () => {
  
             {/* Company Links */}
             <div>
-              <h3 className="font-sans text-sm font-black tracking-wider text-zinc-200 uppercase mb-5">Resources & Legal</h3>
+              <h3 className="font-sans text-sm font-black tracking-wider text-theme-text uppercase mb-5 transition-colors duration-300">Resources & Legal</h3>
               <ul className="space-y-3.5 text-sm">
                 <li>
                   <Link to="/security" className="hover:text-brand-primary transition-colors">
@@ -290,33 +296,33 @@ export const MainLayout: React.FC = () => {
  
             {/* Contact Details */}
             <div>
-              <h3 className="font-sans text-sm font-black tracking-wider text-zinc-200 uppercase mb-5">Contact</h3>
-              <ul className="space-y-4 text-sm text-zinc-400">
+              <h3 className="font-sans text-sm font-black tracking-wider text-theme-text uppercase mb-5">Contact</h3>
+              <ul className="space-y-4 text-sm text-theme-textMuted">
                 <li className="flex items-start gap-2">
-                  <div className="w-7 h-7 rounded-lg bg-zinc-900 border border-zinc-850 flex items-center justify-center shrink-0">
+                  <div className="w-7 h-7 rounded-lg bg-theme-bgTertiary border border-theme-border flex items-center justify-center shrink-0">
                     <Phone className="w-3.5 h-3.5 text-brand-primary" />
                   </div>
                   <div className="flex flex-col gap-1 mt-0.5">
                     {CONTACT_INFO.phones.map((phone) => (
-                      <a key={phone.value} href={phone.telLink} className="hover:text-white transition-colors">
+                      <a key={phone.value} href={phone.telLink} className="hover:text-theme-text hover:underline transition-colors">
                         {phone.display}
                       </a>
                     ))}
                   </div>
                 </li>
                 <li className="flex items-start gap-2">
-                  <div className="w-7 h-7 rounded-lg bg-zinc-900 border border-zinc-850 flex items-center justify-center shrink-0">
+                  <div className="w-7 h-7 rounded-lg bg-theme-bgTertiary border border-theme-border flex items-center justify-center shrink-0">
                     <Mail className="w-3.5 h-3.5 text-brand-teal" />
                   </div>
                   <div className="flex flex-col gap-1 mt-0.5">
                     {CONTACT_INFO.emails.map((email) => (
-                      <a key={email.display} href={email.mailtoLink} className="hover:text-white transition-colors">
+                      <a key={email.display} href={email.mailtoLink} className="hover:text-theme-text hover:underline transition-colors">
                         {email.display}
                       </a>
                     ))}
                   </div>
                 </li>
-                <li className="text-sm text-zinc-500 leading-normal flex gap-2">
+                <li className="text-sm text-theme-textLight leading-normal flex gap-2">
                   <span>📍</span>
                   <span>{OFFICE_ADDRESS.full}</span>
                 </li>
@@ -325,7 +331,7 @@ export const MainLayout: React.FC = () => {
           </div>
   
           {/* Bottom Bar */}
-          <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-zinc-500 border-t border-zinc-900/40">
+          <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-theme-textLight border-t border-theme-border">
             <p>© {new Date().getFullYear()} Eazmate Technologies Pvt. Ltd. All rights reserved.</p>
             <div className="flex gap-6">
               <span>GDPR Compliant</span>

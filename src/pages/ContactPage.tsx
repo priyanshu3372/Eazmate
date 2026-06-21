@@ -4,7 +4,7 @@ import { Contact } from '../features/landing/Contact';
 
 export const ContactPage: React.FC = () => {
   return (
-    <div className="bg-[#101010] text-zinc-300 min-h-screen relative overflow-hidden">
+    <div className="bg-theme-bg text-theme-textMuted min-h-screen relative overflow-hidden">
       {/* Aurora Background Layer */}
       <div className="aurora-bg">
         <div className="aurora-glow-1" />
@@ -18,11 +18,11 @@ export const ContactPage: React.FC = () => {
           <MessageSquare className="w-4 h-4 text-brand-primary animate-pulse" />
           <span className="text-gradient font-extrabold">Eazmate Support & Sales Hub</span>
         </div>
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight mb-6 leading-tight max-w-4xl mx-auto text-zinc-100">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight mb-6 leading-tight max-w-4xl mx-auto text-theme-text">
           Speak With Our AI <br />
           <span className="text-gradient">Operations Engineering Team</span>
         </h1>
-        <p className="text-zinc-400 text-lg font-semibold max-w-3xl mx-auto leading-relaxed">
+        <p className="text-theme-textMuted text-lg font-semibold max-w-3xl mx-auto leading-relaxed">
           Need details on how Eazmate coordinates with your database architecture, signs HIPAA BAAs, or manages automated notification channels? Connect with us instantly.
         </p>
 
@@ -34,12 +34,12 @@ export const ContactPage: React.FC = () => {
             { value: "HIPAA / SOC2", label: "Compliance Direct", icon: <ShieldCheck className="w-4 h-4 text-blue-400" /> },
             { value: "Flexible", label: "SLA Frameworks", icon: <MessageSquare className="w-4 h-4 text-brand-teal" /> }
           ].map((stat, idx) => (
-            <div key={idx} className="premium-card p-6 text-center relative overflow-hidden group shadow-sm border border-zinc-900 bg-[#161616]">
+            <div key={idx} className="premium-card p-6 text-center relative overflow-hidden group shadow-sm">
               <div className="absolute inset-0 bg-brand-gradient opacity-0 group-hover:opacity-5 transition-opacity duration-300" />
               <div className="text-2xl sm:text-3xl font-black mb-1 tracking-tight flex items-center justify-center gap-2">
                 <span className="text-gradient">{stat.value}</span>
               </div>
-              <div className="text-xs text-zinc-400 font-medium tracking-wider uppercase flex items-center justify-center gap-1.5 mt-1">
+              <div className="text-xs text-theme-textMuted font-medium tracking-wider uppercase flex items-center justify-center gap-1.5 mt-1">
                 {stat.icon}
                 {stat.label}
               </div>

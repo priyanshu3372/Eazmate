@@ -4,9 +4,26 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="canonical" href="https://eazmate.com/" />
-    <meta name="robots" content="index, follow" />
-    
+    <!-- Theme Initialization Script to Prevent FOUC -->
+    <script>
+      (function() {
+        try {
+          var savedTheme = localStorage.getItem('theme');
+          var systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          var activeTheme = savedTheme || systemTheme;
+          if (activeTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+            document.documentElement.classList.remove('light');
+          } else {
+            document.documentElement.classList.add('light');
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (e) {
+          console.error('Theme init failed', e);
+        }
+      })();
+    </script>
+
     <!-- Primary SEO Meta Tags -->
     <title>Eazmate | The AI Operating System for Organizations</title>
     <meta name="title" content="Eazmate | The AI Operating System for Organizations" />

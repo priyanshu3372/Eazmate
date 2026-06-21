@@ -70,7 +70,7 @@ export const AnalyticsIntelligence: React.FC = () => {
   };
 
   return (
-    <section className="relative py-24 bg-[#101010] border-t border-zinc-900">
+    <section className="relative py-24 bg-theme-bg border-t border-theme-border transition-colors duration-300">
       <div className="absolute bottom-10 right-1/4 w-[400px] h-[400px] bg-brand-primary/5 rounded-full blur-[120px] pointer-events-none opacity-20" />
  
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -80,11 +80,11 @@ export const AnalyticsIntelligence: React.FC = () => {
           <span className="gradient-badge font-extrabold uppercase tracking-wider">
             <BarChart3 className="w-3.5 h-3.5 text-brand-primary" /> Analytics & Intelligence
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-zinc-100 leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-theme-text leading-tight transition-colors duration-300">
             Verify <span className="text-gradient">Optimization</span> Performance <br />
             With Real-Time <span className="text-gradient">ROI Tracking</span>
           </h2>
-          <p className="text-zinc-400 text-base font-semibold leading-relaxed">
+          <p className="text-theme-textMuted text-base font-semibold leading-relaxed transition-colors duration-300">
             Instantly track metrics, trace trends, measure resource savings, and analyze AI performance parameters from a unified executive control deck.
           </p>
         </div>
@@ -94,17 +94,17 @@ export const AnalyticsIntelligence: React.FC = () => {
           
           {/* Left Side: Interactive Executive Control Visual */}
           <div className="lg:col-span-8">
-            <div className="premium-card p-6 relative border border-zinc-900 bg-[#161616]">
+            <div className="premium-card p-6 relative">
               <div className="absolute top-0 left-0 right-0 h-[1px] bg-brand-gradient opacity-20" />
               
-              <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4 pb-4 border-b border-zinc-800 mb-6">
+              <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4 pb-4 border-b border-theme-border mb-6 transition-colors duration-300">
                 <div>
-                  <h3 className="text-sm font-black text-zinc-150 mb-0.5">Executive Insights Dashboard</h3>
-                  <span className="text-xs text-zinc-500 font-mono font-medium">Workspace ID: EZ_88910</span>
+                  <h3 className="text-sm font-black text-theme-text mb-0.5 transition-colors duration-300">Executive Insights Dashboard</h3>
+                  <span className="text-xs text-theme-textLight font-mono font-medium transition-colors duration-300">Workspace ID: EZ_88910</span>
                 </div>
  
                 {/* Timeframe Select Tab Grid */}
-                <div className="flex gap-1.5 p-1 bg-zinc-950/60 rounded-xl border border-zinc-850 shrink-0 self-start sm:self-auto">
+                <div className="flex gap-1.5 p-1 bg-theme-bg/60 rounded-xl border border-theme-border shrink-0 self-start sm:self-auto transition-colors duration-300">
                   {[
                     { id: '30', label: '30 Days' },
                     { id: '90', label: '90 Days' },
@@ -115,8 +115,8 @@ export const AnalyticsIntelligence: React.FC = () => {
                       onClick={() => setTimeframe(tab.id as any)}
                       className={`text-center px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
                         timeframe === tab.id 
-                          ? 'bg-[#161616] text-zinc-100 shadow-sm border border-zinc-800' 
-                          : 'text-zinc-400 hover:text-zinc-200'
+                          ? 'bg-theme-bgTertiary text-theme-text shadow-sm border border-theme-border' 
+                          : 'text-theme-textLight hover:text-theme-text'
                       }`}
                     >
                       {tab.label}
@@ -133,9 +133,9 @@ export const AnalyticsIntelligence: React.FC = () => {
                   { value: currentData.actions, label: "Executed Actions", icon: <Zap className="w-4 h-4 text-blue-400" />, change: "99.9% success" },
                   { value: currentData.hoursSaved, label: "Hours Salvaged", icon: <DollarSign className="w-4 h-4 text-brand-teal" />, change: "intake focus" }
                 ].map((m, idx) => (
-                  <div key={idx} className="bg-[#101010]/60 border border-zinc-900 rounded-xl p-4 flex flex-col justify-between shadow-sm relative overflow-hidden group">
+                  <div key={idx} className="bg-theme-bg/60 border border-theme-border rounded-xl p-4 flex flex-col justify-between shadow-sm relative overflow-hidden group transition-colors duration-300">
                     <div className="absolute top-0 left-0 right-0 h-[2px] bg-brand-gradient opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <div className="flex items-center justify-between text-zinc-400 mb-2">
+                    <div className="flex items-center justify-between text-theme-textMuted mb-2 transition-colors duration-300">
                        <span className="text-xs uppercase font-medium tracking-wider">{m.label}</span>
                        <span className="shrink-0">{m.icon}</span>
                     </div>
@@ -146,10 +146,10 @@ export const AnalyticsIntelligence: React.FC = () => {
                   </div>
                 ))}
               </div>
-
+ 
               {/* Chart Visual Row */}
-              <div className="bg-[#101010] border border-zinc-900 rounded-2xl p-5 mb-6 relative">
-                <div className="flex justify-between items-center text-xs text-zinc-400 font-medium uppercase tracking-wider mb-4">
+              <div className="bg-theme-bg border border-theme-border rounded-2xl p-5 mb-6 relative transition-colors duration-300">
+                <div className="flex justify-between items-center text-xs text-theme-textMuted font-medium uppercase tracking-wider mb-4 transition-colors duration-300">
                   <span>Latency Reduction Trend</span>
                   <span className="text-brand-teal font-mono font-medium">lower values are better</span>
                 </div>
@@ -174,9 +174,9 @@ export const AnalyticsIntelligence: React.FC = () => {
                     </defs>
                     
                     {/* Grid lines */}
-                    <line x1="0" y1="25" x2="100" y2="25" stroke="#27272A" strokeWidth="0.5" strokeDasharray="3" />
-                    <line x1="0" y1="50" x2="100" y2="50" stroke="#27272A" strokeWidth="0.5" strokeDasharray="3" />
-                    <line x1="0" y1="75" x2="100" y2="75" stroke="#27272A" strokeWidth="0.5" strokeDasharray="3" />
+                    <line x1="0" y1="25" x2="100" y2="25" stroke="var(--border-color)" strokeWidth="0.5" strokeDasharray="3" />
+                    <line x1="0" y1="50" x2="100" y2="50" stroke="var(--border-color)" strokeWidth="0.5" strokeDasharray="3" />
+                    <line x1="0" y1="75" x2="100" y2="75" stroke="var(--border-color)" strokeWidth="0.5" strokeDasharray="3" />
                     
                     {/* Area fill */}
                     <path 
@@ -201,7 +201,7 @@ export const AnalyticsIntelligence: React.FC = () => {
                         cy={p.y} 
                         r="1.8" 
                         fill="#ccaf69" 
-                        stroke="#161616" 
+                        stroke="var(--bg-primary)" 
                         strokeWidth="0.5"
                         className="transition-all duration-700 ease-in-out"
                       />
@@ -209,7 +209,7 @@ export const AnalyticsIntelligence: React.FC = () => {
                   </svg>
                   
                   {/* Axis labels */}
-                  <div className="absolute bottom-0 left-0 right-0 flex justify-between text-xs text-zinc-550 px-2 font-mono font-medium pt-1 select-none">
+                  <div className="absolute bottom-0 left-0 right-0 flex justify-between text-xs text-theme-textLight px-2 font-mono font-medium pt-1 select-none transition-colors duration-300">
                     <span>Week 1</span>
                     <span>Week 2</span>
                     <span>Week 3</span>
@@ -219,11 +219,11 @@ export const AnalyticsIntelligence: React.FC = () => {
               </div>
  
               {/* Natural language AI Insight Block in Visual */}
-              <div className="p-3.5 bg-emerald-950/40 border border-emerald-800/30 rounded-xl flex gap-2.5 items-start">
-                <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-500/20 border border-emerald-800/40 text-emerald-450 uppercase tracking-widest mt-0.5 shrink-0 select-none">
+              <div className="p-3.5 bg-emerald-50/70 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/30 rounded-xl flex gap-2.5 items-start transition-colors duration-300">
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-500/20 border border-emerald-300 dark:border-emerald-800/40 text-emerald-700 dark:text-emerald-450 uppercase tracking-widest mt-0.5 shrink-0 select-none transition-colors duration-300">
                   AI Alert
                 </span>
-                <p className="text-sm font-semibold text-emerald-400 leading-normal">{currentData.insights}</p>
+                <p className="text-sm font-semibold text-emerald-800 dark:text-emerald-400 leading-normal transition-colors duration-300">{currentData.insights}</p>
               </div>
 
             </div>
@@ -232,8 +232,8 @@ export const AnalyticsIntelligence: React.FC = () => {
           {/* Right Side: Simple bullet lists and capabilities descriptions */}
           <div className="lg:col-span-4 space-y-6">
             <div className="space-y-3">
-              <h3 className="text-xl font-black text-zinc-100 font-sans">Actionable Executive Reporting</h3>
-              <p className="text-zinc-400 text-sm font-semibold leading-relaxed">
+              <h3 className="text-xl font-black text-theme-text font-sans transition-colors duration-300">Actionable Executive Reporting</h3>
+              <p className="text-theme-textMuted text-sm font-semibold leading-relaxed transition-colors duration-300">
                 Generate localized reports on agent response metrics, API run success ratings, custom funnel logic tracking, and workflow efficiency gains. Export data to CSV or connect directly with tools like BI/Tableau via REST APIs.
               </p>
             </div>
@@ -247,8 +247,8 @@ export const AnalyticsIntelligence: React.FC = () => {
                 <div key={idx} className="flex gap-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-brand-teal mt-2 shrink-0" />
                   <div>
-                    <h4 className="text-sm font-black text-zinc-200 mb-0.5">{item.title}</h4>
-                    <p className="text-zinc-400 text-sm font-semibold leading-relaxed">{item.desc}</p>
+                    <h4 className="text-sm font-black text-theme-text mb-0.5 transition-colors duration-300">{item.title}</h4>
+                    <p className="text-theme-textMuted text-sm font-semibold leading-relaxed transition-colors duration-300">{item.desc}</p>
                   </div>
                 </div>
               ))}
