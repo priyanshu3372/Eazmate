@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { ShieldCheck, MessageSquare, ArrowLeft, CheckCircle2, ChevronRight, Briefcase } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { CONTACT_INFO } from '../config/constants';
 
 // Zod validation schema matching general enterprise requirements
@@ -24,6 +24,12 @@ const quotationSchema = z.object({
 type QuotationFormData = z.infer<typeof quotationSchema>;
 
 export const QuotationPage: React.FC = () => {
+  const [searchParams] = useSearchParams();
+  const orgNameParam = searchParams.get('orgName') || '';
+  const verticalParam = searchParams.get('vertical') || '';
+  const notesParam = searchParams.get('notes') || '';
+  const capsParam = searchParams.get('caps') ? (searchParams.get('caps')?.split(',') || []) : [];
+
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [formDataCache, setFormDataCache] = useState<QuotationFormData | null>(null);
 
@@ -35,15 +41,15 @@ export const QuotationPage: React.FC = () => {
   } = useForm<QuotationFormData>({
     resolver: zodResolver(quotationSchema),
     defaultValues: {
-      organizationName: '',
+      organizationName: orgNameParam,
       contactPerson: '',
       whatsappNumber: '',
       email: '',
       city: '',
       organizationSize: '',
-      industry: '',
-      capabilitiesNeeded: [],
-      message: ''
+      industry: verticalParam,
+      capabilitiesNeeded: capsParam,
+      message: notesParam
     }
   });
 

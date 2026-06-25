@@ -1,8 +1,32 @@
 import React, { useState } from 'react';
 import { UserCheck, Split, History, MessageSquare, Users } from 'lucide-react';
+import { useTheme } from '../../theme/ThemeProvider';
 
 export const UnifiedCRM: React.FC = () => {
+  const { theme } = useTheme();
   const [selectedCard, setSelectedCard] = useState<number>(1);
+
+  const getStageColor = (status: string) => {
+    const isDark = theme === 'dark';
+    switch (status) {
+      case 'Onboarding':
+        return isDark 
+          ? 'bg-amber-950/40 text-amber-400 border-amber-800/30' 
+          : 'bg-amber-50 text-amber-800 border-amber-250';
+      case 'Negotiation':
+        return isDark 
+          ? 'bg-blue-950/40 text-blue-400 border-blue-800/30' 
+          : 'bg-blue-50 text-blue-800 border-blue-250';
+      case 'Pipeline Closed':
+        return isDark 
+          ? 'bg-emerald-950/40 text-emerald-400 border-emerald-800/30' 
+          : 'bg-emerald-50 text-emerald-800 border-emerald-250';
+      default:
+        return isDark 
+          ? 'bg-neutral-800 text-neutral-400 border-neutral-700' 
+          : 'bg-neutral-50 text-neutral-800 border-neutral-250';
+    }
+  };
 
   const features = [
     {
@@ -130,7 +154,7 @@ export const UnifiedCRM: React.FC = () => {
                     >
                       <h4 className="text-sm font-black text-theme-text mb-1 truncate">{card.name}</h4>
                       <p className="text-sm font-medium text-theme-textMuted mb-2">{card.role}</p>
-                      <span className={`inline-block text-xs font-medium px-2 py-0.5 rounded-full border ${card.stageColor}`}>
+                      <span className={`inline-block text-xs font-medium px-2 py-0.5 rounded-full border ${getStageColor(card.status)}`}>
                         {card.status}
                       </span>
                     </div>
@@ -154,7 +178,7 @@ export const UnifiedCRM: React.FC = () => {
                     >
                       <h4 className="text-sm font-black text-theme-text mb-1 truncate">{card.name}</h4>
                       <p className="text-sm font-medium text-theme-textMuted mb-2">{card.role}</p>
-                      <span className={`inline-block text-xs font-medium px-2 py-0.5 rounded-full border ${card.stageColor}`}>
+                      <span className={`inline-block text-xs font-medium px-2 py-0.5 rounded-full border ${getStageColor(card.status)}`}>
                         {card.status}
                       </span>
                     </div>
@@ -175,7 +199,7 @@ export const UnifiedCRM: React.FC = () => {
                     >
                       <h4 className="text-sm font-black text-theme-text mb-1 truncate">{card.name}</h4>
                       <p className="text-sm font-medium text-theme-textMuted mb-2">{card.role}</p>
-                      <span className={`inline-block text-xs font-medium px-2 py-0.5 rounded-full border ${card.stageColor}`}>
+                      <span className={`inline-block text-xs font-medium px-2 py-0.5 rounded-full border ${getStageColor(card.status)}`}>
                         Active OS
                       </span>
                     </div>
@@ -198,7 +222,7 @@ export const UnifiedCRM: React.FC = () => {
                         <span className="text-xs font-medium text-theme-textLight uppercase tracking-widest">Unified Profile</span>
                         <h3 className="text-lg font-black text-theme-text">{currentData.name}</h3>
                       </div>
-                      <span className={`text-xs font-medium px-2.5 py-0.5 rounded-full border ${currentData.stageColor}`}>
+                      <span className={`text-xs font-medium px-2.5 py-0.5 rounded-full border ${getStageColor(currentData.status)}`}>
                         {currentData.status}
                       </span>
                     </div>
