@@ -144,13 +144,13 @@ export const Industries: React.FC = () => {
                     {selectedIndustry === ind.id && <div className="absolute inset-0 bg-brand-gradient opacity-10" />}
                     <span className={`relative z-10 ${selectedIndustry === ind.id ? 'text-brand-primary font-bold' : ''}`}>{ind.icon}</span>
                   </div>
-                  <span className={`text-sm font-bold transition-colors duration-300 ${selectedIndustry === ind.id ? 'text-theme-text' : 'text-theme-textLight'}`}>
+                  <span className={`text-sm font-bold transition-colors duration-300 ${selectedIndustry === ind.id ? 'text-theme-text' : 'text-theme-textMuted'}`}>
                     {ind.label}
                   </span>
                 </div>
  
                 {ind.flagship && (
-                  <span className="text-xs font-medium px-2 py-1 rounded bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/30 relative z-10 transition-colors duration-300">
+                  <span className="text-xs font-semibold px-2 py-1 rounded bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/30 relative z-10 transition-colors duration-300">
                     Flagship
                   </span>
                 )}
@@ -183,12 +183,12 @@ export const Industries: React.FC = () => {
                 </p>
  
                 <div className="bg-theme-bg/40 border border-theme-border rounded-2xl p-6 space-y-4 transition-colors duration-300">
-                  <h4 className="text-xs font-black text-theme-textLight uppercase tracking-widest transition-colors duration-300">Core Use Cases & Mechanics</h4>
+                  <h4 className="text-xs font-black text-theme-textMuted uppercase tracking-widest transition-colors duration-300">Core Use Cases & Mechanics</h4>
                   <p className="text-theme-textMuted text-sm font-semibold leading-relaxed transition-colors duration-300">{current.cases}</p>
                 </div>
  
                 <div className="space-y-3">
-                  <h4 className="text-xs font-black text-theme-textLight uppercase tracking-widest transition-colors duration-300">Target Business Outcomes</h4>
+                  <h4 className="text-xs font-black text-theme-textMuted uppercase tracking-widest transition-colors duration-300">Target Business Outcomes</h4>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     {current.outcomes.map((outcome, idx) => (
                       <div key={idx} className="bg-theme-bgAlt border border-theme-border rounded-xl p-3 text-center transition-colors duration-300">
@@ -200,7 +200,7 @@ export const Industries: React.FC = () => {
               </div>
  
               <div className="pt-8 border-t border-theme-border mt-8 flex flex-col sm:flex-row justify-between items-center gap-4 transition-colors duration-300">
-                <span className="text-sm text-theme-textLight font-semibold transition-colors duration-300">Need specific custom configurations? We build custom layouts.</span>
+                <span className="text-sm text-theme-textMuted font-semibold transition-colors duration-300">Need specific custom configurations? We build custom layouts.</span>
                 <Link
                   to="/get-quotation"
                   className="w-full sm:w-auto bg-brand-gradient hover:brightness-105 text-white text-sm font-extrabold px-5 py-3.5 rounded-xl transition-all shadow-md inline-flex items-center justify-center gap-1.5 group"

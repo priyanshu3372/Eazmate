@@ -110,7 +110,7 @@ export const SecurityPage: React.FC = () => {
               <div className="text-2xl sm:text-3xl font-black mb-1 tracking-tight">
                 <span className="text-gradient">{stat.value}</span>
               </div>
-              <div className="text-xs text-theme-textMuted font-medium tracking-wider uppercase">{stat.label}</div>
+              <div className="text-xs text-theme-textMuted font-bold tracking-wider uppercase">{stat.label}</div>
             </div>
           ))}
         </div>
@@ -132,7 +132,7 @@ export const SecurityPage: React.FC = () => {
                 className={`flex-1 text-center py-2.5 rounded-xl text-sm font-black transition-all duration-300 relative ${
                   isActive 
                     ? 'text-theme-text shadow-sm bg-theme-bg border border-transparent' 
-                    : 'text-theme-textLight hover:text-theme-text'
+                    : 'text-theme-textMuted hover:text-theme-text font-black'
                 }`}
                 style={isActive ? {
                   border: '1px solid transparent',

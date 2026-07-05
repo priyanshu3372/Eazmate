@@ -39,13 +39,13 @@ export const Contact: React.FC = () => {
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 bg-theme-bgAlt hover:bg-theme-bgTertiary border border-theme-border p-5 rounded-2xl transition-all shadow-sm group animate-fade-in"
               >
-                <div className="w-12 h-12 rounded-xl bg-emerald-950/80 border border-emerald-800/40 flex items-center justify-center text-emerald-450 shrink-0 group-hover:scale-105 transition-transform">
-                  <MessageSquare className="w-6 h-6 fill-current text-emerald-450" />
+                <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-200 dark:border-emerald-800/40 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0 group-hover:scale-105 transition-transform">
+                  <MessageSquare className="w-6 h-6 fill-current text-emerald-600 dark:text-emerald-400" />
                 </div>
                 <div>
-                  <span className="block text-xs font-medium text-emerald-450 uppercase tracking-wider">Fast Response</span>
+                  <span className="block text-xs font-semibold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">Fast Response</span>
                   <span className="block font-sans font-black text-base text-theme-text">Chat on WhatsApp</span>
-                  <span className="block text-xs font-medium text-theme-textMuted mt-0.5">{CONTACT_INFO.whatsapp.number}</span>
+                  <span className="block text-xs font-semibold text-theme-textMuted mt-0.5">{CONTACT_INFO.whatsapp.number}</span>
                 </div>
               </a>
 
@@ -56,7 +56,7 @@ export const Contact: React.FC = () => {
                   <Phone className="w-6 h-6 text-brand-primary relative z-10" />
                 </div>
                 <div className="flex-grow">
-                  <span className="block text-xs font-medium text-theme-textLight uppercase tracking-wider">Solutions Line</span>
+                  <span className="block text-xs font-semibold text-theme-textMuted uppercase tracking-wider">Solutions Line</span>
                   <span className="block font-sans font-black text-base text-theme-text">Call Our Team</span>
                   <div className="flex flex-col gap-1 text-xs font-semibold text-theme-textMuted mt-1.5">
                     {CONTACT_INFO.phones.map((phone) => (
@@ -75,7 +75,7 @@ export const Contact: React.FC = () => {
                   <Mail className="w-6 h-6 text-brand-light relative z-10" />
                 </div>
                 <div className="flex-grow">
-                  <span className="block text-xs font-medium text-theme-textLight uppercase tracking-wider">Enquiries</span>
+                  <span className="block text-xs font-semibold text-theme-textMuted uppercase tracking-wider">Enquiries</span>
                   <span className="block font-sans font-black text-base text-theme-text">Email Relations</span>
                   <div className="flex flex-col gap-1 text-xs font-semibold text-theme-textMuted mt-1.5">
                     {CONTACT_INFO.emails.map((email) => (
@@ -90,7 +90,7 @@ export const Contact: React.FC = () => {
 
             {/* Office details */}
             <div className="flex items-start gap-2.5 text-theme-textMuted text-sm font-semibold pt-4">
-              <MapPin className="w-4 h-4 text-theme-textLight shrink-0 mt-0.5" />
+              <MapPin className="w-4 h-4 text-theme-textMuted shrink-0 mt-0.5" />
               <span>
                 <b>Headquarters:</b>{' '}
                 <a

@@ -74,7 +74,7 @@ export const Integrations: React.FC = () => {
                 >
                   <div className="text-lg mb-1">{item.icon}</div>
                   <div className="text-xs font-black text-theme-text truncate transition-colors duration-300">{item.name}</div>
-                  <div className="text-xs text-theme-textLight font-medium mt-0.5 transition-colors duration-300">{item.category}</div>
+                  <div className="text-xs text-theme-textMuted font-semibold mt-0.5 transition-colors duration-300">{item.category}</div>
                 </div>
               ))}
             </div>

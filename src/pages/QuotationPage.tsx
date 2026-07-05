@@ -99,7 +99,7 @@ export const QuotationPage: React.FC = () => {
         {/* Success Screen Card */}
         {submitSuccess ? (
           <div className="premium-card p-8 sm:p-12 text-center space-y-8 animate-fade-in shadow-lg">
-            <div className="w-16 h-16 rounded-full bg-emerald-950/80 border border-emerald-800/40 flex items-center justify-center mx-auto text-emerald-400 shadow-md">
+            <div className="w-16 h-16 rounded-full bg-emerald-100 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-800/40 flex items-center justify-center mx-auto text-emerald-700 dark:text-emerald-400 shadow-md">
               <CheckCircle2 className="w-8 h-8 stroke-[2.5]" />
             </div>
 
@@ -208,11 +208,11 @@ export const QuotationPage: React.FC = () => {
               {/* Grid 2: WhatsApp Number & Email */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-1.5">
-                  <label htmlFor="whatsappNumber" className="block text-xs font-medium text-theme-textMuted uppercase tracking-wider">
+                  <label htmlFor="whatsappNumber" className="block text-xs font-semibold text-theme-textMuted uppercase tracking-wider">
                     WhatsApp Number (Contact Mobile) <span className="text-rose-500">*</span>
                   </label>
                   <div className="relative">
-                    <span className="absolute left-4 top-3 text-theme-textLight font-medium text-sm select-none">
+                    <span className="absolute left-4 top-3 text-theme-textMuted font-semibold text-sm select-none">
                       +91
                     </span>
                     <input
@@ -229,7 +229,7 @@ export const QuotationPage: React.FC = () => {
                   {errors.whatsappNumber ? (
                     <p className="text-xs font-medium text-rose-500" role="alert">{errors.whatsappNumber.message}</p>
                   ) : (
-                    <p className="text-xs text-theme-textLight font-medium">For sending custom deployment plans & architectural diagrams</p>
+                    <p className="text-xs text-theme-textMuted font-medium">For sending custom deployment plans & architectural diagrams</p>
                   )}
                 </div>
 
@@ -382,7 +382,7 @@ export const QuotationPage: React.FC = () => {
               </div>
 
               {/* Security/Trust Note */}
-              <div className="text-center text-xs text-theme-textMuted pt-2 flex items-center justify-center gap-1.5 font-medium">
+              <div className="text-center text-xs text-theme-textMuted pt-2 flex items-center justify-center gap-1.5 font-semibold">
                 <Briefcase className="w-4 h-4 text-brand-primary" />
                 <span>Enterprise SLA guarantees and fully encrypted data handling apply.</span>
               </div>

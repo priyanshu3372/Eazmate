@@ -115,7 +115,7 @@ export const Hero: React.FC = () => {
             </div>
 
             {/* Quick value features */}
-            <div className="pt-8 border-t border-theme-border flex flex-wrap justify-center lg:justify-start gap-x-8 gap-y-4 text-sm text-theme-textMuted font-semibold">
+            <div className="pt-8 border-t border-theme-border flex flex-wrap justify-center lg:justify-start gap-x-8 gap-y-4 text-sm text-theme-textMuted font-bold">
               <span className="flex items-center gap-2"><CheckCircle className="w-4.5 h-4.5 text-brand-primary" /> No Credit Card Required</span>
               <span className="flex items-center gap-2"><CheckCircle className="w-4.5 h-4.5 text-brand-primary" /> HIPAA & SOC2 Compliant</span>
               <span className="flex items-center gap-2"><CheckCircle className="w-4.5 h-4.5 text-brand-primary" /> 1000+ Native Integrations</span>
@@ -133,7 +133,7 @@ export const Hero: React.FC = () => {
                   <div className="w-2 h-2 rounded-full bg-neutral-700" />
                   <div className="w-2 h-2 rounded-full bg-neutral-800" />
                 </div>
-                <div className="text-xs text-theme-textLight font-mono tracking-widest uppercase">Eazmate Orchestrator v2.4</div>
+                <div className="text-xs text-theme-textMuted font-mono font-semibold tracking-widest uppercase">Eazmate Orchestrator v2.4</div>
               </div>
 
               {/* Steps rendering as independent cards */}
@@ -160,18 +160,18 @@ export const Hero: React.FC = () => {
                       <div className={`w-9.5 h-9.5 rounded-lg flex items-center justify-center text-lg shrink-0 transition-all ${
                         isActive 
                           ? 'bg-brand-gradient text-white scale-105 shadow-md font-extrabold' 
-                          : 'bg-theme-bgTertiary border border-theme-border text-theme-textLight'
+                          : 'bg-theme-bgTertiary border border-theme-border text-theme-textMuted'
                       }`}>
                         {idx === 0 && <span className="text-xs font-semibold">🔌</span>}
-                        {idx === 1 && <Cpu className="w-4 h-4 text-theme-textLight" />}
-                        {idx === 2 && <Zap className="w-4 h-4 text-theme-textLight" />}
-                        {idx === 3 && <BarChart3 className="w-4 h-4 text-theme-textLight" />}
-                        {idx === 4 && <TrendingUp className="w-4 h-4 text-theme-textLight" />}
+                        {idx === 1 && <Cpu className="w-4 h-4 text-theme-textMuted" />}
+                        {idx === 2 && <Zap className="w-4 h-4 text-theme-textMuted" />}
+                        {idx === 3 && <BarChart3 className="w-4 h-4 text-theme-textMuted" />}
+                        {idx === 4 && <TrendingUp className="w-4 h-4 text-theme-textMuted" />}
                       </div>
                       
                       <div className="space-y-0.5 min-w-0">
                         <div className="flex items-center gap-2">
-                          <h3 className={`text-sm font-black ${isActive ? 'text-theme-text' : 'text-theme-textLight'}`}>
+                          <h3 className={`text-sm font-black ${isActive ? 'text-theme-text' : 'text-theme-textMuted'}`}>
                             {step.title}
                           </h3>
                           {isActive && (
@@ -180,7 +180,7 @@ export const Hero: React.FC = () => {
                             </span>
                           )}
                         </div>
-                        <p className="text-theme-textLight text-sm leading-normal">
+                        <p className="text-theme-textMuted text-sm font-medium leading-normal">
                           {step.desc}
                         </p>
                       </div>
@@ -191,7 +191,7 @@ export const Hero: React.FC = () => {
 
               {/* Console log window */}
               <div className="mt-4 p-3.5 rounded-xl bg-theme-bgTertiary border border-theme-border font-mono text-xs leading-relaxed text-brand-primary dark:text-[#c4b083] min-h-[90px] select-none shadow-inner">
-                <div className="text-theme-textLight pb-1 border-b border-theme-border mb-1.5 flex justify-between items-center">
+                <div className="text-theme-textMuted font-semibold pb-1 border-b border-theme-border mb-1.5 flex justify-between items-center">
                   <span>SYSTEM CONSOLE LOG</span>
                   <span className="text-brand-teal animate-pulse text-xs">● READY</span>
                 </div>

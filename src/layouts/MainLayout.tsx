@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import { Link, Outlet, useLocation, ScrollRestoration } from 'react-router-dom';
 import { Menu, X, Phone, Mail, Shield, ArrowUpRight, Zap } from 'lucide-react';
 import { CONTACT_INFO, OFFICE_ADDRESS } from '../config/constants';
 import { ThemeToggle } from '../theme/ThemeToggle';
@@ -8,18 +8,32 @@ export const MainLayout: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
-  // Scroll to top and close mobile menu on route change
+  // Close mobile menu on route change
   useEffect(() => {
-    window.scrollTo(0, 0);
     setMobileMenuOpen(false);
   }, [location.pathname]);
+
+  // Handle scrolling to hash anchor elements
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.substring(1);
+      const timeoutId = setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+      return () => clearTimeout(timeoutId);
+    }
+  }, [location.pathname, location.hash]);
 
   const isActive = (path: string) => location.pathname === path;
 
   return (
     <div className="min-h-screen flex flex-col bg-theme-bg text-theme-textMuted overflow-x-hidden w-full relative">
+      <ScrollRestoration />
       {/* Top Banner for Security & Trust */}
-      <div className="relative overflow-hidden bg-theme-bgTertiary border-b border-theme-border py-2 px-4 text-center text-xs md:text-sm font-medium">
+      <div className="relative overflow-hidden bg-theme-bgTertiary border-b border-theme-border py-2 px-4 text-center text-xs md:text-sm font-semibold">
         <div className="absolute inset-0 bg-brand-gradient opacity-3 animate-pulse-glow" />
         <span className="relative z-10 inline-flex flex-wrap items-center gap-2 justify-center text-theme-textMuted break-words transition-colors duration-300">
           <Shield className="w-4 h-4 text-brand-primary" />
@@ -322,7 +336,7 @@ export const MainLayout: React.FC = () => {
                     ))}
                   </div>
                 </li>
-                <li className="text-sm text-theme-textLight leading-normal flex gap-2">
+                <li className="text-sm text-theme-textMuted font-medium leading-normal flex gap-2">
                   <span>📍</span>
                   <span>{OFFICE_ADDRESS.full}</span>
                 </li>
@@ -331,7 +345,7 @@ export const MainLayout: React.FC = () => {
           </div>
   
           {/* Bottom Bar */}
-          <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-theme-textLight border-t border-theme-border">
+          <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-theme-textMuted font-medium border-t border-theme-border">
             <p>© {new Date().getFullYear()} Eazmate Technologies Pvt. Ltd. All rights reserved.</p>
             <div className="flex gap-6">
               <span>GDPR Compliant</span>

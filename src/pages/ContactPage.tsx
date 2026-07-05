@@ -39,7 +39,7 @@ export const ContactPage: React.FC = () => {
               <div className="text-2xl sm:text-3xl font-black mb-1 tracking-tight flex items-center justify-center gap-2">
                 <span className="text-gradient">{stat.value}</span>
               </div>
-              <div className="text-xs text-theme-textMuted font-medium tracking-wider uppercase flex items-center justify-center gap-1.5 mt-1">
+              <div className="text-xs text-theme-textMuted font-bold tracking-wider uppercase flex items-center justify-center gap-1.5 mt-1">
                 {stat.icon}
                 {stat.label}
               </div>

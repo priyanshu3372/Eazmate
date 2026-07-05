@@ -124,9 +124,9 @@ export const WorkflowAutomation: React.FC = () => {
             <div className="premium-card p-6 relative">
               <div className="absolute top-0 left-0 right-0 h-[1px] bg-brand-gradient opacity-20" />
               
-              <div className="flex justify-between items-center pb-4 border-b border-theme-border mb-6 text-xs text-theme-textMuted font-medium uppercase tracking-wider transition-colors duration-300">
+              <div className="flex justify-between items-center pb-4 border-b border-theme-border mb-6 text-xs text-theme-textMuted font-bold uppercase tracking-wider transition-colors duration-300">
                 <span>Eazmate Flow Architect</span>
-                <span className="text-xs text-theme-textLight font-mono font-medium transition-colors duration-300">5 Blocks Integrated</span>
+                <span className="text-xs text-theme-textMuted font-mono font-semibold transition-colors duration-300">5 Blocks Integrated</span>
               </div>
  
               {/* Node Columns render */}
@@ -152,7 +152,7 @@ export const WorkflowAutomation: React.FC = () => {
                             ? 'bg-brand-gradient text-white animate-pulse font-extrabold' 
                             : isCompleted 
                               ? 'bg-emerald-100 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/40' 
-                              : 'bg-theme-bg border border-theme-border text-theme-textLight'
+                              : 'bg-theme-bg border border-theme-border text-theme-textMuted'
                         }`}>
                           {isCompleted ? <CheckCircle2 className="w-4.5 h-4.5" /> : idx + 1}
                         </div>
@@ -161,11 +161,11 @@ export const WorkflowAutomation: React.FC = () => {
                             <span className={`text-sm font-black transition-colors duration-300 ${isActive ? 'text-theme-text' : 'text-theme-textMuted'}`}>
                               {step.label}
                             </span>
-                            <span className="text-xs font-medium text-theme-textMuted uppercase tracking-widest bg-theme-bg px-1.5 py-0.5 rounded border border-theme-border transition-colors duration-300">
+                            <span className="text-xs font-semibold text-theme-textMuted uppercase tracking-widest bg-theme-bg px-1.5 py-0.5 rounded border border-theme-border transition-colors duration-300">
                               {step.type}
                             </span>
                           </div>
-                          <p className="text-sm font-semibold text-theme-textLight leading-normal mt-0.5 transition-colors duration-300">{step.detail}</p>
+                          <p className="text-sm font-medium text-theme-textMuted leading-normal mt-0.5 transition-colors duration-300">{step.detail}</p>
                         </div>
                       </div>
  

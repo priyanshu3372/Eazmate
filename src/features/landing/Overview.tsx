@@ -90,7 +90,7 @@ export const Overview: React.FC = () => {
                   <h3 className="text-xl font-black text-theme-text transition-colors group-hover:text-brand-primary">
                     {pillar.title}
                   </h3>
-                  <p className="text-theme-textLight text-sm font-semibold leading-relaxed">
+                  <p className="text-theme-textMuted text-sm font-medium leading-relaxed">
                     {pillar.desc}
                   </p>
                 </div>

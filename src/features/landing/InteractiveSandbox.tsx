@@ -44,7 +44,7 @@ export const InteractiveSandbox: React.FC = () => {
   const [slots, setSlots] = useState<TimeSlot[]>([]);
   const [dashboardAlert, setDashboardAlert] = useState<string | null>(null);
   
-  const chatEndRef = useRef<HTMLDivElement>(null);
+  const chatContainerRef = useRef<HTMLDivElement>(null);
 
   // Simulated data definitions
   const clinicConfig = {
@@ -85,9 +85,14 @@ export const InteractiveSandbox: React.FC = () => {
     resetSandbox();
   }, [activeClinic]);
 
-  // Scroll to bottom of chat when history changes
+  // Scroll to bottom of inner chat container when history changes
   useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTo({
+        top: chatContainerRef.current.scrollHeight,
+        behavior: 'smooth'
+      });
+    }
   }, [chatHistory, isTyping]);
 
   const resetSandbox = () => {
@@ -287,9 +292,12 @@ export const InteractiveSandbox: React.FC = () => {
                 </div>
 
                 {/* WhatsApp Messages Scroll Container */}
-                <div className={`flex-1 overflow-y-auto p-3 space-y-3 scrollbar-none pb-20 relative transition-colors duration-300 ${
-                  theme === 'dark' ? 'bg-[#0b141a]' : 'bg-[#efeae2] bg-opacity-95'
-                }`}>
+                <div 
+                  ref={chatContainerRef}
+                  className={`flex-1 overflow-y-auto p-3 space-y-3 scrollbar-none pb-20 relative transition-colors duration-300 ${
+                    theme === 'dark' ? 'bg-[#0b141a]' : 'bg-[#efeae2] bg-opacity-95'
+                  }`}
+                >
                   {/* Subtle WhatsApp wallpaper icon backing */}
                   <div className="absolute inset-0 opacity-5 pointer-events-none flex items-center justify-center">
                     <MessageSquare className="w-40 h-40 text-white" />
@@ -338,8 +346,6 @@ export const InteractiveSandbox: React.FC = () => {
                       </div>
                     </div>
                   )}
-                  
-                  <div ref={chatEndRef} />
                 </div>
 
                 {/* Bottom Quick-Replies or Input Pane */}
@@ -461,16 +467,22 @@ export const InteractiveSandbox: React.FC = () => {
                     <h3 className="text-xl font-black text-theme-text tracking-tight flex items-center gap-2">
                       {currentConfig.name} Scheduler
                     </h3>
-                    <p className="text-xs text-theme-textLight font-semibold">{currentConfig.doctor} • {currentConfig.specialty}</p>
+                    <p className="text-xs text-theme-textMuted font-semibold">{currentConfig.doctor} • {currentConfig.specialty}</p>
                   </div>
                   
                   <div className="flex items-center gap-2.5">
-                    <span className="text-[10px] font-black uppercase text-emerald-400 bg-emerald-950/40 border border-emerald-900/30 px-2 py-0.5 rounded-md flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-ping" /> Sync Active
+                    <span className={`text-[10px] font-black uppercase px-2 py-0.5 rounded-md flex items-center gap-1.5 border transition-colors duration-300 ${
+                      theme === 'dark'
+                        ? 'text-emerald-400 bg-emerald-950/40 border-emerald-900/30'
+                        : 'text-emerald-700 bg-emerald-50 border-emerald-200'
+                    }`}>
+                      <span className={`w-1.5 h-1.5 rounded-full animate-ping ${
+                        theme === 'dark' ? 'bg-emerald-400' : 'bg-emerald-600'
+                      }`} /> Sync Active
                     </span>
                     <button
                       onClick={resetSandbox}
-                      className="text-theme-textLight hover:text-theme-text p-1.5 rounded-lg border border-theme-border bg-theme-bgAlt transition-colors"
+                      className="text-theme-textMuted hover:text-theme-text p-1.5 rounded-lg border border-theme-border bg-theme-bgAlt transition-colors"
                       title="Reset Sandbox Scheduler"
                     >
                       <RefreshCw className="w-3.5 h-3.5" />
@@ -499,7 +511,7 @@ export const InteractiveSandbox: React.FC = () => {
 
                 {/* Scheduler Calendar Grid */}
                 <div className="space-y-3">
-                  <div className="flex justify-between items-center text-xs font-black text-theme-textLight uppercase tracking-widest px-1">
+                  <div className="flex justify-between items-center text-xs font-black text-theme-textMuted uppercase tracking-widest px-1">
                     <span>Target Appointments</span>
                     <span className="flex items-center gap-1.5 font-mono text-[10px]">
                       <CalendarIcon className="w-3.5 h-3.5 text-brand-primary" /> Today
@@ -541,9 +553,8 @@ export const InteractiveSandbox: React.FC = () => {
                               <span className="text-xs font-black tracking-tight">{slot.time}</span>
                             </div>
 
-                            {/* Badge */}
                             <span className={`text-[9px] font-black tracking-widest uppercase px-2 py-0.5 rounded border transition-colors duration-300 ${
-                              isAvail ? 'bg-theme-bgTertiary text-theme-textLight border-theme-border'
+                              isAvail ? 'bg-theme-bgTertiary text-theme-textMuted border-theme-border'
                               : isBooking ? (theme === 'dark' ? 'bg-amber-950/80 text-amber-400 border-amber-800/30' : 'bg-amber-50 text-amber-700 border-amber-200')
                               : (theme === 'dark' ? 'bg-emerald-950/40 text-emerald-400 border-emerald-800/30' : 'bg-emerald-50 text-emerald-700 border-emerald-200')
                             }`}>
@@ -554,8 +565,8 @@ export const InteractiveSandbox: React.FC = () => {
                           {/* Slot Details (Patient or Action CTA) */}
                           <div className="mt-3.5 pt-2 border-t border-theme-border/30 z-10">
                             {isAvail ? (
-                              <span className="text-[11px] text-theme-textLight font-semibold italic flex items-center gap-1.5">
-                                <Plus className="w-3 h-3 text-theme-textLight" /> Slot open for booking
+                              <span className="text-[11px] text-theme-textMuted font-semibold italic flex items-center gap-1.5">
+                                <Plus className="w-3 h-3 text-theme-textMuted" /> Slot open for booking
                               </span>
                             ) : isBooking ? (
                               <span className={`text-[11px] font-extrabold flex items-center gap-1.5 animate-pulse ${
@@ -584,7 +595,7 @@ export const InteractiveSandbox: React.FC = () => {
               <div className="mt-8 pt-6 border-t border-theme-border flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div className="text-left space-y-0.5">
                   <h4 className="text-sm font-black text-theme-text">Impressed by the flow?</h4>
-                  <p className="text-xs text-theme-textLight font-semibold">Deploy a customized AI chat and scheduler layout tailored for your clinic vertical.</p>
+                  <p className="text-xs text-theme-textMuted font-semibold">Deploy a customized AI chat and scheduler layout tailored for your clinic vertical.</p>
                 </div>
                 <button
                   onClick={handleDeployBot}

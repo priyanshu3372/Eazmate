@@ -219,33 +219,33 @@ export const UnifiedCRM: React.FC = () => {
                   <div className="space-y-5 animate-fade-in">
                     <div className="pb-4 border-b border-theme-border flex items-center justify-between">
                       <div className="space-y-1">
-                        <span className="text-xs font-medium text-theme-textLight uppercase tracking-widest">Unified Profile</span>
+                        <span className="text-xs font-bold text-theme-textMuted uppercase tracking-widest">Unified Profile</span>
                         <h3 className="text-lg font-black text-theme-text">{currentData.name}</h3>
                       </div>
-                      <span className={`text-xs font-medium px-2.5 py-0.5 rounded-full border ${getStageColor(currentData.status)}`}>
+                      <span className={`text-xs font-semibold px-2.5 py-0.5 rounded-full border ${getStageColor(currentData.status)}`}>
                         {currentData.status}
                       </span>
                     </div>
  
                     <div className="grid grid-cols-2 gap-4 text-sm">
                       <div>
-                        <span className="text-xs text-theme-textLight uppercase font-medium block mb-0.5">Work Email</span>
+                        <span className="text-xs text-theme-textMuted uppercase font-semibold block mb-0.5">Work Email</span>
                         <span className="text-theme-text font-mono break-all font-semibold">{currentData.email}</span>
                       </div>
                       <div>
-                        <span className="text-xs text-theme-textLight uppercase font-medium block mb-0.5">Mobile Number</span>
+                        <span className="text-xs text-theme-textMuted uppercase font-semibold block mb-0.5">Mobile Number</span>
                         <span className="text-theme-text font-mono font-semibold">{currentData.phone}</span>
                       </div>
                     </div>
  
                     <div className="space-y-3">
-                      <span className="text-xs font-medium text-theme-textLight uppercase tracking-widest block">Activity & Automation History</span>
+                      <span className="text-xs font-bold text-theme-textMuted uppercase tracking-widest block">Activity & Automation History</span>
                       <div className="space-y-3.5 relative pl-4 border-l border-theme-border">
                         {currentData.history.map((hist, idx) => (
                           <div key={idx} className="relative text-sm">
                             <div className="absolute left-[-21px] top-[4px] w-2.5 h-2.5 rounded-full bg-brand-primary border-2 border-theme-cardBgSolid shrink-0" />
-                            <div className="text-theme-text leading-snug">{hist.event}</div>
-                            <div className="text-sm text-theme-textLight mt-0.5">{hist.time}</div>
+                            <div className="text-theme-text font-medium leading-snug">{hist.event}</div>
+                            <div className="text-xs text-theme-textMuted font-medium mt-0.5">{hist.time}</div>
                           </div>
                         ))}
                       </div>

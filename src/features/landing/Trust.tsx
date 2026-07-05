@@ -35,7 +35,7 @@ export const Trust: React.FC = () => {
           {stats.map((stat, idx) => (
             <div key={idx} className="space-y-1">
               <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-gradient tracking-tight">{stat.value}</div>
-              <div className="text-sm text-theme-textMuted font-medium tracking-wider uppercase">{stat.label}</div>
+              <div className="text-sm text-theme-textMuted font-bold tracking-wider uppercase">{stat.label}</div>
             </div>
           ))}
         </div>
@@ -57,10 +57,10 @@ export const Trust: React.FC = () => {
             </p>
 
             <div className="flex gap-4 items-center pt-2">
-              <div className="flex items-center gap-1.5 bg-theme-bgTertiary border border-theme-border px-3.5 py-1.5 rounded-full text-xs text-brand-teal font-medium shadow-sm">
+              <div className="flex items-center gap-1.5 bg-theme-bgTertiary border border-theme-border px-3.5 py-1.5 rounded-full text-xs text-brand-teal font-bold shadow-sm">
                 <ShieldCheck className="w-4 h-4 text-brand-teal shrink-0" /> HIPAA Shielded
               </div>
-              <div className="flex items-center gap-1.5 bg-theme-bgTertiary border border-theme-border px-3.5 py-1.5 rounded-full text-xs text-brand-primary font-medium shadow-sm">
+              <div className="flex items-center gap-1.5 bg-theme-bgTertiary border border-theme-border px-3.5 py-1.5 rounded-full text-xs text-brand-primary font-bold shadow-sm">
                 <CheckCircle className="w-4 h-4 text-brand-primary shrink-0" /> SOC 2 Type II
               </div>
             </div>
@@ -71,7 +71,7 @@ export const Trust: React.FC = () => {
             {testimonials.map((test, idx) => (
               <div key={idx} className="premium-card p-6 flex flex-col justify-between">
                 <div className="space-y-4">
-                  <div className="flex justify-between items-center text-sm text-theme-textLight font-medium uppercase tracking-wider">
+                  <div className="flex justify-between items-center text-xs text-theme-textMuted font-bold uppercase tracking-wider">
                     <span>{test.category}</span>
                     <span className="text-amber-500">★★★★★</span>
                   </div>
@@ -81,7 +81,7 @@ export const Trust: React.FC = () => {
                 </div>
                 <div className="pt-6 border-t border-theme-border mt-6">
                   <h4 className="text-sm font-black text-theme-text">{test.author}</h4>
-                  <p className="text-sm font-medium text-theme-textLight mt-0.5">{test.role}</p>
+                  <p className="text-xs font-semibold text-theme-textMuted mt-0.5">{test.role}</p>
                 </div>
               </div>
             ))}
@@ -91,7 +91,7 @@ export const Trust: React.FC = () => {
 
         {/* Logo ribbon */}
         <div className="mt-20 pt-10 border-t border-theme-border text-center space-y-4">
-          <span className="text-xs text-theme-textLight font-semibold uppercase tracking-widest block">INTEGRATED ACROSS LEADING ENTERPRISES</span>
+          <span className="text-xs text-theme-textMuted font-bold uppercase tracking-widest block">INTEGRATED ACROSS LEADING ENTERPRISES</span>
           <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-6 select-none font-sans font-bold text-sm tracking-widest text-theme-textMuted bg-theme-bgTertiary/60 py-6 px-8 rounded-2xl border border-theme-border">
             <span>APEX MEDICAL</span>
             <span>ZENITH SAAS</span>

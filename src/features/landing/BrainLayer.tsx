@@ -102,7 +102,7 @@ export const BrainLayer: React.FC = () => {
                   <span className="relative z-10 shrink-0">{cap.icon}</span>
                 </div>
                 <h3 className="text-lg font-black text-theme-text">{cap.title}</h3>
-                <p className="text-theme-textLight text-sm font-semibold leading-relaxed">{cap.desc}</p>
+                <p className="text-theme-textMuted text-sm font-medium leading-relaxed">{cap.desc}</p>
               </div>
             ))}
           </div>
@@ -112,9 +112,9 @@ export const BrainLayer: React.FC = () => {
             <div className="glass-card rounded-3xl p-6 relative overflow-hidden shadow-md">
               <div className="absolute top-0 left-0 right-0 h-[1px] bg-brand-gradient opacity-30" />
               
-              <div className="text-sm font-medium text-theme-textMuted tracking-wider uppercase mb-5 flex justify-between items-center">
+              <div className="text-sm font-bold text-theme-textMuted tracking-wider uppercase mb-5 flex justify-between items-center">
                 <span>Intelligent Processing Demo</span>
-                <span className="flex items-center gap-1.5 text-[#128C7E] text-xs font-medium">
+                <span className="flex items-center gap-1.5 text-[#128C7E] text-xs font-semibold">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-ping" /> Real-time Simulation
                 </span>
               </div>
@@ -132,7 +132,7 @@ export const BrainLayer: React.FC = () => {
                     className={`flex-1 text-center py-2 rounded-lg text-sm font-bold transition-all ${
                       activeTab === tab.id 
                         ? 'bg-theme-bg text-theme-text shadow-sm border border-theme-border' 
-                        : 'text-theme-textLight hover:text-theme-text'
+                        : 'text-theme-textMuted hover:text-theme-text font-bold'
                     }`}
                   >
                     {tab.label}
@@ -161,7 +161,7 @@ export const BrainLayer: React.FC = () => {
                 <div className="space-y-1.5">
                   <span className="text-xs font-bold text-theme-textMuted uppercase tracking-widest block">Orchestrated Outcome</span>
                   <div className="p-3.5 bg-theme-bg border border-theme-border rounded-xl font-mono text-xs md:text-sm text-theme-text flex items-start gap-2">
-                    <div className="w-4 h-4 rounded-full bg-emerald-950/80 text-emerald-400 flex items-center justify-center border border-emerald-800/40 shrink-0 mt-0.5">
+                    <div className="w-4 h-4 rounded-full bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-400 flex items-center justify-center border border-emerald-300 dark:border-emerald-800/40 shrink-0 mt-0.5">
                       <Check className="w-2.5 h-2.5" />
                     </div>
                     <span>{simulatedTriggers[activeTab].outcome}</span>
