@@ -67,11 +67,16 @@
   --aurora-opacity: 1.0;
 }
 
-/* View Transitions API Animation Setup */
+/* View Transitions API Animation Setup for Circular Theme Transition */
+::view-transition-image-pair(root) {
+  isolation: isolate;
+}
+
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;
   mix-blend-mode: normal;
+  display: block;
 }
 
 ::view-transition-old(root) {

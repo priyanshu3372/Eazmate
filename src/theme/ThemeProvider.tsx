@@ -1,11 +1,12 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import { flushSync } from 'react-dom';
 import { themeConfig, type ThemeTokens } from '../config/theme.config';
 
 export type ThemeMode = 'light' | 'dark';
 
 interface ThemeContextType {
   theme: ThemeMode;
-  toggleTheme: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  toggleTheme: (event?: React.MouseEvent<HTMLElement> | MouseEvent) => void;
   themeConfig: ThemeTokens;
   performanceMode: 'high' | 'normal' | 'low';
   fps: number;
@@ -43,24 +44,24 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         const elapsed = now - start;
         const estimatedFps = Math.round((frameCount * 1000) / elapsed);
         
-        let dur = 1000;
+        let dur = 650;
         let mode: 'high' | 'normal' | 'low' = 'normal';
 
         if (estimatedFps >= 100) {
           // 120Hz or 144Hz high refresh rate screen
-          dur = 750; // Slower, premium transition for high refresh rate displays
+          dur = 600;
           mode = 'high';
         } else if (estimatedFps >= 80) {
           // 90Hz screens
-          dur = 850;
+          dur = 650;
           mode = 'normal';
         } else if (estimatedFps < 45) {
-          // Poor rendering performance or battery saving mode
-          dur = 350; // Gentle fade timing for throttled devices
+          // Low performance
+          dur = 400;
           mode = 'low';
         } else {
           // Standard 60Hz
-          dur = 1000; // Elegant, slow 1-second transition
+          dur = 650;
           mode = 'normal';
         }
 
@@ -93,20 +94,34 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     }
   };
 
-  const toggleTheme = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const toggleTheme = (event?: React.MouseEvent<HTMLElement> | MouseEvent) => {
     const nextTheme = theme === 'dark' ? 'light' : 'dark';
     
-    // Fallback if browser doesn't support View Transitions, prefers-reduced-motion, or performance is low
+    // Fallback if browser doesn't support View Transitions or prefers-reduced-motion
     const supportsViewTransition = typeof document.startViewTransition === 'function';
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    if (!supportsViewTransition || prefersReducedMotion || performanceMode === 'low') {
+    if (!supportsViewTransition || prefersReducedMotion) {
       setTheme(nextTheme);
       return;
     }
 
-    const x = event.clientX;
-    const y = event.clientY;
+    let x = window.innerWidth / 2;
+    let y = window.innerHeight / 2;
+
+    if (event) {
+      const clientX = 'clientX' in event ? event.clientX : 0;
+      const clientY = 'clientY' in event ? event.clientY : 0;
+
+      if (clientX !== 0 || clientY !== 0) {
+        x = clientX;
+        y = clientY;
+      } else if (event.currentTarget && event.currentTarget instanceof HTMLElement) {
+        const rect = event.currentTarget.getBoundingClientRect();
+        x = rect.left + rect.width / 2;
+        y = rect.top + rect.height / 2;
+      }
+    }
 
     const endRadius = Math.hypot(
       Math.max(x, window.innerWidth - x),
@@ -121,7 +136,25 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     doc.classList.add('theme-transitioning');
 
     const transition = document.startViewTransition(() => {
-      setTheme(nextTheme);
+      flushSync(() => {
+        setTheme(nextTheme);
+      });
+    });
+
+    transition.ready.then(() => {
+      document.documentElement.animate(
+        {
+          clipPath: [
+            `circle(0px at ${x}px ${y}px)`,
+            `circle(${endRadius}px at ${x}px ${y}px)`
+          ]
+        },
+        {
+          duration: transitionDuration || 650,
+          easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+          pseudoElement: '::view-transition-new(root)'
+        }
+      );
     });
 
     transition.finished.then(() => {
