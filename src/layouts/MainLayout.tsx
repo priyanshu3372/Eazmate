@@ -51,7 +51,7 @@ export const MainLayout: React.FC = () => {
                 <img 
                   src="/brand-logo.png" 
                   alt="Eazmate Logo" 
-                  className="h-[26px] sm:h-[30px] lg:h-[34px] w-auto object-contain transition-transform group-hover:scale-[1.02] duration-300"
+                  className="h-[44px] sm:h-[52px] lg:h-[60px] w-auto object-contain transition-transform group-hover:scale-[1.02] duration-300"
                 />
               </Link>
             </div>
@@ -242,7 +242,7 @@ export const MainLayout: React.FC = () => {
                 <img 
                   src="/brand-logo.png" 
                   alt="Eazmate Logo" 
-                  className="h-[22px] sm:h-[25px] lg:h-[28px] w-auto object-contain"
+                  className="h-[40px] sm:h-[48px] lg:h-[54px] w-auto object-contain"
                 />
               </div>
               <p className="text-theme-textMuted text-sm font-semibold leading-relaxed max-w-md">
