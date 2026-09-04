@@ -202,8 +202,6 @@ export const SecurityPage: React.FC = () => {
       {/* CTA section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-10">
         <div className="premium-card p-8 sm:p-16 text-center max-w-4xl mx-auto relative overflow-hidden shadow-lg">
-          <div className="absolute top-[-50px] right-[-50px] w-48 h-48 bg-brand-primary/5 rounded-full blur-[60px]" />
-          
           <h2 className="text-3xl sm:text-4xl font-black mb-4 text-theme-text">Request Our Security <span className="text-gradient">Documentation</span></h2>
           <p className="text-theme-textMuted text-base font-semibold max-w-2xl mx-auto mb-8 leading-relaxed">
             Need a detailed copy of our SOC 2 Type II report, penetration testing summaries, HIPAA BAA contract, or architectural security guidelines? Connect with our compliance team.
@@ -211,7 +209,7 @@ export const SecurityPage: React.FC = () => {
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
             <Link
               to="/get-quotation"
-              className="w-full sm:w-auto bg-brand-gradient hover:brightness-105 text-white font-extrabold px-8 py-4 rounded-xl transition-all flex items-center justify-center gap-2 shadow-sm"
+              className="w-full sm:w-auto bg-purple-600 hover:bg-purple-500 text-white font-black px-8 py-4 rounded-xl transition-all flex items-center justify-center gap-2 shadow-md shadow-purple-600/30"
             >
               Contact Compliance <ArrowRight className="w-4 h-4" />
             </Link>

@@ -5,7 +5,6 @@ import { Overview } from '../features/landing/Overview';
 import { Trust } from '../features/landing/Trust';
 
 export const LandingPage: React.FC = () => {
-
   return (
     <div className="relative">
       <Hero />
@@ -15,3 +14,5 @@ export const LandingPage: React.FC = () => {
     </div>
   );
 };
+
+

@@ -23,7 +23,7 @@ export const ThemeToggle: React.FC = () => {
 
       {/* Sliding Active Pill */}
       <motion.div
-        className="absolute w-[28px] h-[28px] rounded-full bg-brand-gradient shadow-md flex items-center justify-center"
+        className="absolute w-[28px] h-[28px] rounded-full bg-purple-600 shadow-md flex items-center justify-center"
         animate={{
           x: theme === 'dark' ? 34 : 0,
         }}

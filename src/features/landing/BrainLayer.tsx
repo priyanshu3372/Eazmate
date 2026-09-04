@@ -72,8 +72,6 @@ export const BrainLayer: React.FC = () => {
 
   return (
     <section id="platform-section" className="relative py-24 bg-theme-bg border-t border-theme-border">
-      <div className="absolute top-10 right-1/4 w-[400px] h-[400px] bg-brand-primary/5 rounded-full blur-[120px] pointer-events-none opacity-20" />
-      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}

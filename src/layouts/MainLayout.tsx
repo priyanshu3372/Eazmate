@@ -1,12 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Outlet, useLocation, ScrollRestoration } from 'react-router-dom';
-import { Menu, X, Phone, Mail, Shield, ArrowUpRight, Zap } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X, Phone, Mail, Shield, ArrowUpRight, Zap, ArrowUp } from 'lucide-react';
 import { CONTACT_INFO, OFFICE_ADDRESS } from '../config/constants';
 import { ThemeToggle } from '../theme/ThemeToggle';
 
 export const MainLayout: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 24);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -29,199 +39,157 @@ export const MainLayout: React.FC = () => {
 
   const isActive = (path: string) => location.pathname === path;
 
+  const navLinks = [
+    { name: 'Platform', path: '/platform' },
+    { name: 'Solutions', path: '/solutions' },
+    { name: 'Industries', path: '/industries' },
+    { name: 'Integrations', path: '/integrations' },
+    { name: 'Security', path: '/security' },
+    { name: 'Contact', path: '/contact' },
+  ];
+
   return (
     <div className="min-h-screen flex flex-col bg-theme-bg text-theme-textMuted overflow-x-hidden w-full relative">
       <ScrollRestoration />
+
       {/* Top Banner for Security & Trust */}
       <div className="relative overflow-hidden bg-theme-bgTertiary border-b border-theme-border py-2 px-4 text-center text-xs md:text-sm font-semibold">
-        <div className="absolute inset-0 bg-brand-gradient opacity-3 animate-pulse-glow" />
-        <span className="relative z-10 inline-flex flex-wrap items-center gap-2 justify-center text-theme-textMuted break-words transition-colors duration-300">
-          <Shield className="w-4 h-4 text-brand-primary" />
-          HIPAA Compliant & SOC2 Ready Infrastructure. Built for enterprise scale.
+        <div className="absolute inset-0 bg-brand-gradient opacity-10 animate-pulse-glow" />
+        <span className="relative z-10 inline-flex flex-wrap items-center gap-2 justify-center text-theme-text font-bold break-words transition-colors duration-300">
+          <Shield className="w-4 h-4 text-purple-500" />
+          <span className="bg-emerald-600 text-white text-[10px] font-black uppercase px-2 py-0.5 rounded shadow-sm">HIPAA Shielded</span>
+          <span className="bg-purple-600 text-white text-[10px] font-black uppercase px-2 py-0.5 rounded shadow-sm">SOC 2 Type II</span>
+          <span className="text-theme-textMuted text-xs font-semibold">Ready Infrastructure Built for Global Enterprise Scale.</span>
         </span>
       </div>
 
       {/* Main Header */}
-      <header className="sticky top-0 z-50 glass-nav shadow-lg">
+      <header
+        className={`sticky top-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? 'glass-nav shadow-lg py-1.5'
+            : 'bg-theme-bg/85 backdrop-blur-md border-b border-theme-border/50 py-3'
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
+          <div className="flex justify-between items-center h-16 sm:h-20">
             {/* Logo */}
             <div className="flex-shrink-0 flex items-center">
               <Link to="/" className="flex items-center group">
-                <img 
-                  src="/brand-logo.png" 
-                  alt="Eazmate Logo" 
-                  className="h-[44px] sm:h-[52px] lg:h-[60px] w-auto object-contain transition-transform group-hover:scale-[1.02] duration-300"
+                <img
+                  src="/brand-logo.png"
+                  alt="Eazmate Logo"
+                  className="h-[44px] sm:h-[52px] lg:h-[58px] w-auto object-contain transition-transform group-hover:scale-[1.03] duration-300"
                 />
               </Link>
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex space-x-6 xl:space-x-8">
-              <Link
-                to="/platform"
-                className={`font-bold text-sm py-2 px-1 transition-colors ${
-                  isActive('/platform') ? 'text-brand-primary font-extrabold' : 'text-theme-textMuted hover:text-brand-primary'
-                }`}
-              >
-                Platform
-              </Link>
-              <Link
-                to="/solutions"
-                className={`font-bold text-sm py-2 px-1 transition-colors ${
-                  isActive('/solutions') ? 'text-brand-primary font-extrabold' : 'text-theme-textMuted hover:text-brand-primary'
-                }`}
-              >
-                Solutions
-              </Link>
-              <Link
-                to="/industries"
-                className={`font-bold text-sm py-2 px-1 transition-colors ${
-                  isActive('/industries') ? 'text-brand-primary font-extrabold' : 'text-theme-textMuted hover:text-brand-primary'
-                }`}
-              >
-                Industries
-              </Link>
-              <Link
-                to="/integrations"
-                className={`font-bold text-sm py-2 px-1 transition-colors ${
-                  isActive('/integrations') ? 'text-brand-primary font-extrabold' : 'text-theme-textMuted hover:text-brand-primary'
-                }`}
-              >
-                Integrations
-              </Link>
-              <Link
-                to="/security"
-                className={`font-bold text-sm py-2 px-1 transition-colors ${
-                  isActive('/security') ? 'text-brand-primary font-extrabold' : 'text-theme-textMuted hover:text-brand-primary'
-                }`}
-              >
-                Security
-              </Link>
-              <Link
-                to="/contact"
-                className={`font-bold text-sm py-2 px-1 transition-colors ${
-                  isActive('/contact') ? 'text-brand-primary font-extrabold' : 'text-theme-textMuted hover:text-brand-primary'
-                }`}
-              >
-                Contact
-              </Link>
+            <nav className="hidden lg:flex items-center space-x-2 xl:space-x-4">
+              {navLinks.map((link) => {
+                const active = isActive(link.path);
+                return (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    className={`relative font-bold text-sm px-3.5 py-2 rounded-lg transition-colors ${
+                      active
+                        ? 'text-brand-primary font-black'
+                        : 'text-theme-textMuted hover:text-theme-text hover:bg-theme-bgTertiary/40'
+                    }`}
+                  >
+                    {link.name}
+                    {active && (
+                      <motion.div
+                        layoutId="activeNavIndicator"
+                        className="absolute bottom-0 left-2 right-2 h-[2px] bg-brand-gradient rounded-full"
+                        transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                      />
+                    )}
+                  </Link>
+                );
+              })}
             </nav>
 
             {/* Right Action CTA */}
-            <div className="hidden md:flex items-center gap-4">
+            <div className="hidden md:flex items-center gap-3.5">
               <ThemeToggle />
               <Link
                 to="/contact"
-                className="border-gradient-container text-xs font-extrabold py-2 px-4 focus:outline-none transition-all block text-center"
+                className="rounded-xl bg-slate-900 hover:bg-purple-600 dark:bg-slate-800 dark:hover:bg-purple-600 text-white font-black text-xs py-2.5 px-4 focus:outline-none transition-all block text-center shadow-sm hover:scale-105 border border-slate-700/50"
               >
-                <span className="text-gradient">Book Demo</span>
+                Let's Talk
               </Link>
               <Link
                 to="/get-quotation"
-                className="bg-brand-gradient hover:brightness-105 text-white font-extrabold text-sm py-2.5 px-5 rounded-xl transition-all shadow-md flex items-center gap-1"
+                className="bg-purple-600 hover:bg-purple-500 text-white font-black text-sm py-2.5 px-5 rounded-xl transition-all shadow-md shadow-purple-600/30 flex items-center gap-1.5 transform hover:-translate-y-0.5 active:translate-y-0"
               >
                 Start Free Trial <ArrowUpRight className="w-4 h-4" />
               </Link>
             </div>
 
             {/* Mobile menu button */}
-            <div className="flex lg:hidden">
+            <div className="flex items-center gap-2 lg:hidden">
+              <ThemeToggle />
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-expanded={mobileMenuOpen}
                 aria-label="Toggle navigation menu"
-                className="inline-flex items-center justify-center p-3 rounded-xl text-theme-textLight hover:text-theme-text focus:outline-none transition-colors duration-300"
+                className="inline-flex items-center justify-center p-2.5 rounded-xl text-theme-textLight hover:text-theme-text focus:outline-none bg-theme-bgTertiary border border-theme-border transition-colors duration-300"
               >
-                {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
               </button>
             </div>
           </div>
         </div>
 
-        {/* Mobile menu, show/hide based on menu state. */}
-        {mobileMenuOpen && (
-          <div className="lg:hidden bg-theme-bgTertiary border-t border-theme-border py-6 px-6 space-y-4 shadow-xl max-h-[calc(100vh-5rem)] overflow-y-auto">
-            <div className="flex items-center justify-between pb-4 border-b border-theme-border mb-4">
-              <span className="text-sm font-bold text-theme-textMuted">Theme Mode</span>
-              <ThemeToggle />
-            </div>
-            <div className="space-y-2">
-              <Link
-                to="/platform"
-                onClick={() => setMobileMenuOpen(false)}
-                className={`block py-3 text-base font-bold ${
-                  isActive('/platform') ? 'text-brand-primary font-extrabold' : 'text-theme-textMuted hover:text-theme-text'
-                }`}
-              >
-                Platform
-              </Link>
-              <Link
-                to="/solutions"
-                onClick={() => setMobileMenuOpen(false)}
-                className={`block py-3 text-base font-bold ${
-                  isActive('/solutions') ? 'text-brand-primary font-extrabold' : 'text-theme-textMuted hover:text-theme-text'
-                }`}
-              >
-                Solutions
-              </Link>
-              <Link
-                to="/industries"
-                onClick={() => setMobileMenuOpen(false)}
-                className={`block py-3 text-base font-bold ${
-                  isActive('/industries') ? 'text-brand-primary font-extrabold' : 'text-theme-textMuted hover:text-theme-text'
-                }`}
-              >
-                Industries
-              </Link>
-              <Link
-                to="/integrations"
-                onClick={() => setMobileMenuOpen(false)}
-                className={`block py-3 text-base font-bold ${
-                  isActive('/integrations') ? 'text-brand-primary font-extrabold' : 'text-theme-textMuted hover:text-theme-text'
-                }`}
-              >
-                Integrations
-              </Link>
-              <Link
-                to="/security"
-                onClick={() => setMobileMenuOpen(false)}
-                className={`block py-3 text-base font-bold ${
-                  isActive('/security') ? 'text-brand-primary font-extrabold' : 'text-theme-textMuted hover:text-theme-text'
-                }`}
-              >
-                Security
-              </Link>
-              <Link
-                to="/contact"
-                onClick={() => setMobileMenuOpen(false)}
-                className={`block py-3 text-base font-bold ${
-                  isActive('/contact') ? 'text-brand-primary font-extrabold' : 'text-theme-textMuted hover:text-theme-text'
-                }`}
-              >
-                Contact
-              </Link>
-            </div>
-            
-            {/* Actions for Mobile */}
-            <div className="pt-6 border-t border-theme-border flex flex-col gap-3">
-              <Link 
-                to="/contact"
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-full text-center border-gradient-container font-extrabold py-3 transition-all block"
-              >
-                <span className="text-gradient">Book Demo</span>
-              </Link>
-              <Link
-                to="/get-quotation"
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-full text-center bg-brand-gradient hover:brightness-105 text-white font-extrabold py-3 rounded-xl shadow-md transition-all block"
-              >
-                Start Free Trial
-              </Link>
-            </div>
-          </div>
-        )}
+        {/* Mobile menu, animated slide down */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              className="lg:hidden bg-theme-bgTertiary/95 backdrop-blur-xl border-t border-theme-border py-6 px-6 space-y-4 shadow-2xl max-h-[calc(100vh-5rem)] overflow-y-auto"
+            >
+              <div className="space-y-1">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`block py-3 px-3 rounded-xl text-base font-bold transition-colors ${
+                      isActive(link.path)
+                        ? 'text-brand-primary bg-brand-primary/10 font-extrabold'
+                        : 'text-theme-textMuted hover:text-theme-text hover:bg-theme-bg'
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </div>
+
+              {/* Actions for Mobile */}
+              <div className="pt-6 border-t border-theme-border flex flex-col gap-3">
+                <Link
+                  to="/contact"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="w-full text-center rounded-xl bg-slate-900 hover:bg-purple-600 dark:bg-slate-800 dark:hover:bg-purple-600 text-white font-black py-3 transition-all block shadow-sm border border-slate-700/50"
+                >
+                  Let's Talk
+                </Link>
+                <Link
+                  to="/get-quotation"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="w-full text-center bg-purple-600 hover:bg-purple-500 text-white font-black py-3.5 rounded-xl transition-all shadow-md shadow-purple-600/30 flex items-center justify-center gap-1.5 active:translate-y-0"
+                >
+                  Start Free Trial <ArrowUpRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </header>
 
       {/* Main Content Area */}
@@ -232,16 +200,15 @@ export const MainLayout: React.FC = () => {
       {/* Footer */}
       <footer className="bg-theme-bg text-theme-textMuted pt-24 pb-12 border-t border-theme-border relative overflow-hidden">
         <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-brand-gradient opacity-20" />
-        <div className="absolute bottom-[-5%] right-[5%] w-80 h-80 bg-brand-primary/2 rounded-full blur-[100px] pointer-events-none" />
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-16 border-b border-theme-border">
             {/* Logo and Tagline */}
             <div className="lg:col-span-2 space-y-6">
               <div className="flex items-center">
-                <img 
-                  src="/brand-logo.png" 
-                  alt="Eazmate Logo" 
+                <img
+                  src="/brand-logo.png"
+                  alt="Eazmate Logo"
                   className="h-[40px] sm:h-[48px] lg:h-[54px] w-auto object-contain"
                 />
               </div>
@@ -284,7 +251,7 @@ export const MainLayout: React.FC = () => {
                 </li>
               </ul>
             </div>
- 
+
             {/* Company Links */}
             <div>
               <h3 className="font-sans text-sm font-black tracking-wider text-theme-text uppercase mb-5 transition-colors duration-300">Resources & Legal</h3>
@@ -294,7 +261,7 @@ export const MainLayout: React.FC = () => {
                     Security Center
                   </Link>
                 </li>
- 
+
                 <li>
                   <a href="#privacy" className="hover:text-brand-primary transition-colors">
                     Privacy Policy
@@ -307,7 +274,7 @@ export const MainLayout: React.FC = () => {
                 </li>
               </ul>
             </div>
- 
+
             {/* Contact Details */}
             <div>
               <h3 className="font-sans text-sm font-black tracking-wider text-theme-text uppercase mb-5">Contact</h3>
@@ -343,7 +310,7 @@ export const MainLayout: React.FC = () => {
               </ul>
             </div>
           </div>
-  
+
           {/* Bottom Bar */}
           <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-theme-textMuted font-medium border-t border-theme-border">
             <p>© {new Date().getFullYear()} Eazmate Technologies Pvt. Ltd. All rights reserved.</p>
@@ -355,6 +322,23 @@ export const MainLayout: React.FC = () => {
           </div>
         </div>
       </footer>
+
+      {/* Floating Back to Top Button */}
+      <AnimatePresence>
+        {scrolled && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.7, y: 10 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.7, y: 10 }}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="fixed bottom-6 right-6 z-40 p-3 rounded-full bg-purple-600 hover:bg-purple-500 text-white shadow-xl shadow-purple-600/30 hover:scale-105 active:scale-95 transition-transform duration-200 flex items-center justify-center cursor-pointer border border-white/20"
+            aria-label="Back to top"
+          >
+            <ArrowUp className="w-5 h-5" />
+          </motion.button>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
+

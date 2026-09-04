@@ -102,8 +102,6 @@ export const Industries: React.FC = () => {
 
   return (
     <section id="industries-section" className="relative py-24 bg-theme-bg border-t border-theme-border transition-colors duration-300">
-      <div className="absolute top-10 left-1/3 w-[500px] h-[500px] bg-brand-primary/5 rounded-full blur-[120px] pointer-events-none opacity-20" />
- 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
@@ -203,7 +201,7 @@ export const Industries: React.FC = () => {
                 <span className="text-sm text-theme-textMuted font-semibold transition-colors duration-300">Need specific custom configurations? We build custom layouts.</span>
                 <Link
                   to="/get-quotation"
-                  className="w-full sm:w-auto bg-brand-gradient hover:brightness-105 text-white text-sm font-extrabold px-5 py-3.5 rounded-xl transition-all shadow-md inline-flex items-center justify-center gap-1.5 group"
+                  className="w-full sm:w-auto bg-purple-600 hover:bg-purple-500 text-white text-sm font-black px-5 py-3.5 rounded-xl transition-all shadow-md shadow-purple-600/30 inline-flex items-center justify-center gap-1.5 group"
                 >
                   Configure for {current.label}
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />

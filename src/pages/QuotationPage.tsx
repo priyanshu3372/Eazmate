@@ -124,9 +124,9 @@ export const QuotationPage: React.FC = () => {
                 href={formDataCache ? buildWhatsAppUrl(formDataCache) : '#'}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-brand-gradient hover:brightness-105 text-white font-extrabold text-base px-6 py-3.5 rounded-xl shadow-md w-full transition-all"
+                className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-slate-950 font-black text-base px-6 py-3.5 rounded-xl shadow-md w-full transition-all"
               >
-                <MessageSquare className="w-5 h-5 text-white" />
+                <MessageSquare className="w-5 h-5 text-slate-950" />
                 Connect Instantly on WhatsApp
               </a>
             </div>
@@ -374,7 +374,7 @@ export const QuotationPage: React.FC = () => {
               <div className="pt-4">
                 <button
                   type="submit"
-                  className="w-full bg-brand-gradient hover:brightness-105 text-white font-extrabold text-base py-4 rounded-xl shadow-md transition-all flex items-center justify-center gap-2"
+                  className="w-full bg-purple-600 hover:bg-purple-500 text-white font-black text-base py-4 rounded-xl shadow-md shadow-purple-600/30 transition-all flex items-center justify-center gap-2"
                 >
                   Submit & Connect on WhatsApp
                   <ChevronRight className="w-5 h-5" />
