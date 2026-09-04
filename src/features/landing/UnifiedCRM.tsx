@@ -1,51 +1,43 @@
 import React, { useState } from 'react';
-import { UserCheck, Split, History, MessageSquare, Users } from 'lucide-react';
-import { useTheme } from '../../theme/ThemeProvider';
-
+import { UserCheck, Split, History, MessageSquare, Users, Mail, Phone, Plus, CheckCircle2, Clock, Activity } from 'lucide-react';
 export const UnifiedCRM: React.FC = () => {
-  const { theme } = useTheme();
   const [selectedCard, setSelectedCard] = useState<number>(1);
 
-  const getStageColor = (status: string) => {
-    const isDark = theme === 'dark';
+  const getStageBadge = (status: string) => {
     switch (status) {
       case 'Onboarding':
-        return isDark 
-          ? 'bg-amber-950/40 text-amber-400 border-amber-800/30' 
-          : 'bg-amber-50 text-amber-800 border-amber-250';
+        return 'bg-amber-500 text-slate-950 font-black';
       case 'Negotiation':
-        return isDark 
-          ? 'bg-blue-950/40 text-blue-400 border-blue-800/30' 
-          : 'bg-blue-50 text-blue-800 border-blue-250';
+        return 'bg-blue-600 text-white font-black';
       case 'Pipeline Closed':
-        return isDark 
-          ? 'bg-emerald-950/40 text-emerald-400 border-emerald-800/30' 
-          : 'bg-emerald-50 text-emerald-800 border-emerald-250';
+        return 'bg-emerald-600 text-white font-black';
       default:
-        return isDark 
-          ? 'bg-neutral-800 text-neutral-400 border-neutral-700' 
-          : 'bg-neutral-50 text-neutral-800 border-neutral-250';
+        return 'bg-slate-600 text-white font-black';
     }
   };
 
   const features = [
     {
-      icon: <UserCheck className="w-5 h-5 text-brand-teal" />,
+      icon: <UserCheck className="w-5 h-5 text-white" />,
+      iconBg: "bg-teal-600 shadow-teal-600/25",
       title: "Contact Management",
       desc: "Maintain rich, unified profiles for customers, employees, patients, and students. Eazmate bridges isolated database records automatically."
     },
     {
-      icon: <Split className="w-5 h-5 text-brand-primary" />,
+      icon: <Split className="w-5 h-5 text-white" />,
+      iconBg: "bg-purple-600 shadow-purple-600/25",
       title: "Pipeline Orchestration",
       desc: "Track status across pipelines: hiring, sales, healthcare consultations, or course enrollments. Status modifications launch related workflows."
     },
     {
-      icon: <History className="w-5 h-5 text-blue-400" />,
+      icon: <History className="w-5 h-5 text-white" />,
+      iconBg: "bg-blue-600 shadow-blue-600/25",
       title: "Unified Activity History",
       desc: "View chronologically grouped activity logs: WhatsApp alerts, emails, Stripe invoice completions, and platform logins in one place."
     },
     {
-      icon: <MessageSquare className="w-5 h-5 text-brand-teal" />,
+      icon: <MessageSquare className="w-5 h-5 text-white" />,
+      iconBg: "bg-amber-600 shadow-amber-600/25",
       title: "Omnichannel Communications",
       desc: "Synchronize conversations from SMS, email, Slack, and WhatsApp. Centralize client relations without shifting tabs."
     }
@@ -54,7 +46,8 @@ export const UnifiedCRM: React.FC = () => {
   const cardsData = [
     {
       id: 1,
-      name: "Dr. Ananya Sharma (Healthcare)",
+      name: "Dr. Ananya Sharma",
+      domain: "Healthcare",
       role: "Lead Cardiologist",
       status: "Onboarding",
       email: "ananya.sharma@apexhealth.org",
@@ -63,12 +56,12 @@ export const UnifiedCRM: React.FC = () => {
         { event: "HubSpot card generated from application", time: "2 days ago" },
         { event: "HIPAA-compliant BAA document signed (DocuSign)", time: "1 day ago" },
         { event: "WhatsApp reminder: Orientation schedule sent", time: "3 hours ago" }
-      ],
-      stageColor: "bg-amber-950/40 text-amber-400 border-amber-800/30"
+      ]
     },
     {
       id: 2,
-      name: "Rohan Malhotra (Enterprise SaaS)",
+      name: "Rohan Malhotra",
+      domain: "Enterprise SaaS",
       role: "VP of Operations",
       status: "Negotiation",
       email: "rohan@malhotracorp.com",
@@ -77,12 +70,12 @@ export const UnifiedCRM: React.FC = () => {
         { event: "Stripe invoice generated: $4,500.00", time: "4 hours ago" },
         { event: "Slack webhook triggered: Slack channel configured", time: "2 hours ago" },
         { event: "System authorization email compiled & sent", time: "12 mins ago" }
-      ],
-      stageColor: "bg-blue-950/40 text-blue-400 border-blue-800/30"
+      ]
     },
     {
       id: 3,
-      name: "Vikram Pratap Singh (Real Estate)",
+      name: "Vikram Pratap Singh",
+      domain: "Real Estate",
       role: "Investor",
       status: "Pipeline Closed",
       email: "vpsingh@singhestates.in",
@@ -91,9 +84,41 @@ export const UnifiedCRM: React.FC = () => {
         { event: "Properties review schedule sent via WhatsApp", time: "Yesterday" },
         { event: "System contract registered on database layer", time: "18 hours ago" },
         { event: "Welcome kit automated email sent", time: "15 hours ago" }
-      ],
-      stageColor: "bg-emerald-950/40 text-emerald-400 border-emerald-800/30"
+      ]
     }
+  ];
+
+  const pipelineColumns = [
+    {
+      key: 'Onboarding',
+      label: 'Onboarding',
+      count: cardsData.filter(c => c.status === "Onboarding").length,
+      accentBg: 'bg-amber-500/10 dark:bg-amber-500/15',
+      border: 'border-amber-500/30',
+      textColor: 'text-amber-800 dark:text-amber-300',
+      dotColor: 'bg-amber-500',
+      badgeBg: 'bg-amber-500 text-slate-950',
+    },
+    {
+      key: 'Negotiation',
+      label: 'Negotiation',
+      count: cardsData.filter(c => c.status === "Negotiation").length,
+      accentBg: 'bg-blue-500/10 dark:bg-blue-500/15',
+      border: 'border-blue-500/30',
+      textColor: 'text-blue-800 dark:text-blue-300',
+      dotColor: 'bg-blue-600',
+      badgeBg: 'bg-blue-600 text-white',
+    },
+    {
+      key: 'Pipeline Closed',
+      label: 'Completed',
+      count: cardsData.filter(c => c.status === "Pipeline Closed").length,
+      accentBg: 'bg-emerald-500/10 dark:bg-emerald-500/15',
+      border: 'border-emerald-500/30',
+      textColor: 'text-emerald-800 dark:text-emerald-300',
+      dotColor: 'bg-emerald-600',
+      badgeBg: 'bg-emerald-600 text-white',
+    },
   ];
 
   return (
@@ -120,84 +145,150 @@ export const UnifiedCRM: React.FC = () => {
           
           {/* Left: CRM Pipeline Visual Board */}
           <div className="lg:col-span-7">
-            <div className="glass-card rounded-3xl p-5 shadow-xl relative h-full">
-              <div className="flex items-center justify-between pb-4 border-b border-theme-border mb-6">
-                <span className="text-sm font-medium text-theme-text uppercase tracking-widest">Active Operations Pipeline</span>
-                <span className="text-xs text-theme-textLight font-mono font-medium">Select Row</span>
+            <div className="glass-card rounded-3xl p-6 shadow-xl relative h-full flex flex-col justify-between border border-theme-border">
+              
+              {/* Active Operations Pipeline Header */}
+              <div className="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-theme-border mb-6">
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-xl bg-purple-600 text-white flex items-center justify-center shadow-md shadow-purple-600/20 shrink-0">
+                    <Split className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm font-black text-theme-text uppercase tracking-wider">
+                        Active Operations Pipeline
+                      </span>
+                      <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-emerald-600 text-white shadow-sm">
+                        <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />
+                        LIVE
+                      </span>
+                    </div>
+                    <p className="text-[11.5px] font-medium text-theme-textMuted mt-0.5">
+                      Multi-stage real-time synchronization across organizational pipelines
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-theme-bgTertiary border border-theme-border text-[11px] font-mono font-bold text-theme-text shadow-sm">
+                  <span className="w-2 h-2 rounded-full bg-purple-600 shrink-0 animate-pulse" />
+                  <span>Click to Inspect</span>
+                </div>
               </div>
- 
+
               {/* Pipeline Columns Header */}
-              <div className="grid grid-cols-3 gap-4 mb-4">
-                {['onboarding', 'negotiation', 'completed'].map((col) => (
-                  <div key={col} className="text-xs font-medium text-theme-textMuted uppercase tracking-wider text-center border-b border-theme-border pb-2">
-                    {col}
+              <div className="grid grid-cols-3 gap-3.5 mb-5">
+                {pipelineColumns.map((col) => (
+                  <div 
+                    key={col.key} 
+                    className={`flex items-center justify-between px-3.5 py-2 rounded-xl border ${col.border} ${col.accentBg} backdrop-blur-sm shadow-sm transition-all`}
+                  >
+                    <div className="flex items-center gap-2 min-w-0">
+                      <span className={`w-2 h-2 rounded-full ${col.dotColor} shrink-0 shadow-sm`} />
+                      <span className={`text-[11px] font-black uppercase tracking-wider truncate ${col.textColor}`}>
+                        {col.label}
+                      </span>
+                    </div>
+                    <span className={`text-[10px] font-black px-1.5 py-0.5 rounded-md shrink-0 ${col.badgeBg} shadow-sm`}>
+                      {col.count}
+                    </span>
                   </div>
                 ))}
               </div>
 
               {/* Pipeline cards list */}
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-3 gap-3.5 flex-1">
                 
                 {/* Onboarding Column */}
-                <div className="space-y-3">
+                <div className="space-y-3 flex flex-col">
                   {cardsData.filter(c => c.status === "Onboarding").map(card => (
                     <div 
                       key={card.id}
                       onClick={() => setSelectedCard(card.id)}
-                      className={`p-3.5 rounded-xl border text-left cursor-pointer transition-all duration-300 ${
+                      className={`p-3.5 rounded-2xl border text-left cursor-pointer transition-all duration-300 relative overflow-hidden group ${
                         selectedCard === card.id 
-                          ? 'bg-theme-bgAlt border-brand-primary/50 ring-1 ring-brand-primary/10 scale-[1.02] shadow-sm' 
-                          : 'bg-theme-bgTertiary border-theme-border hover:bg-theme-bgAlt/50'
+                          ? 'bg-theme-bgAlt border-purple-500/80 ring-2 ring-purple-500/20 shadow-md scale-[1.02]' 
+                          : 'bg-theme-bgTertiary border-theme-border hover:border-purple-500/40 hover:bg-theme-bgAlt/60 hover:shadow-sm'
                       }`}
                     >
-                      <h4 className="text-sm font-black text-theme-text mb-1 truncate">{card.name}</h4>
-                      <p className="text-sm font-medium text-theme-textMuted mb-2">{card.role}</p>
-                      <span className={`inline-block text-xs font-medium px-2 py-0.5 rounded-full border ${getStageColor(card.status)}`}>
+                      {selectedCard === card.id && (
+                        <div className="absolute left-0 top-0 bottom-0 w-1 bg-amber-500" />
+                      )}
+                      <div className="flex items-center justify-between mb-1.5">
+                        <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30">
+                          {card.domain}
+                        </span>
+                      </div>
+                      <h4 className="text-[13px] font-black text-theme-text mb-1 truncate leading-tight">{card.name}</h4>
+                      <p className="text-[11.5px] font-semibold text-theme-textMuted mb-2.5 truncate">{card.role}</p>
+                      <span className={`inline-flex items-center gap-1.5 text-[10px] px-2.5 py-0.5 rounded-full ${getStageBadge(card.status)} shadow-sm`}>
+                        <span className="w-1.5 h-1.5 rounded-full bg-slate-950 shrink-0" />
                         {card.status}
                       </span>
                     </div>
                   ))}
-                  <div className="h-20 border border-dashed border-theme-border rounded-xl flex items-center justify-center text-xs text-theme-textLight hover:text-theme-text hover:border-brand-primary hover:bg-theme-bgTertiary/20 transition-all cursor-pointer font-medium select-none">
-                    + Add Record
+                  
+                  <div className="mt-auto h-16 border-2 border-dashed border-theme-border/80 hover:border-purple-500 hover:text-purple-600 dark:hover:text-purple-400 hover:bg-purple-500/5 rounded-2xl flex items-center justify-center text-xs text-theme-textLight transition-all cursor-pointer font-bold select-none gap-2 group">
+                    <span className="w-5 h-5 rounded-full bg-theme-bgTertiary border border-theme-border group-hover:bg-purple-600 group-hover:text-white flex items-center justify-center transition-colors shadow-sm">
+                      <Plus className="w-3 h-3" />
+                    </span>
+                    <span>Add Record</span>
                   </div>
                 </div>
- 
+
                 {/* Negotiation Column */}
-                <div className="space-y-3">
+                <div className="space-y-3 flex flex-col">
                   {cardsData.filter(c => c.status === "Negotiation").map(card => (
                     <div 
                       key={card.id}
                       onClick={() => setSelectedCard(card.id)}
-                      className={`p-3.5 rounded-xl border text-left cursor-pointer transition-all duration-300 ${
+                      className={`p-3.5 rounded-2xl border text-left cursor-pointer transition-all duration-300 relative overflow-hidden group ${
                         selectedCard === card.id 
-                          ? 'bg-theme-bgAlt border-brand-primary/50 ring-1 ring-brand-primary/10 scale-[1.02] shadow-sm' 
-                          : 'bg-theme-bgTertiary border-theme-border hover:bg-theme-bgAlt/50'
+                          ? 'bg-theme-bgAlt border-purple-500/80 ring-2 ring-purple-500/20 shadow-md scale-[1.02]' 
+                          : 'bg-theme-bgTertiary border-theme-border hover:border-purple-500/40 hover:bg-theme-bgAlt/60 hover:shadow-sm'
                       }`}
                     >
-                      <h4 className="text-sm font-black text-theme-text mb-1 truncate">{card.name}</h4>
-                      <p className="text-sm font-medium text-theme-textMuted mb-2">{card.role}</p>
-                      <span className={`inline-block text-xs font-medium px-2 py-0.5 rounded-full border ${getStageColor(card.status)}`}>
+                      {selectedCard === card.id && (
+                        <div className="absolute left-0 top-0 bottom-0 w-1 bg-blue-600" />
+                      )}
+                      <div className="flex items-center justify-between mb-1.5">
+                        <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md bg-blue-500/15 text-blue-700 dark:text-blue-300 border border-blue-500/30">
+                          {card.domain}
+                        </span>
+                      </div>
+                      <h4 className="text-[13px] font-black text-theme-text mb-1 truncate leading-tight">{card.name}</h4>
+                      <p className="text-[11.5px] font-semibold text-theme-textMuted mb-2.5 truncate">{card.role}</p>
+                      <span className={`inline-flex items-center gap-1.5 text-[10px] px-2.5 py-0.5 rounded-full ${getStageBadge(card.status)} shadow-sm`}>
+                        <span className="w-1.5 h-1.5 rounded-full bg-white shrink-0" />
                         {card.status}
                       </span>
                     </div>
                   ))}
                 </div>
- 
+
                 {/* Completed Column */}
-                <div className="space-y-3">
+                <div className="space-y-3 flex flex-col">
                   {cardsData.filter(c => c.status === "Pipeline Closed").map(card => (
                     <div 
                       key={card.id}
                       onClick={() => setSelectedCard(card.id)}
-                      className={`p-3.5 rounded-xl border text-left cursor-pointer transition-all duration-300 ${
+                      className={`p-3.5 rounded-2xl border text-left cursor-pointer transition-all duration-300 relative overflow-hidden group ${
                         selectedCard === card.id 
-                          ? 'bg-theme-bgAlt border-[#25D366]/40 ring-1 ring-[#25D366]/10 scale-[1.02] shadow-sm' 
-                          : 'bg-theme-bgTertiary border-theme-border hover:bg-theme-bgAlt/50'
+                          ? 'bg-theme-bgAlt border-purple-500/80 ring-2 ring-purple-500/20 shadow-md scale-[1.02]' 
+                          : 'bg-theme-bgTertiary border-theme-border hover:border-purple-500/40 hover:bg-theme-bgAlt/60 hover:shadow-sm'
                       }`}
                     >
-                      <h4 className="text-sm font-black text-theme-text mb-1 truncate">{card.name}</h4>
-                      <p className="text-sm font-medium text-theme-textMuted mb-2">{card.role}</p>
-                      <span className={`inline-block text-xs font-medium px-2 py-0.5 rounded-full border ${getStageColor(card.status)}`}>
+                      {selectedCard === card.id && (
+                        <div className="absolute left-0 top-0 bottom-0 w-1 bg-emerald-600" />
+                      )}
+                      <div className="flex items-center justify-between mb-1.5">
+                        <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30">
+                          {card.domain}
+                        </span>
+                      </div>
+                      <h4 className="text-[13px] font-black text-theme-text mb-1 truncate leading-tight">{card.name}</h4>
+                      <p className="text-[11.5px] font-semibold text-theme-textMuted mb-2.5 truncate">{card.role}</p>
+                      <span className={`inline-flex items-center gap-1.5 text-[10px] px-2.5 py-0.5 rounded-full ${getStageBadge(card.status)} shadow-sm`}>
+                        <CheckCircle2 className="w-3 h-3 text-white shrink-0" />
                         Active OS
                       </span>
                     </div>
@@ -210,40 +301,66 @@ export const UnifiedCRM: React.FC = () => {
 
           {/* Right: Unified Profile Card */}
           <div className="lg:col-span-5">
-            <div className="glass-card rounded-3xl p-6 shadow-md h-full">
+            <div className="glass-card rounded-3xl p-6 shadow-xl h-full border border-theme-border flex flex-col justify-between">
               {(() => {
                 const currentData = cardsData.find(c => c.id === selectedCard) || cardsData[0];
                 return (
-                  <div className="space-y-5 animate-fade-in">
-                    <div className="pb-4 border-b border-theme-border flex items-center justify-between">
-                      <div className="space-y-1">
-                        <span className="text-xs font-bold text-theme-textMuted uppercase tracking-widest">Unified Profile</span>
-                        <h3 className="text-lg font-black text-theme-text">{currentData.name}</h3>
+                  <div className="space-y-6 animate-fade-in flex-1 flex flex-col justify-between">
+                    <div>
+                      <div className="pb-4 border-b border-theme-border flex items-center justify-between">
+                        <div className="space-y-1">
+                          <div className="flex items-center gap-2">
+                            <span className="text-[10.5px] font-black text-purple-600 dark:text-purple-400 uppercase tracking-widest">
+                              Unified Profile
+                            </span>
+                            <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-purple-600/15 text-purple-700 dark:text-purple-300 border border-purple-500/30">
+                              {currentData.domain}
+                            </span>
+                          </div>
+                          <h3 className="text-xl font-black text-theme-text tracking-tight">{currentData.name}</h3>
+                          <p className="text-xs font-semibold text-theme-textMuted">{currentData.role}</p>
+                        </div>
+                        <span className={`text-[11px] font-black px-3 py-1 rounded-full ${getStageBadge(currentData.status)} shadow-sm`}>
+                          {currentData.status}
+                        </span>
                       </div>
-                      <span className={`text-xs font-semibold px-2.5 py-0.5 rounded-full border ${getStageColor(currentData.status)}`}>
-                        {currentData.status}
-                      </span>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mt-5">
+                        <div className="p-3 rounded-xl bg-theme-bgTertiary border border-theme-border">
+                          <div className="flex items-center gap-1.5 mb-1 text-theme-textMuted">
+                            <Mail className="w-3.5 h-3.5 text-purple-600 shrink-0" />
+                            <span className="text-[10.5px] uppercase font-bold tracking-wider">Work Email</span>
+                          </div>
+                          <span className="text-theme-text font-mono text-xs font-bold break-all">{currentData.email}</span>
+                        </div>
+                        <div className="p-3 rounded-xl bg-theme-bgTertiary border border-theme-border">
+                          <div className="flex items-center gap-1.5 mb-1 text-theme-textMuted">
+                            <Phone className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                            <span className="text-[10.5px] uppercase font-bold tracking-wider">Mobile Number</span>
+                          </div>
+                          <span className="text-theme-text font-mono text-xs font-bold">{currentData.phone}</span>
+                        </div>
+                      </div>
                     </div>
- 
-                    <div className="grid grid-cols-2 gap-4 text-sm">
-                      <div>
-                        <span className="text-xs text-theme-textMuted uppercase font-semibold block mb-0.5">Work Email</span>
-                        <span className="text-theme-text font-mono break-all font-semibold">{currentData.email}</span>
+
+                    <div className="space-y-3 pt-2">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[11px] font-black text-theme-text uppercase tracking-wider flex items-center gap-2">
+                          <Activity className="w-3.5 h-3.5 text-purple-600" />
+                          Activity & Automation History
+                        </span>
+                        <span className="text-[10px] font-bold text-theme-textMuted font-mono">Real-time sync</span>
                       </div>
-                      <div>
-                        <span className="text-xs text-theme-textMuted uppercase font-semibold block mb-0.5">Mobile Number</span>
-                        <span className="text-theme-text font-mono font-semibold">{currentData.phone}</span>
-                      </div>
-                    </div>
- 
-                    <div className="space-y-3">
-                      <span className="text-xs font-bold text-theme-textMuted uppercase tracking-widest block">Activity & Automation History</span>
-                      <div className="space-y-3.5 relative pl-4 border-l border-theme-border">
+                      
+                      <div className="space-y-3 relative pl-4 border-l-2 border-purple-500/30 ml-2">
                         {currentData.history.map((hist, idx) => (
-                          <div key={idx} className="relative text-sm">
-                            <div className="absolute left-[-21px] top-[4px] w-2.5 h-2.5 rounded-full bg-brand-primary border-2 border-theme-cardBgSolid shrink-0" />
-                            <div className="text-theme-text font-medium leading-snug">{hist.event}</div>
-                            <div className="text-xs text-theme-textMuted font-medium mt-0.5">{hist.time}</div>
+                          <div key={idx} className="relative text-sm group">
+                            <div className="absolute left-[-23px] top-[4px] w-3 h-3 rounded-full bg-purple-600 border-2 border-white dark:border-slate-900 shrink-0 shadow-sm" />
+                            <div className="text-theme-text text-xs font-bold leading-snug">{hist.event}</div>
+                            <div className="text-[10.5px] text-theme-textMuted font-medium mt-0.5 flex items-center gap-1">
+                              <Clock className="w-3 h-3 text-theme-textLight" />
+                              {hist.time}
+                            </div>
                           </div>
                         ))}
                       </div>
@@ -259,9 +376,8 @@ export const UnifiedCRM: React.FC = () => {
         {/* ═══ Row 2: Feature Cards ═══ */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
           {features.map((item, idx) => (
-            <div key={idx} className="premium-card p-6 space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-theme-bgTertiary border border-theme-border flex items-center justify-center relative shadow-sm overflow-hidden shrink-0">
-                <div className="absolute inset-0 bg-brand-gradient opacity-10" />
+            <div key={idx} className="premium-card p-6 space-y-3 hover:border-purple-500/40 transition-all duration-300 group">
+              <div className={`w-11 h-11 rounded-xl ${item.iconBg} flex items-center justify-center relative shadow-md shrink-0 transition-transform duration-300 group-hover:scale-105`}>
                 <span className="relative z-10">{item.icon}</span>
               </div>
               <h4 className="text-base font-black text-theme-text">{item.title}</h4>
@@ -273,3 +389,5 @@ export const UnifiedCRM: React.FC = () => {
     </section>
   );
 };
+
+
