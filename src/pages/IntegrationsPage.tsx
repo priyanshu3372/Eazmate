@@ -29,15 +29,14 @@ export const IntegrationsPage: React.FC = () => {
         {/* Stats Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto mt-12">
           {[
-            { value: "1,000+", label: "APIs Connected", icon: <LinkIcon className="w-4 h-4 text-brand-teal" /> },
-            { value: "Native", label: "Webhooks Engine", icon: <Cpu className="w-4 h-4 text-brand-primary" /> },
-            { value: "SOC 2 Ready", label: "Data Pipeline", icon: <ShieldCheck className="w-4 h-4 text-blue-400" /> },
-            { value: "REST / GraphQL", label: "Developer SDKs", icon: <Network className="w-4 h-4 text-brand-teal" /> }
+            { value: "1,000+", label: "APIs Connected", icon: <LinkIcon className="w-4 h-4 text-purple-600 dark:text-purple-400" />, color: "text-purple-600 dark:text-purple-400" },
+            { value: "Native", label: "Webhooks Engine", icon: <Cpu className="w-4 h-4 text-blue-600 dark:text-blue-400" />, color: "text-blue-600 dark:text-blue-400" },
+            { value: "SOC 2 Ready", label: "Data Pipeline", icon: <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />, color: "text-emerald-600 dark:text-emerald-400" },
+            { value: "REST / GraphQL", label: "Developer SDKs", icon: <Network className="w-4 h-4 text-teal-600 dark:text-teal-400" />, color: "text-teal-600 dark:text-teal-400" }
           ].map((stat, idx) => (
-            <div key={idx} className="premium-card p-6 text-center relative overflow-hidden group shadow-sm">
-              <div className="absolute inset-0 bg-brand-gradient opacity-0 group-hover:opacity-5 transition-opacity duration-300" />
-              <div className="text-2xl sm:text-3xl font-black mb-1 tracking-tight flex items-center justify-center gap-2">
-                <span className="text-gradient">{stat.value}</span>
+            <div key={idx} className="premium-card p-6 text-center relative overflow-hidden group shadow-sm hover:shadow-md transition-all">
+              <div className="text-2xl sm:text-3xl font-black mb-1.5 tracking-tight flex items-center justify-center gap-2">
+                <span className={stat.color}>{stat.value}</span>
               </div>
               <div className="text-xs text-theme-textMuted font-bold tracking-wider uppercase flex items-center justify-center gap-1.5 mt-1">
                 {stat.icon}

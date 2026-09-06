@@ -119,36 +119,36 @@ export const Industries: React.FC = () => {
         </div>
 
         {/* Industry selection grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
           
-          {/* Left Tab List */}
-          <div className="lg:col-span-4 flex flex-col gap-3">
+          {/* Industry Tabs: horizontal swipeable on mobile/tablet, vertical on desktop */}
+          <div className="lg:col-span-4 flex lg:flex-col overflow-x-auto no-scrollbar gap-2.5 pb-2 lg:pb-0">
             {industries.map((ind) => (
               <button
                 key={ind.id}
                 onClick={() => setSelectedIndustry(ind.id)}
-                className={`w-full p-4 rounded-2xl border text-left flex items-center justify-between transition-all duration-300 relative overflow-hidden group ${
+                className={`w-auto lg:w-full p-3 sm:p-3.5 lg:p-4 rounded-xl sm:rounded-2xl border text-left flex items-center justify-between gap-3 shrink-0 lg:shrink transition-all duration-300 relative overflow-hidden group ${
                   selectedIndustry === ind.id 
-                    ? 'bg-theme-bgTertiary/50 border-theme-border shadow-md translate-x-2 border-l-4 border-l-brand-primary' 
+                    ? 'bg-theme-bgTertiary/70 border-brand-primary/50 shadow-md lg:translate-x-2 border-l-4 border-l-brand-primary' 
                     : 'bg-theme-bgAlt/60 border-theme-border hover:bg-theme-bgTertiary/40 text-theme-textMuted'
                 }`}
               >
-                <div className="flex items-center gap-3.5 relative z-10">
-                  <div className={`w-9 h-9 rounded-xl flex items-center justify-center border transition-all relative overflow-hidden transition-colors duration-300 ${
+                <div className="flex items-center gap-3 relative z-10">
+                  <div className={`w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center border transition-all relative overflow-hidden transition-colors duration-300 shrink-0 ${
                     selectedIndustry === ind.id 
-                      ? 'bg-theme-bg border-brand-primary' 
+                      ? 'bg-theme-bg border-brand-primary shadow-sm' 
                       : 'bg-theme-bg border-theme-border'
                   }`}>
                     {selectedIndustry === ind.id && <div className="absolute inset-0 bg-brand-gradient opacity-10" />}
                     <span className={`relative z-10 ${selectedIndustry === ind.id ? 'text-brand-primary font-bold' : ''}`}>{ind.icon}</span>
                   </div>
-                  <span className={`text-sm font-bold transition-colors duration-300 ${selectedIndustry === ind.id ? 'text-theme-text' : 'text-theme-textMuted'}`}>
+                  <span className={`text-xs sm:text-sm font-bold whitespace-nowrap transition-colors duration-300 ${selectedIndustry === ind.id ? 'text-theme-text' : 'text-theme-textMuted'}`}>
                     {ind.label}
                   </span>
                 </div>
  
                 {ind.flagship && (
-                  <span className="text-xs font-semibold px-2 py-1 rounded bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/30 relative z-10 transition-colors duration-300">
+                  <span className="text-[10px] sm:text-xs font-black px-2 py-0.5 sm:py-1 rounded bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/30 relative z-10 transition-colors duration-300 shrink-0">
                     Flagship
                   </span>
                 )}
@@ -158,8 +158,7 @@ export const Industries: React.FC = () => {
 
           {/* Right Detailed Display Board */}
           <div className="lg:col-span-8">
-            <div className="glass-card rounded-3xl p-8 sm:p-12 shadow-xl relative min-h-[420px] flex flex-col justify-between overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-[1px] bg-brand-gradient opacity-20" />
+            <div className="glass-card rounded-3xl p-5 sm:p-8 lg:p-12 shadow-xl relative min-h-[400px] sm:min-h-[420px] flex flex-col justify-between overflow-hidden">
               
               <div className="space-y-6">
                 <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-theme-border transition-colors duration-300">

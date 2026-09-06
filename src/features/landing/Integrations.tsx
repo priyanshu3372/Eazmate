@@ -40,7 +40,7 @@ export const Integrations: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Grid layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           
           {/* Left Column: Description & Listing */}
           <div className="lg:col-span-6 space-y-8">
@@ -58,7 +58,7 @@ export const Integrations: React.FC = () => {
             </div>
  
             {/* Grid of integration buttons with light glowing hover */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
               {integrationList.slice(0, 12).map((item, idx) => (
                 <div
                   key={idx}
@@ -77,7 +77,7 @@ export const Integrations: React.FC = () => {
               ))}
             </div>
  
-            <div className="pt-4 flex items-center justify-between transition-colors duration-300">
+            <div className="pt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 transition-colors duration-300">
               <span className="text-sm font-semibold text-theme-textMuted transition-colors duration-300">Includes native webhooks and webhook routing templates.</span>
               <Link
                 to="/get-quotation"
@@ -90,7 +90,7 @@ export const Integrations: React.FC = () => {
  
           {/* Right Column: High Fidelity Connected Graph SVG Node Visual */}
           <div className="lg:col-span-6 relative flex items-center justify-center">
-            <div className="w-full max-w-[420px] aspect-square rounded-full border border-theme-border p-6 relative flex items-center justify-center bg-theme-bgAlt/20 transition-colors duration-300">
+            <div className="w-full max-w-[320px] sm:max-w-[420px] aspect-square rounded-full border border-theme-border p-4 sm:p-6 relative flex items-center justify-center bg-theme-bgAlt/20 transition-colors duration-300">
               
               {/* Outer boundary circle paths */}
               <div className="absolute inset-4 border border-theme-border rounded-full transition-colors duration-300" />

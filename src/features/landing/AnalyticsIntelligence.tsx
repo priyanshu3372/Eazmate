@@ -93,7 +93,6 @@ export const AnalyticsIntelligence: React.FC = () => {
           {/* Left Side: Interactive Executive Control Visual */}
           <div className="lg:col-span-8">
             <div className="premium-card p-6 relative">
-              <div className="absolute top-0 left-0 right-0 h-[1px] bg-brand-gradient opacity-20" />
               
               <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4 pb-4 border-b border-theme-border mb-6 transition-colors duration-300">
                 <div>
@@ -132,14 +131,13 @@ export const AnalyticsIntelligence: React.FC = () => {
                   { value: currentData.hoursSaved, label: "Hours Salvaged", icon: <DollarSign className="w-4 h-4 text-brand-teal" />, change: "intake focus" }
                 ].map((m, idx) => (
                   <div key={idx} className="bg-theme-bg/60 border border-theme-border rounded-xl p-4 flex flex-col justify-between shadow-sm relative overflow-hidden group transition-colors duration-300">
-                    <div className="absolute top-0 left-0 right-0 h-[2px] bg-brand-gradient opacity-0 group-hover:opacity-100 transition-opacity" />
                     <div className="flex items-center justify-between text-theme-textMuted mb-2 transition-colors duration-300">
                        <span className="text-xs uppercase font-medium tracking-wider">{m.label}</span>
                        <span className="shrink-0">{m.icon}</span>
                     </div>
-                    <div className="space-y-1">
-                       <div className="text-2xl font-black text-gradient">{m.value}</div>
-                       <div className="text-xs text-brand-teal font-medium">{m.change}</div>
+                     <div className="space-y-1">
+                        <div className="text-2xl font-black text-theme-text tracking-tight">{m.value}</div>
+                        <div className="text-xs text-brand-teal font-medium">{m.change}</div>
                     </div>
                   </div>
                 ))}

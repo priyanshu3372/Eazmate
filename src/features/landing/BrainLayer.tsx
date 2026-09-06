@@ -107,18 +107,17 @@ export const BrainLayer: React.FC = () => {
 
           {/* Interactive Simulation Dashboard */}
           <div className="lg:col-span-5">
-            <div className="glass-card rounded-3xl p-6 relative overflow-hidden shadow-md">
-              <div className="absolute top-0 left-0 right-0 h-[1px] bg-brand-gradient opacity-30" />
+            <div className="glass-card rounded-3xl p-5 sm:p-6 relative overflow-hidden shadow-md">
               
-              <div className="text-sm font-bold text-theme-textMuted tracking-wider uppercase mb-5 flex justify-between items-center">
+              <div className="text-xs sm:text-sm font-bold text-theme-textMuted tracking-wider uppercase mb-5 flex justify-between items-center">
                 <span>Intelligent Processing Demo</span>
-                <span className="flex items-center gap-1.5 text-[#128C7E] text-xs font-semibold">
+                <span className="flex items-center gap-1.5 text-[#128C7E] text-[11px] sm:text-xs font-semibold">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-ping" /> Real-time Simulation
                 </span>
               </div>
  
               {/* Tabs inside Visual */}
-              <div className="flex gap-2 p-1 bg-theme-bgTertiary/60 rounded-xl mb-6 border border-theme-border">
+              <div className="flex gap-1.5 sm:gap-2 p-1 bg-theme-bgTertiary/60 rounded-xl mb-6 border border-theme-border">
                 {[
                   { id: 'routing', label: 'Smart Route' },
                   { id: 'memory', label: 'Memory recall' },
@@ -127,7 +126,7 @@ export const BrainLayer: React.FC = () => {
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id as any)}
-                    className={`flex-1 text-center py-2 rounded-lg text-sm font-bold transition-all ${
+                    className={`flex-1 text-center py-2 px-1 sm:px-2 rounded-lg text-xs sm:text-sm font-bold transition-all truncate ${
                       activeTab === tab.id 
                         ? 'bg-theme-bg text-theme-text shadow-sm border border-theme-border' 
                         : 'text-theme-textMuted hover:text-theme-text font-bold'

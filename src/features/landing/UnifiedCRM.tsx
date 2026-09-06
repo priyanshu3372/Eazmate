@@ -88,39 +88,6 @@ export const UnifiedCRM: React.FC = () => {
     }
   ];
 
-  const pipelineColumns = [
-    {
-      key: 'Onboarding',
-      label: 'Onboarding',
-      count: cardsData.filter(c => c.status === "Onboarding").length,
-      accentBg: 'bg-amber-500/10 dark:bg-amber-500/15',
-      border: 'border-amber-500/30',
-      textColor: 'text-amber-800 dark:text-amber-300',
-      dotColor: 'bg-amber-500',
-      badgeBg: 'bg-amber-500 text-slate-950',
-    },
-    {
-      key: 'Negotiation',
-      label: 'Negotiation',
-      count: cardsData.filter(c => c.status === "Negotiation").length,
-      accentBg: 'bg-blue-500/10 dark:bg-blue-500/15',
-      border: 'border-blue-500/30',
-      textColor: 'text-blue-800 dark:text-blue-300',
-      dotColor: 'bg-blue-600',
-      badgeBg: 'bg-blue-600 text-white',
-    },
-    {
-      key: 'Pipeline Closed',
-      label: 'Completed',
-      count: cardsData.filter(c => c.status === "Pipeline Closed").length,
-      accentBg: 'bg-emerald-500/10 dark:bg-emerald-500/15',
-      border: 'border-emerald-500/30',
-      textColor: 'text-emerald-800 dark:text-emerald-300',
-      dotColor: 'bg-emerald-600',
-      badgeBg: 'bg-emerald-600 text-white',
-    },
-  ];
-
   return (
     <section id="solutions-section" className="relative py-24 bg-theme-bg border-t border-theme-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -145,16 +112,16 @@ export const UnifiedCRM: React.FC = () => {
           
           {/* Left: CRM Pipeline Visual Board */}
           <div className="lg:col-span-7">
-            <div className="glass-card rounded-3xl p-6 shadow-xl relative h-full flex flex-col justify-between border border-theme-border">
+            <div className="glass-card rounded-3xl p-5 sm:p-6 shadow-xl relative h-full flex flex-col justify-between border border-theme-border">
               
               {/* Active Operations Pipeline Header */}
-              <div className="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-theme-border mb-6">
-                <div className="flex items-center gap-3">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3.5 pb-5 border-b border-theme-border mb-5">
+                <div className="flex items-center gap-3 min-w-0">
                   <div className="w-9 h-9 rounded-xl bg-purple-600 text-white flex items-center justify-center shadow-md shadow-purple-600/20 shrink-0">
                     <Split className="w-4 h-4" />
                   </div>
-                  <div>
-                    <div className="flex items-center gap-2">
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-2 flex-wrap">
                       <span className="text-sm font-black text-theme-text uppercase tracking-wider">
                         Active Operations Pipeline
                       </span>
@@ -169,37 +136,35 @@ export const UnifiedCRM: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-theme-bgTertiary border border-theme-border text-[11px] font-mono font-bold text-theme-text shadow-sm">
-                  <span className="w-2 h-2 rounded-full bg-purple-600 shrink-0 animate-pulse" />
-                  <span>Click to Inspect</span>
+                <div className="flex items-center gap-2 self-start sm:self-auto shrink-0">
+                  <span className="text-[10px] text-theme-textMuted font-mono md:hidden bg-theme-bgTertiary px-2 py-1 rounded-lg border border-theme-border">
+                    Swipe ↔
+                  </span>
+                  <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-theme-bgTertiary border border-theme-border text-[11px] font-mono font-bold text-theme-text shadow-sm">
+                    <span className="w-2 h-2 rounded-full bg-purple-600 shrink-0 animate-pulse" />
+                    <span>Click to Inspect</span>
+                  </div>
                 </div>
               </div>
 
-              {/* Pipeline Columns Header */}
-              <div className="grid grid-cols-3 gap-3.5 mb-5">
-                {pipelineColumns.map((col) => (
-                  <div 
-                    key={col.key} 
-                    className={`flex items-center justify-between px-3.5 py-2 rounded-xl border ${col.border} ${col.accentBg} backdrop-blur-sm shadow-sm transition-all`}
-                  >
-                    <div className="flex items-center gap-2 min-w-0">
-                      <span className={`w-2 h-2 rounded-full ${col.dotColor} shrink-0 shadow-sm`} />
-                      <span className={`text-[11px] font-black uppercase tracking-wider truncate ${col.textColor}`}>
-                        {col.label}
-                      </span>
-                    </div>
-                    <span className={`text-[10px] font-black px-1.5 py-0.5 rounded-md shrink-0 ${col.badgeBg} shadow-sm`}>
-                      {col.count}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Pipeline cards list */}
-              <div className="grid grid-cols-3 gap-3.5 flex-1">
+              {/* Pipeline columns with integrated headers: swipeable on mobile, 3-col grid on md+ */}
+              <div className="flex md:grid md:grid-cols-3 gap-3.5 flex-1 overflow-x-auto snap-x no-scrollbar pb-2">
                 
                 {/* Onboarding Column */}
-                <div className="space-y-3 flex flex-col">
+                <div className="space-y-3 flex flex-col min-w-[270px] sm:min-w-[290px] md:min-w-0 flex-1 shrink-0 md:shrink snap-start">
+                  {/* Column Header */}
+                  <div className="flex items-center justify-between px-3.5 py-2 rounded-xl border border-amber-500/30 bg-amber-500/10 dark:bg-amber-500/15 backdrop-blur-sm shadow-sm transition-all">
+                    <div className="flex items-center gap-2 min-w-0">
+                      <span className="w-2 h-2 rounded-full bg-amber-500 shrink-0 shadow-sm" />
+                      <span className="text-[11px] font-black uppercase tracking-wider text-amber-800 dark:text-amber-300">
+                        Onboarding
+                      </span>
+                    </div>
+                    <span className="text-[10px] font-black px-1.5 py-0.5 rounded-md shrink-0 bg-amber-500 text-slate-950 shadow-sm">
+                      {cardsData.filter(c => c.status === "Onboarding").length}
+                    </span>
+                  </div>
+
                   {cardsData.filter(c => c.status === "Onboarding").map(card => (
                     <div 
                       key={card.id}
@@ -236,7 +201,20 @@ export const UnifiedCRM: React.FC = () => {
                 </div>
 
                 {/* Negotiation Column */}
-                <div className="space-y-3 flex flex-col">
+                <div className="space-y-3 flex flex-col min-w-[270px] sm:min-w-[290px] md:min-w-0 flex-1 shrink-0 md:shrink snap-start">
+                  {/* Column Header */}
+                  <div className="flex items-center justify-between px-3.5 py-2 rounded-xl border border-blue-500/30 bg-blue-500/10 dark:bg-blue-500/15 backdrop-blur-sm shadow-sm transition-all">
+                    <div className="flex items-center gap-2 min-w-0">
+                      <span className="w-2 h-2 rounded-full bg-blue-600 shrink-0 shadow-sm" />
+                      <span className="text-[11px] font-black uppercase tracking-wider text-blue-800 dark:text-blue-300">
+                        Negotiation
+                      </span>
+                    </div>
+                    <span className="text-[10px] font-black px-1.5 py-0.5 rounded-md shrink-0 bg-blue-600 text-white shadow-sm">
+                      {cardsData.filter(c => c.status === "Negotiation").length}
+                    </span>
+                  </div>
+
                   {cardsData.filter(c => c.status === "Negotiation").map(card => (
                     <div 
                       key={card.id}
@@ -266,7 +244,20 @@ export const UnifiedCRM: React.FC = () => {
                 </div>
 
                 {/* Completed Column */}
-                <div className="space-y-3 flex flex-col">
+                <div className="space-y-3 flex flex-col min-w-[270px] sm:min-w-[290px] md:min-w-0 flex-1 shrink-0 md:shrink snap-start">
+                  {/* Column Header */}
+                  <div className="flex items-center justify-between px-3.5 py-2 rounded-xl border border-emerald-500/30 bg-emerald-500/10 dark:bg-emerald-500/15 backdrop-blur-sm shadow-sm transition-all">
+                    <div className="flex items-center gap-2 min-w-0">
+                      <span className="w-2 h-2 rounded-full bg-emerald-600 shrink-0 shadow-sm" />
+                      <span className="text-[11px] font-black uppercase tracking-wider text-emerald-800 dark:text-emerald-300">
+                        Completed
+                      </span>
+                    </div>
+                    <span className="text-[10px] font-black px-1.5 py-0.5 rounded-md shrink-0 bg-emerald-600 text-white shadow-sm">
+                      {cardsData.filter(c => c.status === "Pipeline Closed").length}
+                    </span>
+                  </div>
+
                   {cardsData.filter(c => c.status === "Pipeline Closed").map(card => (
                     <div 
                       key={card.id}
@@ -301,7 +292,7 @@ export const UnifiedCRM: React.FC = () => {
 
           {/* Right: Unified Profile Card */}
           <div className="lg:col-span-5">
-            <div className="glass-card rounded-3xl p-6 shadow-xl h-full border border-theme-border flex flex-col justify-between">
+            <div className="glass-card rounded-3xl p-5 sm:p-6 shadow-xl h-full border border-theme-border flex flex-col justify-between">
               {(() => {
                 const currentData = cardsData.find(c => c.id === selectedCard) || cardsData[0];
                 return (

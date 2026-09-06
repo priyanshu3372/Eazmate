@@ -146,26 +146,26 @@ export const QuotationPage: React.FC = () => {
           <div className="premium-card overflow-hidden shadow-2xl">
             
             {/* Form Header */}
-            <div className="p-8 sm:px-10 border-b border-theme-border relative bg-theme-bgTertiary/40">
+            <div className="p-5 sm:p-8 sm:px-10 border-b border-theme-border relative bg-theme-bgTertiary/40">
               <div className="absolute right-6 top-6 hidden sm:flex">
                 <div className="gradient-badge">
                   <ShieldCheck className="w-3.5 h-3.5 text-brand-primary" />
                   <span className="text-gradient font-extrabold uppercase tracking-wider">SOC2 & HIPAA Secure</span>
                 </div>
               </div>
-              <h1 className="text-3xl font-black text-theme-text mb-2 leading-tight">
+              <h1 className="text-2xl sm:text-3xl font-black text-theme-text mb-2 leading-tight">
                 Request Deployment Proposal
               </h1>
-              <p className="text-theme-textMuted text-sm font-semibold max-w-2xl leading-relaxed">
+              <p className="text-theme-textMuted text-xs sm:text-sm font-semibold max-w-2xl leading-relaxed">
                 Provide detail about your organization's infrastructure scale. Our solutions architect will prepare a tailored AI integration layout.
               </p>
             </div>
 
             {/* Form */}
-            <form onSubmit={handleSubmit(onSubmit)} className="p-8 sm:p-10 space-y-6 bg-theme-bgAlt border-t border-theme-border">
+            <form onSubmit={handleSubmit(onSubmit)} className="p-5 sm:p-8 sm:p-10 space-y-5 sm:space-y-6 bg-theme-bgAlt border-t border-theme-border">
               
               {/* Grid 1: Organization Name & Contact Person */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div className="space-y-1.5">
                   <label htmlFor="organizationName" className="block text-xs font-medium text-theme-textMuted uppercase tracking-wider">
                     Organization Name <span className="text-rose-500">*</span>
@@ -206,7 +206,7 @@ export const QuotationPage: React.FC = () => {
               </div>
 
               {/* Grid 2: WhatsApp Number & Email */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div className="space-y-1.5">
                   <label htmlFor="whatsappNumber" className="block text-xs font-semibold text-theme-textMuted uppercase tracking-wider">
                     WhatsApp Number (Contact Mobile) <span className="text-rose-500">*</span>
@@ -254,7 +254,7 @@ export const QuotationPage: React.FC = () => {
               </div>
 
               {/* Grid 3: City & Industry */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
                 <div className="space-y-1.5">
                   <label htmlFor="city" className="block text-xs font-medium text-theme-textMuted uppercase tracking-wider">
                     City <span className="text-rose-500">*</span>
@@ -328,7 +328,7 @@ export const QuotationPage: React.FC = () => {
                 <span className="block text-xs font-medium text-theme-textMuted uppercase tracking-wider">
                   Capabilities Needed <span className="text-rose-500">*</span>
                 </span>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   {[
                     { id: 'ai-agents', label: 'AI Autonomous Agents & Routing' },
                     { id: 'unified-crm', label: 'Unified CRM & Pipeline System' },

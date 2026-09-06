@@ -266,12 +266,12 @@ export const InteractiveSandbox: React.FC = () => {
 
           {/* LEFT COLUMN: Phone WhatsApp Simulator (lg:col-span-5) */}
           <div className="lg:col-span-5 flex flex-col items-center justify-center">
-            <div className="relative w-full max-w-[340px] h-[580px] bg-neutral-900 rounded-[40px] p-3 shadow-2xl border-4 border-neutral-800 flex flex-col overflow-hidden">
+            <div className="relative w-full max-w-[340px] h-[540px] sm:h-[580px] bg-neutral-900 rounded-[36px] sm:rounded-[40px] p-2.5 sm:p-3 shadow-2xl border-4 border-neutral-800 flex flex-col overflow-hidden">
 
               {/* Speaker / Camera notches */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-neutral-900 rounded-b-2xl z-20 flex items-center justify-center gap-1.5">
-                <div className="w-12 h-1 bg-neutral-800 rounded-full" />
-                <div className="w-2.5 h-2.5 bg-neutral-800 rounded-full" />
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 sm:w-32 h-5 sm:h-6 bg-neutral-900 rounded-b-2xl z-20 flex items-center justify-center gap-1.5">
+                <div className="w-10 sm:w-12 h-1 bg-neutral-800 rounded-full" />
+                <div className="w-2 sm:w-2.5 h-2 sm:h-2.5 bg-neutral-800 rounded-full" />
               </div>
 
               {/* Phone Content Interface */}
@@ -480,8 +480,7 @@ export const InteractiveSandbox: React.FC = () => {
 
           {/* RIGHT COLUMN: Eazmate Clinic Dashboard Simulator (lg:col-span-7) */}
           <div className="lg:col-span-7 flex flex-col justify-between">
-            <div className="glass-card rounded-3xl p-6 shadow-xl relative h-full flex flex-col justify-between border border-theme-border bg-theme-bg/60">
-              <div className="absolute top-0 left-0 right-0 h-[1px] bg-brand-gradient opacity-35" />
+            <div className="glass-card rounded-3xl p-4 sm:p-6 shadow-xl relative h-full flex flex-col justify-between border border-theme-border bg-theme-bg/60">
 
               {/* Dashboard Content Container */}
               <div className="space-y-6">

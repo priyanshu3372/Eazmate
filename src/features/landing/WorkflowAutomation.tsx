@@ -142,19 +142,18 @@ export const WorkflowAutomation: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="lg:col-span-7"
           >
-            <div className="spotlight-card p-6 sm:p-7 relative shadow-xl">
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-brand-gradient opacity-40" />
+            <div className="spotlight-card p-5 sm:p-7 relative shadow-xl">
 
               <div className="flex justify-between items-center pb-4 border-b border-theme-border mb-6 text-xs text-theme-textMuted font-bold uppercase tracking-wider">
                 <span className="flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-brand-primary animate-pulse" />
                   Eazmate Flow Architect
                 </span>
-                <span className="text-xs text-theme-textMuted font-mono font-semibold">5 Blocks Integrated</span>
+                <span className="text-[11px] sm:text-xs text-theme-textMuted font-mono font-semibold">5 Blocks Integrated</span>
               </div>
 
               {/* Node Columns render */}
-              <div className="space-y-3.5 relative">
+              <div className="space-y-3 sm:space-y-3.5 relative">
                 {workflowSteps.map((step, idx) => {
                   const isActive = currentStep === idx;
                   const isCompleted = currentStep > idx;
@@ -163,9 +162,9 @@ export const WorkflowAutomation: React.FC = () => {
                     <motion.div
                       key={step.id}
                       layout
-                      className={`p-4 rounded-2xl border transition-all duration-300 relative flex items-center justify-between ${
+                      className={`p-3.5 sm:p-4 rounded-2xl border transition-all duration-300 relative flex items-center justify-between ${
                         isActive
-                          ? 'bg-theme-bgAlt border-brand-primary ring-2 ring-brand-primary/20 shadow-lg translate-x-2'
+                          ? 'bg-theme-bgAlt border-brand-primary ring-2 ring-brand-primary/20 shadow-lg translate-x-1 sm:translate-x-2'
                           : isCompleted
                           ? 'bg-emerald-950/15 dark:bg-emerald-950/30 border-emerald-500/40'
                           : 'bg-theme-bgAlt/60 border-theme-border/70 hover:border-theme-border'

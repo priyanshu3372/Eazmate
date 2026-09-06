@@ -53,13 +53,13 @@ export const MainLayout: React.FC = () => {
       <ScrollRestoration />
 
       {/* Top Banner for Security & Trust */}
-      <div className="relative overflow-hidden bg-theme-bgTertiary border-b border-theme-border py-2 px-4 text-center text-xs md:text-sm font-semibold">
+      <div className="relative overflow-hidden bg-theme-bgTertiary border-b border-theme-border py-2 px-3 sm:px-4 text-center text-[11px] sm:text-xs md:text-sm font-semibold">
         <div className="absolute inset-0 bg-brand-gradient opacity-10 animate-pulse-glow" />
-        <span className="relative z-10 inline-flex flex-wrap items-center gap-2 justify-center text-theme-text font-bold break-words transition-colors duration-300">
-          <Shield className="w-4 h-4 text-purple-500" />
-          <span className="bg-emerald-600 text-white text-[10px] font-black uppercase px-2 py-0.5 rounded shadow-sm">HIPAA Shielded</span>
-          <span className="bg-purple-600 text-white text-[10px] font-black uppercase px-2 py-0.5 rounded shadow-sm">SOC 2 Type II</span>
-          <span className="text-theme-textMuted text-xs font-semibold">Ready Infrastructure Built for Global Enterprise Scale.</span>
+        <span className="relative z-10 inline-flex flex-wrap items-center gap-1.5 sm:gap-2 justify-center text-theme-text font-bold break-words transition-colors duration-300">
+          <Shield className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-purple-500 shrink-0" />
+          <span className="bg-emerald-600 text-white text-[9.5px] sm:text-[10px] font-black uppercase px-2 py-0.5 rounded shadow-sm shrink-0">HIPAA Shielded</span>
+          <span className="bg-purple-600 text-white text-[9.5px] sm:text-[10px] font-black uppercase px-2 py-0.5 rounded shadow-sm shrink-0">SOC 2 Type II</span>
+          <span className="text-theme-textMuted text-[11px] sm:text-xs font-semibold">Ready Infrastructure Built for Global Enterprise Scale.</span>
         </span>
       </div>
 
@@ -79,7 +79,7 @@ export const MainLayout: React.FC = () => {
                 <img
                   src="/brand-logo.png"
                   alt="Eazmate Logo"
-                  className="h-[44px] sm:h-[52px] lg:h-[58px] w-auto object-contain transition-transform group-hover:scale-[1.03] duration-300"
+                  className="h-[42px] sm:h-[52px] lg:h-[58px] w-auto object-contain transition-transform group-hover:scale-[1.03] duration-300"
                 />
               </Link>
             </div>
@@ -112,7 +112,7 @@ export const MainLayout: React.FC = () => {
             </nav>
 
             {/* Right Action CTA */}
-            <div className="hidden md:flex items-center gap-3.5">
+            <div className="hidden lg:flex items-center gap-3.5">
               <ThemeToggle />
               <Link
                 to="/contact"
@@ -198,11 +198,9 @@ export const MainLayout: React.FC = () => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-theme-bg text-theme-textMuted pt-24 pb-12 border-t border-theme-border relative overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-brand-gradient opacity-20" />
-
+      <footer className="bg-theme-bg text-theme-textMuted pt-16 sm:pt-24 pb-12 border-t border-theme-border relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-16 border-b border-theme-border">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-12 pb-12 sm:pb-16 border-b border-theme-border">
             {/* Logo and Tagline */}
             <div className="lg:col-span-2 space-y-6">
               <div className="flex items-center">

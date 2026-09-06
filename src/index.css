@@ -234,6 +234,18 @@
   border-color: #7c3aed;
 }
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+
 /* Premium Dynamic Button System */
 .brand-btn-primary {
   background: #7c3aed;
@@ -354,17 +366,6 @@
   overflow: hidden;
 }
 
-.premium-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--brand-gradient);
-  opacity: 0.95;
-  z-index: 10;
-}
 
 .premium-card:hover {
   transform: translateY(-4px);

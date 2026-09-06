@@ -98,27 +98,26 @@ export const SecurityPage: React.FC = () => {
         </p>
         
         {/* Core security stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto mt-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 max-w-5xl mx-auto mt-10 sm:mt-16">
           {[
-            { value: "AES-256", label: "Data Encryption" },
-            { value: "99.99%", label: "Platform SLA" },
-            { value: "HIPAA", label: "Fully Compliant" },
-            { value: "SOC 2", label: "Type II Verified" }
+            { value: "AES-256", label: "Data Encryption", color: "text-blue-600 dark:text-blue-400" },
+            { value: "99.99%", label: "Platform SLA", color: "text-emerald-600 dark:text-emerald-400" },
+            { value: "HIPAA", label: "Fully Compliant", color: "text-purple-600 dark:text-purple-400" },
+            { value: "SOC 2", label: "Type II Verified", color: "text-teal-600 dark:text-teal-400" }
           ].map((stat, idx) => (
-            <div key={idx} className="premium-card p-6 text-center relative overflow-hidden group shadow-sm">
-              <div className="absolute inset-0 bg-brand-gradient opacity-0 group-hover:opacity-5 transition-opacity duration-300" />
-              <div className="text-2xl sm:text-3xl font-black mb-1 tracking-tight">
-                <span className="text-gradient">{stat.value}</span>
+            <div key={idx} className="premium-card p-4 sm:p-6 text-center relative overflow-hidden group shadow-sm hover:shadow-md transition-all">
+              <div className="text-xl sm:text-2xl lg:text-3xl font-black mb-1.5 tracking-tight">
+                <span className={stat.color}>{stat.value}</span>
               </div>
-              <div className="text-xs text-theme-textMuted font-bold tracking-wider uppercase">{stat.label}</div>
+              <div className="text-[10px] sm:text-xs text-theme-textMuted font-bold tracking-wider uppercase">{stat.label}</div>
             </div>
           ))}
         </div>
       </div>
 
       {/* Dynamic Navigation Tabs */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
-        <div className="flex justify-center max-w-md mx-auto mb-16 p-1 bg-theme-bgTertiary/60 border border-theme-border rounded-2xl relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 relative z-10">
+        <div className="flex justify-center max-w-md mx-auto mb-10 sm:mb-16 p-1 bg-theme-bgTertiary/60 border border-theme-border rounded-2xl relative z-10">
           {[
             { id: 'compliance', label: 'Compliance' },
             { id: 'infrastructure', label: 'Infrastructure' },
@@ -129,7 +128,7 @@ export const SecurityPage: React.FC = () => {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as any)}
-                className={`flex-1 text-center py-2.5 rounded-xl text-sm font-black transition-all duration-300 relative ${
+                className={`flex-1 text-center py-2 sm:py-2.5 px-1 sm:px-2 rounded-xl text-xs sm:text-sm font-black transition-all duration-300 relative truncate ${
                   isActive 
                     ? 'text-theme-text shadow-sm bg-theme-bg border border-transparent' 
                     : 'text-theme-textMuted hover:text-theme-text font-black'
@@ -150,15 +149,15 @@ export const SecurityPage: React.FC = () => {
         {/* Tab contents */}
         <div className="max-w-6xl mx-auto min-h-[400px]">
           {activeTab === 'compliance' && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 animate-fade-in">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 animate-fade-in">
               {complianceFeatures.map((item, idx) => (
-                <div key={idx} className="premium-card p-8 flex gap-6 transition-all duration-300">
+                <div key={idx} className="premium-card p-5 sm:p-8 flex flex-col sm:flex-row gap-4 sm:gap-6 transition-all duration-300">
                   <div className="w-12 h-12 rounded-2xl bg-theme-bgTertiary border border-theme-border flex items-center justify-center shrink-0 shadow-sm">
                     {item.icon}
                   </div>
                   <div>
-                    <h3 className="text-xl font-black text-theme-text mb-2">{item.title}</h3>
-                    <p className="text-theme-textMuted text-sm font-semibold leading-relaxed">{item.desc}</p>
+                    <h3 className="text-lg sm:text-xl font-black text-theme-text mb-2">{item.title}</h3>
+                    <p className="text-theme-textMuted text-xs sm:text-sm font-semibold leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
               ))}
@@ -166,15 +165,15 @@ export const SecurityPage: React.FC = () => {
           )}
 
           {activeTab === 'infrastructure' && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 animate-fade-in">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 animate-fade-in">
               {infrastructureFeatures.map((item, idx) => (
-                <div key={idx} className="premium-card p-8 flex gap-6 transition-all duration-300">
+                <div key={idx} className="premium-card p-5 sm:p-8 flex flex-col sm:flex-row gap-4 sm:gap-6 transition-all duration-300">
                   <div className="w-12 h-12 rounded-2xl bg-theme-bgTertiary border border-theme-border flex items-center justify-center shrink-0 shadow-sm">
                     {item.icon}
                   </div>
                   <div>
-                    <h3 className="text-xl font-black text-theme-text mb-2">{item.title}</h3>
-                    <p className="text-theme-textMuted text-sm font-semibold leading-relaxed">{item.desc}</p>
+                    <h3 className="text-lg sm:text-xl font-black text-theme-text mb-2">{item.title}</h3>
+                    <p className="text-theme-textMuted text-xs sm:text-sm font-semibold leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
               ))}
@@ -182,15 +181,15 @@ export const SecurityPage: React.FC = () => {
           )}
 
           {activeTab === 'governance' && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 animate-fade-in">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 animate-fade-in">
               {governanceFeatures.map((item, idx) => (
-                <div key={idx} className="premium-card p-8 flex gap-6 transition-all duration-300">
+                <div key={idx} className="premium-card p-5 sm:p-8 flex flex-col sm:flex-row gap-4 sm:gap-6 transition-all duration-300">
                   <div className="w-12 h-12 rounded-2xl bg-theme-bgTertiary border border-theme-border flex items-center justify-center shrink-0 shadow-sm">
                     {item.icon}
                   </div>
                   <div>
-                    <h3 className="text-xl font-black text-theme-text mb-2">{item.title}</h3>
-                    <p className="text-theme-textMuted text-sm font-semibold leading-relaxed">{item.desc}</p>
+                    <h3 className="text-lg sm:text-xl font-black text-theme-text mb-2">{item.title}</h3>
+                    <p className="text-theme-textMuted text-xs sm:text-sm font-semibold leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
               ))}
@@ -200,8 +199,8 @@ export const SecurityPage: React.FC = () => {
       </div>
 
       {/* CTA section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-10">
-        <div className="premium-card p-8 sm:p-16 text-center max-w-4xl mx-auto relative overflow-hidden shadow-lg">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 relative z-10">
+        <div className="premium-card p-6 sm:p-12 lg:p-16 text-center max-w-4xl mx-auto relative overflow-hidden shadow-lg">
           <h2 className="text-3xl sm:text-4xl font-black mb-4 text-theme-text">Request Our Security <span className="text-gradient">Documentation</span></h2>
           <p className="text-theme-textMuted text-base font-semibold max-w-2xl mx-auto mb-8 leading-relaxed">
             Need a detailed copy of our SOC 2 Type II report, penetration testing summaries, HIPAA BAA contract, or architectural security guidelines? Connect with our compliance team.

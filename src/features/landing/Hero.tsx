@@ -195,15 +195,15 @@ export const Hero: React.FC = () => {
             {/* CTAs */}
             <motion.div
               variants={itemVariants}
-              className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-2"
+              className="flex flex-col sm:flex-row flex-wrap lg:flex-nowrap justify-center lg:justify-start gap-3 sm:gap-4 pt-2"
             >
               <Link
                 to="/get-quotation"
-                className="relative group overflow-hidden bg-purple-600 hover:bg-purple-500 text-white font-black text-base px-8 py-4.5 rounded-xl shadow-lg shadow-purple-600/30 flex items-center justify-center gap-2 transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0"
+                className="relative group overflow-hidden bg-purple-600 hover:bg-purple-500 text-white font-black text-sm sm:text-base px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl shadow-lg shadow-purple-600/30 flex items-center justify-center gap-2 transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-center"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   Start Free Trial
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
                 </span>
               </Link>
 
@@ -212,7 +212,7 @@ export const Hero: React.FC = () => {
                   const el = document.getElementById('contact-section');
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="rounded-xl bg-slate-900 hover:bg-purple-600 dark:bg-slate-800 dark:hover:bg-purple-600 text-white font-black text-base px-8 py-4.5 transition-all focus:outline-none hover:-translate-y-0.5 active:translate-y-0 shadow-md border border-slate-700/60"
+                className="rounded-xl bg-slate-900 hover:bg-purple-600 dark:bg-slate-800 dark:hover:bg-purple-600 text-white font-black text-sm sm:text-base px-6 sm:px-8 py-3.5 sm:py-4 transition-all focus:outline-none hover:-translate-y-0.5 active:translate-y-0 shadow-md border border-slate-700/60 text-center"
               >
                 Let's Talk
               </button>
@@ -222,10 +222,10 @@ export const Hero: React.FC = () => {
                   const el = document.getElementById('platform-section');
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="flex items-center justify-center gap-2 text-theme-textMuted hover:text-theme-text font-extrabold text-base px-4 py-4.5 transition-colors group"
+                className="flex items-center justify-center gap-2 text-theme-textMuted hover:text-theme-text font-extrabold text-sm sm:text-base px-4 py-3 sm:py-4 transition-colors group"
               >
-                <div className="w-8 h-8 rounded-full border border-theme-border flex items-center justify-center text-xs group-hover:border-brand-primary group-hover:scale-105 transition-all">
-                  <Play className="w-3.5 h-3.5 fill-current text-theme-textMuted group-hover:text-brand-primary ml-0.5 transition-colors" />
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-theme-border flex items-center justify-center text-xs group-hover:border-brand-primary group-hover:scale-105 transition-all">
+                  <Play className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-current text-theme-textMuted group-hover:text-brand-primary ml-0.5 transition-colors" />
                 </div>
                 See It In Action
               </button>
@@ -234,7 +234,7 @@ export const Hero: React.FC = () => {
             {/* Colorful Integration Ecosystem Strip with Solid Brand Badges */}
             <motion.div
               variants={itemVariants}
-              className="pt-4 flex items-center gap-2 flex-wrap justify-center lg:justify-start text-xs font-bold"
+              className="pt-4 flex items-center gap-1.5 sm:gap-2 flex-wrap justify-center lg:justify-start text-xs font-bold"
             >
               <span className="text-[11px] font-black uppercase tracking-wider text-theme-textMuted mr-1">Ecosystem:</span>
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#25D366] text-slate-950 font-black shadow-sm hover:scale-105 transition-transform select-none">
@@ -257,22 +257,22 @@ export const Hero: React.FC = () => {
             {/* Quick value features with colorful accents */}
             <motion.div
               variants={itemVariants}
-              className="pt-6 border-t border-theme-border flex flex-wrap justify-center lg:justify-start gap-x-8 gap-y-4 text-sm font-bold"
+              className="pt-6 border-t border-theme-border flex flex-wrap justify-center lg:justify-start gap-x-6 gap-y-3 text-xs sm:text-sm font-bold"
             >
               <span className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400">
-                <CheckCircle className="w-4.5 h-4.5 text-emerald-500" /> No Credit Card Required
+                <CheckCircle className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-emerald-500 shrink-0" /> No Credit Card Required
               </span>
               <span className="flex items-center gap-2 text-cyan-600 dark:text-cyan-400">
-                <CheckCircle className="w-4.5 h-4.5 text-cyan-500" /> HIPAA & SOC2 Compliant
+                <CheckCircle className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-cyan-500 shrink-0" /> HIPAA & SOC2 Compliant
               </span>
               <span className="flex items-center gap-2 text-purple-600 dark:text-purple-400">
-                <CheckCircle className="w-4.5 h-4.5 text-purple-500" /> 1000+ Native Integrations
+                <CheckCircle className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-purple-500 shrink-0" /> 1000+ Native Integrations
               </span>
             </motion.div>
           </motion.div>
 
           {/* Interactive 3D visual side */}
-          <div className="lg:col-span-5 relative w-full max-w-lg mx-auto lg:max-w-none perspective-1000">
+          <div className="lg:col-span-5 relative w-full max-w-full sm:max-w-lg mx-auto lg:max-w-none perspective-1000">
             {/* Main 3D Card */}
             <motion.div
               ref={cardRef}
@@ -285,11 +285,6 @@ export const Hero: React.FC = () => {
               }}
               className="spotlight-card rounded-3xl p-5 sm:p-6 relative shadow-2xl overflow-hidden backdrop-blur-xl border border-theme-border bg-theme-bgAlt/90"
             >
-              {/* Vibrant top line indicator based on active step */}
-              <div 
-                className={`absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r ${steps[activeStep].color} transition-all duration-500 shadow-sm`}
-              />
-
               {/* Window Header bar */}
               <div className="flex items-center justify-between pb-3.5 border-b border-theme-border mb-4">
                 <div className="flex items-center gap-2">
